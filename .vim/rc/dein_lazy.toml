@@ -1,0 +1,11 @@
+# 特定のファイルタイプで読み込む
+[[plugins]]
+repo  = 'lervag/vimtex'
+on_ft = ['tex']
+
+# インサートモードに入ったら読み込む
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+on_i = 1
+hook_add = '''
+

@@ -1,0 +1,14 @@
+[include]
+  path = ~/.gitconfig.local
+[core]
+  quotepath = false
+  editor = vim
+  pager = LESSCHARSET=utf-8 less
+[color]
+  ui = true
+  diff = auto
+  status = auto
+  branch = auto
+
+[credential]
+	helper = osxkeychain
