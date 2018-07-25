@@ -40,7 +40,6 @@ if &term =~ "xterm"
   cnoremap <special> <Esc>[201~ <nop>
 endif
 
-"nnoremap y "+y
 "勝手に改行しないで
 autocmd BufRead *.c set tw=0
 autocmd BufRead *.tex set tw=0
@@ -139,8 +138,8 @@ nnoremap : ;
 
 
 "クリップボードにコピペできるように
-set clipboard=unnamed
-set clipboard=autoselect
+nnoremap y "*y
+set clipboard+=unnamed,autoselect,unnamedplus
 
 "インデントを揃える
 nnoremap == gg=G'''
@@ -206,7 +205,7 @@ if dein#load_state('~/dotfiles/.vim/dein')
   call dein#add('Yggdroot/indentLine')
 
   "かっことかを自動で閉じる
-  call dein#add('Townk/vim-autoclose')
+"  call dein#add('Townk/vim-autoclose')
 
   "gitで管理しているファイルの編集差分を表示してくれる
   call dein#add('airblade/vim-gitgutter')
@@ -275,7 +274,7 @@ set laststatus=2
 ""
 ""vim-gitgutter
 ""
-set updatetime=250
+set updatetime=50
 
 ""
 ""vim-trailing-whitespace

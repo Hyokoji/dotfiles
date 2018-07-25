@@ -1,5 +1,2 @@
-/doc/tags
-/misc
-/test/*.actual
-*.log
-
+doc/tags*
+*.py[cod]

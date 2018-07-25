@@ -1,14 +1,18 @@
-# Railscasts Colorscheme for Vim
+# neco-look: look completion for neocomplcache/neocomplete/deoplete
 
-A colorscheme for Vim inspired by [jpo/vim-railscasts-theme](https://github.com/jpo/vim-railscasts-theme). Compatible color palettes for Terminal.app and iTerm2.app are also available.
+A neocomplcache/neocomplete/deoplete plugin for `/usr/bin/look` for completing words in English.
 
-## Instllation
+## install
 
-### Vundle
+* Install the latest neocomplcache.vim/neocomplete.vim/deoplete.nvim
+* Make sure if you already have `look` command
+* Unarchive neco-look and put it into a dir of your &rtp.
 
-```vim:~/.vimrc
-Plugin 'KeitaNakamura/railscasts.vim'
-colorscheme railscasts
-```
+## Author
 
-<img src="https://github.com/KeitaNakamura/railscasts.vim/blob/master/Screenshot.png" width="640">
+Tatsuhiro Ujihisa
+Shougo Matsushita
+
+## License
+
+GPL-3 or later
