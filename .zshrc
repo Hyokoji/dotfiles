@@ -86,18 +86,6 @@ stty erase 
 bindkey "^[[3~" delete-char
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 # Ctrl+sのロック, Ctrl+qのロック解除を無効にする
 setopt no_flow_control
 

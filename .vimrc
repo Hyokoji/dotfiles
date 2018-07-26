@@ -15,30 +15,16 @@ au BufWrite /private/etc/pw.* set nowritebackup nobackup
 set ttimeoutlen=10
 
 "カラースキーム
+syntax on
+"syntax enable
 colorscheme molokai
 "set background=light
 "特定のファイルタイプでカラースキーム変更
 autocmd FileType tex colorscheme molokai
 autocmd FileType tex set background=dark
-syntax on
+autocmd FileType c,cpp syntax match CFunction /[a-zA-Z_]\w*(\@=/
+autocmd FileType c,cpp hi CFunction ctermfg=120
 
-"ペースト時にインデントしないで
-if &term =~ "xterm"
-  let &t_ti .= "\e[?2004h"
-  let &t_te .= "\e[?2004l"
-  let &pastetoggle = "\e[201~"
-
-  function XTermPasteBegin(ret)
-    set paste
-    return a:ret
-  endfunction
-
-
-  noremap <special> <expr> <Esc>[200~ XTermPasteBegin("0i")
-  inoremap <special> <expr> <Esc>[200~ XTermPasteBegin("")
-  cnoremap <special> <Esc>[200~ <nop>
-  cnoremap <special> <Esc>[201~ <nop>
-endif
 
 "勝手に改行しないで
 autocmd BufRead *.c set tw=0
@@ -138,8 +124,14 @@ nnoremap : ;
 
 
 "クリップボードにコピペできるように
-nnoremap y "*y
-set clipboard+=unnamed,autoselect,unnamedplus
+"nnoremap y "+y
+"nnoremap p "+p
+set clipboard+=unnamed,autoselect
+
+"if has('mac')
+"  nnoremap y !pbcopy;pbpaste
+"  "nnoremap p :r !pbpaste
+"endif
 
 "インデントを揃える
 nnoremap == gg=G'''
@@ -235,7 +227,18 @@ if dein#load_state('~/dotfiles/.vim/dein')
   call dein#add('lervag/vimtex')
 
   "vimproc
-  call dein#add('Shougo/vimproc')
+  call dein#add('Shougo/vimproc', {
+        \ 'build': {
+        \     'windows' : 'tools\\update-dll-mingw',
+        \     'cygwin'  : 'make -f make_cygwin.mak',
+        \     'mac'     : 'make -f make_mac.mak',
+        \     'linux'   : 'make',
+        \     'unix'    : 'gmake',
+        \    },
+        \ })
+
+  "vim-clang
+  call dein#add('justmao945/vim-clang')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -247,7 +250,6 @@ endif
 
 " Required:
 filetype plugin indent on
-syntax enable
 
 " If you want to install not installed plugins on startup.
 if dein#check_install()
