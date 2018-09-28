@@ -12,12 +12,12 @@ let g:quickrun_config._ = {
 let g:quickrun_config['tex'] = {
       \ 'command' : 'latexmk',
       \ 'outputter' : 'error',
-      \ 'outputter/error/success' : 'buffer',
+      \ 'outputter/error/success' : 'null',
       \ 'outputter/error/error' : 'quickfix',
+      \ 'outputter/buffer/close_on_empty' : 1,
       \ 'srcfile' : expand("%"),
       \ 'cmdopt': '-pdfdvi',
       \ 'hook/sweep/files' : [
-      \                      '%S:p:r.aux',
       \                      '%S:p:r.bbl',
       \                      '%S:p:r.blg',
       \                      '%S:p:r.dvi',
@@ -40,6 +40,7 @@ let g:quickrun_config.tmptex = {
       \   'args' : expand("%:p:h:gs?\\\\?/?"),
       \   'outputter' : 'error',
       \   'outputter/error/error' : 'quickfix',
+      \   'outputter/buffer/close_on_empty' : 1,
       \
       \   'hook/eval/enable' : 1,
       \   'hook/eval/cd' : "%s:r",

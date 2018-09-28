@@ -32,7 +32,7 @@ tig
 node
 python3
 lua
-"vim --with-lua"
+"vim --with-lua --with-client-server --with-clipboard"
 mysql
 postgresql
 sqlite
@@ -65,9 +65,9 @@ done
 casks=(
 dropbox
 evernote
-bettertouchtool
 slack
 iterm2
+virtualbox
 )
 
 echo "start brew cask install apps..."

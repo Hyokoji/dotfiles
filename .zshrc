@@ -7,6 +7,10 @@ export LANG=en_US.UTF-8
 export PATH="/usr/local/Cellar:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.linuxbrew/bin:$PATH"
+export PATH="$HOME/inst/bin:$PATH"
+export PATH="$HOME/inst/share/cling/Jupyter/kernel:$PATH"
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
 
 KEYTIMEOUT=1
 
@@ -224,4 +228,10 @@ export PATH=$HOME/bin:$PATH
 
 if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+#rmしてもすぐには削除しない。いったんゴミ箱に行く。
+if type trash-put &> /dev/null
+then
+    alias rm=trash-put
 fi

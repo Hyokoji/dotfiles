@@ -1,129 +1,102 @@
-Neosnippet
-==========
+# TwitVim - Twitter client for Vim
 
-The Neosnippet plug-In adds snippet support to Vim. Snippets are
-small templates for commonly used code that you can fill in on the
-fly. To use snippets can increase your productivity in Vim a lot.
-The functionality of this plug-in is quite similar to plug-ins like
-snipMate.vim. But since you can choose snippets with the
-[deoplete](https://github.com/Shougo/deoplete.nvim) interface, you might have
-less trouble using them, because you do not have to remember each snippet name.
+## Introduction
 
-Installation
-------------
+TwitVim is a Vim plugin that allows you to post to Twitter and view Twitter
+timelines. It is an enhancement of [vimscript #2124](http://www.vim.org/scripts/script.php?script\_id=2124)
+by Travis Jeffery. Credit goes to Travis for the original script concept and implementation.
 
-To install neosnippet and other Vim plug-ins it is recommended to use one of the
-popular package managers for Vim, rather than installing by drag and drop all
-required files into your `.vim` folder.
+TwitVim supports most of the features of a typical Twitter client, including:
 
-Notes:
+- Friends, User, Direct Message, Mentions, and Favorites timelines
+- Twitter Search
+- Replying and retweeting
+- Hashtags (jump to search timeline)
+- In reply to (See which tweet an @-reply is for.)
+- Opening links in a browser
+- User profile display
+- Twitter List viewing and managing
+- Trending topics
+- Timeline filtering
 
-* Vim 7.4 or above is needed.
+## Prerequisites
 
-* Vim 8.0 or above or neovim is recommended.
+TwitVim uses [cURL](http://curl.haxx.se/) to communicate with Twitter.
+Alternatively, you can configure TwitVim to use Vim's Perl, Python, Ruby, or
+Tcl interfaces for faster network I/O.
 
-* Default snippets files are available in:
-  [neosnippet-snippets](https://github.com/Shougo/neosnippet-snippets)
+Twitter OAuth requires either the [OpenSSL](http://www.openssl.org/)
+software or a Vim binary compiled with Perl, Python, Ruby, or Tcl.
 
-* Installing default snippets is optional. If choose not to install them,
-  you must deactivate them with `g:neosnippet#disable_runtime_snippets`.
+Some platforms already have cURL and OpenSSL preinstalled or have
+installation packages for those, so that is the easier way to satisfy the
+prerequisites.
 
-* deoplete is not required to use neosnippet, but it's highly recommended.
+## Installation
 
-* Extra snippets files can be found in:
-  [vim-snippets](https://github.com/honza/vim-snippets).
+Use one of the methods below, depending on which plugin manager (or not)
+you have. After installation, see ```:help TwitVim-install``` for
+further instructions.
+
+### Pathogen
+
+Use the following commands:
+
+    cd ~/.vim/bundle
+    git clone https://github.com/twitvim/twitvim.git
 
 ### Vundle
 
-    ```vim
-    Plugin 'Shougo/deoplete.nvim'
-    if !has('nvim')
-      Plugin 'roxma/nvim-yarp'
-      Plugin 'roxma/vim-hug-neovim-rpc'
-    endif
+Add the following to your vimrc:
 
-    Plugin 'Shougo/neosnippet.vim'
-    Plugin 'Shougo/neosnippet-snippets'
-    ```
+    Plugin 'https://github.com/twitvim/twitvim.git'
 
-### dein.vim
+Install with ```:PluginInstall```.
 
-    ```vim
-    call dein#add('Shougo/deoplete.nvim')
-    if !has('nvim')
-      call dein#add('roxma/nvim-yarp')
-      call dein#add('roxma/vim-hug-neovim-rpc')
-    endif
-    let g:deoplete#enable_at_startup = 1
+### Vimball file
 
-    call dein#add('Shougo/neosnippet.vim')
-    call dein#add('Shougo/neosnippet-snippets')
-    ```
+Open the vmb file and then source it.
 
-### vim-plug
+    vim twitvim-0.9.1.vmb
+    :so %
 
-    ```vim
-    if has('nvim')
-      Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    else
-      Plug 'Shougo/deoplete.nvim'
-      Plug 'roxma/nvim-yarp'
-      Plug 'roxma/vim-hug-neovim-rpc'
-    endif
-    let g:deoplete#enable_at_startup = 1
+## Usage
 
-    Plug 'Shougo/neosnippet.vim'
-    Plug 'Shougo/neosnippet-snippets'
-    ```
+### Plugin commands
 
-Configuration
--------------
+- :PosttoTwitter - This command will prompt you for a message to send to Twitter.
+- :CPosttoTwitter - This command posts the current line in the current buffer
+  to Twitter.
+- :BPosttoTwitter - This command posts the current buffer to Twitter.
+- :FriendsTwitter - View friends timeline.
+- :UserTwitter - View your timeline.
+- :MentionsTwitter - View @-mentions.
+- :PublicTwitter - View public timeline.
+- :DMTwitter - View direct messages.
+- :SearchTwitter - Use Twitter Search.
 
-This is an example `~/.vimrc` configuration for Neosnippet. It is assumed you
-already have deoplete configured. With the settings of the example, you can use
-the following keys:
+### Global mappings
 
-* `C-k` to select-and-expand a snippet from the deoplete popup (Use `C-n`
-  and `C-p` to select it). `C-k` can also be used to jump to the next field in
-  the snippet.
+- Alt-T - In Visual select mode, the Alt-T key posts the selected text to
+  Twitter. Use this mapping if you compose your tweets in a separate
+  scratch buffer.
+- Ctrl-T - Use this instead if the menu bar is enabled or if Alt-T is not
+  available on your platform.
 
-* `Tab` to select the next field to fill in the snippet.
+### Timeline buffer mappings
 
-```vim
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
+- Alt-R or <Leader\>r - Starts a @-reply. (in timeline buffer)
+- Alt-D or <Leader\>d - Starts a direct message. (in timeline buffer)
 
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+Many more commands and mappings are available.
+See TwitVim's help documentation for full details.
 
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-```
+## License
 
-If you want to use a different collection of snippets than the
-built-in ones, then you can set a path to the snippets with
-the `g:neosnippet#snippets_directory` variable (e.g [Honza's
-Snippets](https://github.com/honza/vim-snippets))
+TwitVim is distributed under the same terms as Vim itself.
+See ```:help license```.
 
-But if you enable `g:neosnippet#enable_snipmate_compatibility`, neosnippet will
-load snipMate snippets from runtime path automatically.
+## Contact
 
-```vim
-" Enable snipMate compatibility feature.
-let g:neosnippet#enable_snipmate_compatibility = 1
-
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.vim/bundle/vim-snippets/snippets'
-```
-
+- [@mortonfox](https://twitter.com/mortonfox) - The maintainer
+- [@twitvim](https://twitter.com/twitvim) - TwitVim announcements

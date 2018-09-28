@@ -16,22 +16,19 @@ set ttimeoutlen=10
 
 "カラースキーム
 syntax on
-"syntax enable
 colorscheme molokai
 "set background=light
+"
 "特定のファイルタイプでカラースキーム変更
 autocmd FileType tex colorscheme molokai
-autocmd FileType tex set background=dark
+autocmd FileType tex setlocal background=dark
 autocmd FileType c,cpp syntax match CFunction /[a-zA-Z_]\w*(\@=/
 autocmd FileType c,cpp hi CFunction ctermfg=120
 
 
-"勝手に改行しないで
-autocmd BufRead *.c set tw=0
-autocmd BufRead *.tex set tw=0
 
 "新規ファイル作成時にテンプレートの読み込み
-autocmd BufNewFile *.c 0r $HOME/dotfiles/.vim/template/c.txt
+"autocmd BufNewFile *.c 0r $HOME/dotfiles/.vim/template/c.txt
 autocmd BufNewFile *.tex 0r $HOME/dotfiles/.vim/template/tex.txt
 
 "===== 表示設定 =====
@@ -68,17 +65,12 @@ filetype indent on
 "sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtabの略
 autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
 autocmd FileType tex         setlocal sw=4 sts=4 ts=4 et
-autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
 autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et
 autocmd FileType js          setlocal sw=4 sts=4 ts=4 et
 autocmd FileType zsh         setlocal sw=4 sts=4 ts=4 et
 autocmd FileType python      setlocal sw=4 sts=4 ts=4 et
 autocmd FileType scala       setlocal sw=4 sts=4 ts=4 et
 autocmd FileType json        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType html        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType css         setlocal sw=4 sts=4 ts=4 et
-autocmd FileType scss        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType sass        setlocal sw=4 sts=4 ts=4 et
 autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
 
 
@@ -124,42 +116,17 @@ nnoremap : ;
 
 
 "クリップボードにコピペできるように
-"nnoremap y "+y
-"nnoremap p "+p
+nnoremap y "+y
+nnoremap p "+p
 set clipboard+=unnamed,autoselect
 
-"if has('mac')
-"  nnoremap y !pbcopy;pbpaste
-"  "nnoremap p :r !pbpaste
-"endif
 
 "インデントを揃える
 nnoremap == gg=G'''
 
-""タブ関連(Shougoさんのまね)---------------------------------------------------------
-set showtabline=2 "常にタブラインを表示
-nnoremap tj <C-w>j
-nnoremap tk <C-w>k
-nnoremap tl <C-w>l
-nnoremap th <C-w>h
-nnoremap tJ <C-w>J
-nnoremap tK <C-w>K
-nnoremap tL <C-w>L
-nnoremap tH <C-w>H
-nnoremap tn gt
-nnoremap tp gT
-nnoremap tr <C-w>r
-nnoremap t= <C-w>=
-nnoremap tw <C-w>w
-nnoremap to <C-w>_<C-w>|
-nnoremap tO <C-w>=
-nnoremap tN :<C-u>bn<CR>
-nnoremap tP :<C-u>bp<CR>
-nnoremap tt :<C-u>tabnew<CR>
-nnoremap ts :<C-u>sp<CR>
-nnoremap tv :<C-u>vs<CR>
-nnoremap tq :<C-u>q<CR>
-nnoremap tQ :<C-u>bd<CR>
+
+"swapファイルを作らない
+set noswapfile
 
 
 
@@ -239,6 +206,9 @@ if dein#load_state('~/dotfiles/.vim/dein')
 
   "vim-clang
   call dein#add('justmao945/vim-clang')
+
+  "twitvim
+  call dein#add('twitvim/twitvim')
 
   " You can specify revision/branch/tag.
   call dein#add('Shougo/vimshell', { 'rev': '3787e5' })
@@ -335,3 +305,9 @@ let g:EasyMotion_smartcase = 1
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 
+"twitvim
+
+"let twitvim_browser_cmd = 'open' " for Mac
+"let twitvim_browser_cmd = 'C:¥Program Files¥Your_Browser_Path' " for Windows
+"let twitvim_force_ssl = 1
+"let twitvim_count = 40
