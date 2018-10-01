@@ -1,3 +1,36 @@
+"
+let mapleader = "\<Space>"
+"if !&compatible
+"  set nocompatible
+"endif
+"
+"" reset augroup
+"augroup MyAutoCmd
+"  autocmd!
+"augroup END
+"
+"" dein settings {{{
+"" dein自体の自動インストール
+"let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.vim') : $XDG_CACHE_HOME
+"let s:dein_dir = s:cache_home . '/dein'
+"let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+"if !isdirectory(s:dein_repo_dir)
+"  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
+"endif
+"let &runtimepath = s:dein_repo_dir .",". &runtimepath
+"" プラグイン読み込み＆キャッシュ作成
+"let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dotfiles/.vim/rc/dein.toml'
+"if dein#load_state(s:dein_dir)
+"  call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
+"  call dein#load_toml(s:toml_file)
+"  call dein#end()
+"  call dein#save_state()
+"endif
+"" 不足プラグインの自動インストール
+"if has('vim_starting') && dein#check_install()
+"  call dein#install()
+"endif
+"" }}}
 
 if !&compatible
   set nocompatible
@@ -10,7 +43,7 @@ augroup END
 
 " dein settings {{{
 " dein自体の自動インストール
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.vim') : $XDG_CACHE_HOME
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
@@ -20,7 +53,7 @@ let &runtimepath = s:dein_repo_dir .",". &runtimepath
 " プラグイン読み込み＆キャッシュ作成
 let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/dotfiles/.vim/rc/dein.toml'
 if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir, [$MYVIMRC, s:toml_file])
+  call dein#begin(s:dein_dir)
   call dein#load_toml(s:toml_file)
   call dein#end()
   call dein#save_state()
@@ -37,33 +70,33 @@ endif
 ""vimの設定ファイルです！！！
 runtime! userautoload/init/*.vim
 
-"カラースキーム
-syntax on
-colorscheme molokai
-"set background=light
+""カラースキーム
+"syntax on
+"colorscheme molokai
+""set background=light
+""
+""特定のファイルタイプでカラースキーム変更
+"autocmd FileType tex colorscheme molokai
+"autocmd FileType tex setlocal background=dark
+"autocmd FileType c,cpp syntax match CFunction /[a-zA-Z_]\w*(\@=/
+"autocmd FileType c,cpp hi CFunction ctermfg=120
 "
-"特定のファイルタイプでカラースキーム変更
-autocmd FileType tex colorscheme molokai
-autocmd FileType tex setlocal background=dark
-autocmd FileType c,cpp syntax match CFunction /[a-zA-Z_]\w*(\@=/
-autocmd FileType c,cpp hi CFunction ctermfg=120
-
-
-
-"新規ファイル作成時にテンプレートの読み込み
-"autocmd BufNewFile *.c 0r $HOME/dotfiles/.vim/template/c.txt
-autocmd BufNewFile *.tex 0r $HOME/dotfiles/.vim/template/tex.txt
-"sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtabの略
-autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
-autocmd FileType tex         setlocal sw=4 sts=4 ts=4 et
-autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et
-autocmd FileType js          setlocal sw=4 sts=4 ts=4 et
-autocmd FileType zsh         setlocal sw=4 sts=4 ts=4 et
-autocmd FileType python      setlocal sw=4 sts=4 ts=4 et
-autocmd FileType scala       setlocal sw=4 sts=4 ts=4 et
-autocmd FileType json        setlocal sw=4 sts=4 ts=4 et
-autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
-
+"
+"
+""新規ファイル作成時にテンプレートの読み込み
+""autocmd BufNewFile *.c 0r $HOME/dotfiles/.vim/template/c.txt
+"autocmd BufNewFile *.tex 0r $HOME/dotfiles/.vim/template/tex.txt
+""sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtabの略
+"autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
+"autocmd FileType tex         setlocal sw=4 sts=4 ts=4 et
+"autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et
+"autocmd FileType js          setlocal sw=4 sts=4 ts=4 et
+"autocmd FileType zsh         setlocal sw=4 sts=4 ts=4 et
+"autocmd FileType python      setlocal sw=4 sts=4 ts=4 et
+"autocmd FileType scala       setlocal sw=4 sts=4 ts=4 et
+"autocmd FileType json        setlocal sw=4 sts=4 ts=4 et
+"autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
+"
 "
 "  "tpope-markdown
 "  call dein#add('tpope/vim-markdown')

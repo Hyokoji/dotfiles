@@ -9,19 +9,51 @@ repo = 'Shougo/neosnippet.vim'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
+repo = 'Shougo/neocomplete.vim'
+hook_add = '''
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#max_list = 50
+let g:neocomplete#max_keyword_width = 80
+let g:neocomplete#enable_ignore_case = 1
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><CR>  pumvisible() ? neocomplete#close_popup() : "<CR>"
+if !exists('g:neocomplete#sources#omni#input_patterns')
+    let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.tex =
+    \ g:vimtex#re#neocomplete
+let g:vimtex_compiler_latexmk = {'callback' : 0}
+'''
+
+[[plugins]]
 repo = 'vim-scripts/vim-auto-save'
+hook_add = '''
+let g:auto_save = 1
+let g:auto_save_in_insert_mode = 0
+let g:auto_save_silent = 1
+'''
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
+hook_add = '''
+let g:lightline = {}
+let g:lightline.colorscheme = 'solarized'
+set laststatus=2
+'''
+
+[[plugins]]
+repo = 'cespare/vim-toml'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
+hook_add = 'set updatetime=50'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
+hook_add = 'autocmd BufWritePre * :FixWhitespace'   #ファイル保存時に余分なスペースを削除する
 
 [[plugins]]
 repo = 'KeitaNakamura/railscasts.vim'
@@ -34,9 +66,18 @@ repo = 'Shougo/unite.vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
+hook_add = 'let g:quickrun_config={}'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
+hook_add = '''
+map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_do_mapping = 0
+nmap f <Plug>(easymotion-overwin-f2)
+let g:EasyMotion_smartcase = 1
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+'''
 
 [[plugins]]
 repo = 'ujihisa/neco-look'
@@ -48,7 +89,19 @@ repo = 'lervag/vimtex'
 repo = 'justmao945/vim-clang'
 
 [[plugins]]
-repo = 'Shougo/vimproc'
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+    if has('win32')
+        let cmd = 'tools\\update-dll-mingw'
+    elseif has('win32unix') " for Cygwin
+        let cmd = 'make -f make_cygwin.mak'
+    elseif executable('gmake')
+        let cmd = 'gmake'
+    else
+        let cmd = 'make'
+    endif
+    let g:dein#plugin.build = cmd
+'''
 
 [[plugins]]
 repo = 'twitvim/twitvim'
@@ -62,21 +115,21 @@ repo = 'tpope/vim-markdown'
 [[plugins]]
 repo = 'Shougo/vimshell'
 
-# git clone 後、実行すべきコマンドがある場合はこんな感じ
-[[plugins]]
-repo = 'Shougo/vimproc.vim'
-hook_post_update = '''
-  if dein#util#_is_windows()
-    let cmd = 'tools\\update-dll-mingw'
-  elseif dein#util#_is_cygwin()
-    let cmd = 'make -f make_cygwin.mak'
-  elseif executable('gmake')
-    let cmd = 'gmake'
-  else
-    let cmd = 'make'
-  endif
-  let g:dein#plugin.build = cmd
-'''
+## git clone 後、実行すべきコマンドがある場合はこんな感じ
+#[[plugins]]
+#repo = 'Shougo/vimproc.vim'
+#hook_post_update = '''
+#  if dein#util#_is_windows()
+#    let cmd = 'tools\\update-dll-mingw'
+#  elseif dein#util#_is_cygwin()
+#    let cmd = 'make -f make_cygwin.mak'
+#  elseif executable('gmake')
+#    let cmd = 'gmake'
+#  else
+#    let cmd = 'make'
+#  endif
+#  let g:dein#plugin.build = cmd
+#'''
 
 ## ブランチやタグを指定したいとき
 #[[plugins]]
