@@ -68,7 +68,7 @@ noremap!  
 
 "一度ファイルを閉じてもundoできる
 if has('persistent_undo')
-  set undodir=~/.vim/undo
+  set undodir=~/undo
   set undofile
 endif
 
