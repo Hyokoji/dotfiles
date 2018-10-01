@@ -1,7 +1,7 @@
 # 基本は github.com のレポジトリーを指定するだけ
 [[plugins]]
 repo = 'Shougo/dein.vim'
-   
+
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 
@@ -16,9 +16,6 @@ repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
-
-[[plugins]]
-repo = 'Townk/vim-autoclose'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -45,7 +42,22 @@ repo = 'easymotion/vim-easymotion'
 repo = 'ujihisa/neco-look'
 
 [[plugins]]
+repo = 'lervag/vimtex'
+
+[[plugins]]
+repo = 'justmao945/vim-clang'
+
+[[plugins]]
 repo = 'Shougo/vimproc'
+
+[[plugins]]
+repo = 'twitvim/twitvim'
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.vim'
+
+[[plugins]]
+repo = 'tpope/vim-markdown'
 
 [[plugins]]
 repo = 'Shougo/vimshell'

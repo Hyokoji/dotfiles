@@ -9,6 +9,15 @@ let g:quickrun_config._ = {
       \ 'outputter/buffer/close_on_empty' : 1,
       \ }
 
+let g:quickrun_config = {
+      \ 'markdown': {
+      \   'runner': 'shell',
+      \   'outputter': 'null',
+      \   'command': ':PrevimOpen',
+      \   'exec': '%c',
+      \ },
+      \ }
+
 let g:quickrun_config['tex'] = {
       \ 'command' : 'latexmk',
       \ 'outputter' : 'error',
