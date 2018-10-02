@@ -1,11 +1,32 @@
-# 特定のファイルタイプで読み込む
+# 遅延読み込み
 [[plugins]]
 repo  = 'lervag/vimtex'
 on_ft = ['tex']
 
-# インサートモードに入ったら読み込む
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
-on_i = 1
-hook_add = '''
+on_i = 1 #インサートモードに入ったら読み込む
+depends = ['vimtex','vim-clang']
+hook_source = 'call hyokoji#neocomplete#hook_source()'
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.vim'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'tpope/vim-markdown'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'iamcco/mathjax-support-for-mkdp'
+on_ft = ['markdown']
+
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+[[plugins]]
+repo = 'justmao945/vim-clang'
+on_ft = ['c','cpp']
+hook_add = 'call hyokoji#clang#hook_add()'
 

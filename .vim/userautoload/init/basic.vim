@@ -20,14 +20,11 @@ set list "タブ、空白、改行を可視化
 set visualbell "ビープ音を視覚表示
 set laststatus=2 "ステータスを表示
 set ruler "カーソル位置を表示
-filetype on "ファイルタイプを判断
-
 "===== 文字、カーソル設定 =====
 "---- エンコード ----
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
-
 set virtualedit=onemore "カーソルを行末の一つ先まで移動可能にする
 set autoindent "自動インデント
 set smartindent "オートインデント
@@ -36,17 +33,10 @@ set shiftwidth=2 "自動的に入力されたインデントの空白を2つ分�
 set softtabstop=0       "キーボードから入るタブの数
 set expandtab           "タブ入力を複数の空白に置き換える
 set cursorline
-
-"ファイルタイプの検索を有効にする
-filetype plugin on
-"ファイルタイプに合わせたインデントを利用
-filetype indent on
-
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮ "不可視文字の指定
 set whichwrap=b,s,h,l,<,>,[,],~ "行頭、行末で行のカーソル移動を可能にする
 set backspace=indent,eol,start "バックスペースでの行移動を可能にする
 let &t_ti.="\e[5 q" "カーソルの形状を変更
-
 "===== 検索設定 =====
 set ignorecase "大文字、小文字の区別をしない
 set smartcase "大文字が含まれている場合は区別する
@@ -85,6 +75,7 @@ nnoremap : ;
 "クリップボードにコピペできるように
 nnoremap y "+y
 nnoremap p "+p
+nnoremap d "+d
 set clipboard+=unnamed,autoselect
 
 
