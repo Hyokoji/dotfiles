@@ -57,3 +57,6 @@ repo = 'twitvim/twitvim'
 [[plugins]]
 repo = 'Shougo/vimshell'
 
+[[plugins]]
+repo = 'kakkyz81/evervim'
+
