@@ -38,3 +38,7 @@ endif
 
 runtime! userautoload/init/*.vim
 set runtimepath+=~/.vim
+
+if filereadable(expand('~/evernote/evervim.vim'))
+  source ~/evernote/evervim.vim
+endif

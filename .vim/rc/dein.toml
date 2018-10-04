@@ -60,3 +60,6 @@ repo = 'Shougo/vimshell'
 [[plugins]]
 repo = 'kakkyz81/evervim'
 
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+hook_add = 'call hyokoji#openbrowser#hook_add()'
