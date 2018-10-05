@@ -35,6 +35,7 @@ repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
+hook_add = 'call hyokoji#unite#hook_add()'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -56,6 +57,7 @@ repo = 'twitvim/twitvim'
 
 [[plugins]]
 repo = 'Shougo/vimshell'
+hook_add = 'call hyokoji#vimshell#hook_add()'
 
 [[plugins]]
 repo = 'kakkyz81/evervim'
