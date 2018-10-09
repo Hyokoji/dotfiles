@@ -78,6 +78,7 @@ alias vi='vim'
 alias vz='vim'
 alias c='cdr'
 alias chrome='open -a "Google Chrome"'
+alias evernote='vim +"EvervimCreateNote"'
 
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
