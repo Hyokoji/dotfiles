@@ -77,6 +77,7 @@ alias v='vim'
 alias vi='vim'
 alias vz='vim'
 alias c='cdr'
+alias chrome='open -a "Google Chrome"'
 
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
