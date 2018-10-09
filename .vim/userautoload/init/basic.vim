@@ -58,7 +58,7 @@ noremap!  
 
 "一度ファイルを閉じてもundoできる
 if has('persistent_undo')
-  set undodir=~/undo
+  set undodir=~/.cache/undo
   set undofile
 endif
 
