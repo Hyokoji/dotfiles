@@ -11,7 +11,8 @@ export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.linuxbrew/bin:$PATH"
 export PATH="$HOME/inst/bin:$PATH"
 export PATH="$HOME/inst/share/cling/Jupyter/kernel:$PATH"
-export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
+export PATH="$HOME/inst/bin:$PATH"
 
 
 KEYTIMEOUT=1
