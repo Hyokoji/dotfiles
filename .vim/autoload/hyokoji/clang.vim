@@ -41,8 +41,8 @@ function! hyokoji#clang#hook_add() abort
 "    endif
 "  endfunction
 "
-"  let g:clang_exec = s:get_latest_clang('/usr/bin')
-"  let g:clang_format_exec = s:get_latest_clang_format('/usr/bin')
+"  let g:clang_exec = s:get_latest_clang('/Users/hyokoji/inst/bin')
+"  let g:clang_format_exec = s:get_latest_clang_format('/Users/hyokoji/inst/bin')
 "
 "  " print debug
 "  echo g:clang_exec

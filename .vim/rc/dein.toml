@@ -54,6 +54,7 @@ hook_post_update = 'call hyokoji#vimproc#hook_post_update()'
 
 [[plugins]]
 repo = 'twitvim/twitvim'
+hook_add = 'call hyokoji#twitvim#hook_add()'
 
 [[plugins]]
 repo = 'Shougo/vimshell'

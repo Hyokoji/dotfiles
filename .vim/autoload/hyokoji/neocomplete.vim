@@ -16,11 +16,11 @@ function! hyokoji#neocomplete#hook_source() abort
   endif
   let g:neocomplete#sources#omni#input_patterns.tex = g:vimtex#re#neocomplete
   let g:vimtex_compiler_latexmk = {'callback' : 0}
-  "vim-clang自動補完
-  if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-  endif
-  let g:neocomplete#force_overwrite_completefunc = 1
-  let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
-  let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::\w*'
+"  "vim-clang自動補完
+"  if !exists('g:neocomplete#force_omni_input_patterns')
+"    let g:neocomplete#force_omni_input_patterns = {}
+"  endif
+"  let g:neocomplete#force_overwrite_completefunc = 1
+"  let g:neocomplete#force_omni_input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)\w*'
+"  let g:neocomplete#force_omni_input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::\w*'
 endfunction
