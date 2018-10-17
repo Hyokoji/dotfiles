@@ -32,7 +32,6 @@ set tabstop=2 "インデントをスペース2つ分に設定
 set shiftwidth=2 "自動的に入力されたインデントの空白を2つ分に設定
 set softtabstop=0       "キーボードから入るタブの数
 set expandtab           "タブ入力を複数の空白に置き換える
-set cursorline
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮ "不可視文字の指定
 set whichwrap=b,s,h,l,<,>,[,],~ "行頭、行末で行のカーソル移動を可能にする
 set backspace=indent,eol,start "バックスペースでの行移動を可能にする
