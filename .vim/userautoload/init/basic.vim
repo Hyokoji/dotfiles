@@ -65,7 +65,8 @@ endif
 "texのconcealを無効化（#^ω^）
 let g:tex_conceal=''
 
-
+"control-pで:so ~/.vim/vimrc
+nnoremap <C-p> :so ~/.vim/vimrc<CR>
 
 "ノーマルモード時だけ ; と : を入れ替える
 nnoremap ; :

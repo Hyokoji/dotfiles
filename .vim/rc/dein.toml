@@ -3,12 +3,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
 repo = 'vim-scripts/vim-auto-save'
 hook_add = 'call hyokoji#autosave#hook_add()'
 
@@ -46,9 +40,6 @@ repo = 'easymotion/vim-easymotion'
 hook_add = 'call hyokoji#easymotion#hook_add()'
 
 [[plugins]]
-repo = 'ujihisa/neco-look'
-
-[[plugins]]
 repo = 'Shougo/vimproc.vim'
 hook_post_update = 'call hyokoji#vimproc#hook_post_update()'
 
@@ -62,6 +53,7 @@ hook_add = 'call hyokoji#vimshell#hook_add()'
 
 [[plugins]]
 repo = 'kakkyz81/evervim'
+hook_add = 'call hyokoji#evervim#hook_add()'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
