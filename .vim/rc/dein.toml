@@ -65,3 +65,5 @@ repo = 'yaasita/edit-slack.vim'
 [[plugins]]
 repo = 'agatan/vim-vlack'
 
+[[plugins]]
+repo = 'tpope/vim-fugitive'
