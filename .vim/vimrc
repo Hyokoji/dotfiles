@@ -39,6 +39,9 @@ endif
 runtime! userautoload/init/*.vim
 set runtimepath+=~/.vim
 
-if filereadable(expand('~/evernote/evervim.vim'))
-  source ~/evernote/evervim.vim
+if filereadable(expand('~/secret/evervim.vim'))
+  source ~/secret/evervim.vim
+endif
+if filereadable(expand('~/secret/slack.vim'))
+  source ~/secret/slack.vim
 endif

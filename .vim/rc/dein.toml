@@ -59,3 +59,9 @@ hook_add = 'call hyokoji#evervim#hook_add()'
 repo = 'tyru/open-browser.vim'
 hook_add = 'call hyokoji#openbrowser#hook_add()'
 
+[[plugins]]
+repo = 'yaasita/edit-slack.vim'
+
+[[plugins]]
+repo = 'agatan/vim-vlack'
+
