@@ -67,3 +67,7 @@ repo = 'agatan/vim-vlack'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'rishihahs/vim-youtube'
+hook_add = 'call hyokoji#youtube#hook_add()'
