@@ -30,6 +30,7 @@ repo = 'altercation/vim-colors-solarized'
 [[plugins]]
 repo = 'Shougo/unite.vim'
 hook_add = 'call hyokoji#unite#hook_add()'
+depends = ['vimfiler']
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -67,4 +68,8 @@ repo = 'agatan/vim-vlack'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'yuratomo/w3m.vim'
+hook_add = 'call hyokoji#w3m#hook_add()'
 

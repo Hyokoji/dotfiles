@@ -32,7 +32,7 @@ tig
 node
 python3
 lua
-"vim --with-lua --with-client-server --with-clipboard"
+"vim --with-lua --with-client-server --with-clipboard --with-python@2"
 mysql
 postgresql
 sqlite
@@ -48,6 +48,7 @@ phantomjs
 mecab
 diff-so-fancy
 thefuck
+mps-youtube
 )
 
 "brew tap..."

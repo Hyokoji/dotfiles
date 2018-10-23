@@ -221,6 +221,20 @@ PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -
 #    fi
 #fi
 
+#w3mの設定
+function google() {
+    local str opt
+    if [ $# != 0 ]; then
+        for i in $*; do
+            str="$str+$i"
+        done
+        str=`echo $str | sed 's/^\+//'`
+        opt='search?num=50&hl=ja&lr=lang_ja'
+        opt="${opt}&q=${str}"
+    fi
+    w3m http://www.google.co.jp/$opt
+}
+
 # 区切り文字の設定
 autoload -Uz select-word-style
 select-word-style default

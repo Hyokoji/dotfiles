@@ -53,3 +53,7 @@ on_i = 1
 repo = 'Shougo/neco-vim'
 on_ft = ['vim']
 
+[[plugins]]
+repo = 'Shougo/vimfiler'
+on_source = ['unite.vim']
+
