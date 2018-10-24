@@ -9,7 +9,7 @@ if !exists('g:VimYoutube_size')
 endif
 
 if !exists('g:VimYoutube_mpsyt')
-  let g:VimYoutube_mpsyt = 'mpsyt'
+  let g:VimYoutube_mpsyt = '/usr/local/bin/mpsyt'
 endif
 
 fun! s:openyt()
