@@ -69,7 +69,3 @@ repo = 'agatan/vim-vlack'
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
-[[plugins]]
-repo = 'yuratomo/w3m.vim'
-hook_add = 'call hyokoji#w3m#hook_add()'
-

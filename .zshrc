@@ -79,7 +79,10 @@ alias vi='vim'
 alias vz='vim'
 alias c='cdr'
 alias chrome='open -a "Google Chrome"'
-alias evernote='vim +"EvervimCreateNote"'
+alias evernote='vim +"EvervimNotebookList"'
+alias slackgene='vim +"SlaqOpenChannel gene"'
+alias slackgeneral='vim +"SlaqOpenChannel general"'
+alias slackrandom='vim +"SlaqOpenChannel random"'
 
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
