@@ -16,11 +16,12 @@ hook_source = 'call hyokoji#neocomplete#hook_source()'
 #hook_source = 'call hyokoji#deoplete#hook_source()'
 
 [[plugins]]
-repo = 'iamcco/markdown-preview.vim'
+repo = 'tpope/vim-markdown'
 on_ft = ['markdown']
+hook_source = 'let g:markdown_syntax_conceal = 0'
 
 [[plugins]]
-repo = 'tpope/vim-markdown'
+repo = 'iamcco/markdown-preview.vim'
 on_ft = ['markdown']
 
 [[plugins]]

@@ -37,7 +37,6 @@ endif
 "End dein Scripts-------------------------
 
 runtime! autoload/init/*.vim
-set runtimepath+=~/.vim
 
 if filereadable(expand('~/secret/evervim.vim'))
   source ~/secret/evervim.vim
