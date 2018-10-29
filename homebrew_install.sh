@@ -48,7 +48,7 @@ phantomjs
 mecab
 diff-so-fancy
 thefuck
-mps-youtube
+mpv
 )
 
 "brew tap..."
