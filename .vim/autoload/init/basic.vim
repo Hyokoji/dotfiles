@@ -47,7 +47,6 @@ set incsearch "インクリメンタルサーチを有効にする
 set mouse=a
 set ttymouse=xterm2
 
-
 "===== その他 =====
 "履歴を10000件保存
 set history=10000
@@ -57,16 +56,12 @@ noremap!  
 
 "一度ファイルを閉じてもundoできる
 if has('persistent_undo')
-  set undodir=~/.cache/undo
+  set undodir=~/.vimundo/undo
   set undofile
 endif
 
-
 "texのconcealを無効化（#^ω^）
 let g:tex_conceal=''
-
-"texのconcealを無効化（#^ω^）
-let g:md_conceal=''
 
 "control-pで:so ~/.vim/vimrc
 nnoremap <C-p> :so ~/.vim/vimrc<CR>
@@ -80,7 +75,6 @@ nnoremap y "+y
 nnoremap p "+p
 nnoremap d "+d
 set clipboard+=unnamed,autoselect
-
 
 "インデントを揃える
 nnoremap == gg=G'''
