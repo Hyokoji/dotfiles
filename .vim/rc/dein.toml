@@ -2,24 +2,27 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
+#[[plugins]]
+#repo = 'Shougo/context_filetype.vim'
+
 [[plugins]]
 repo = 'vim-scripts/vim-auto-save'
-hook_add = 'call hyokoji#autosave#hook_add()'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/autosave.vim'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-hook_add = 'call hyokoji#lightline#hook_add()'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/lightline.vim'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
-hook_add = 'call hyokoji#gitgutter#hook_add()'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/gitgutter.vim'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
-hook_add = 'call hyokoji#whitespace#hook_add()'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/whitespace.vim'
 
 [[plugins]]
 repo = 'KeitaNakamura/railscasts.vim'
@@ -29,36 +32,36 @@ repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
 repo = 'Shougo/unite.vim'
-hook_add = 'call hyokoji#unite#hook_add()'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/unite.vim'
 depends = ['vimfiler']
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
-hook_add = 'call hyokoji#quickrun#hook_add()'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/quickrun.vim'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
-hook_add = 'call hyokoji#easymotion#hook_add()'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/easymotion.vim'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
-hook_post_update = 'call hyokoji#vimproc#hook_post_update()'
+hook_post_update = 'source ~/dotfiles/.vim/autoload/hyokoji/vimproc.vim'
 
 [[plugins]]
 repo = 'twitvim/twitvim'
-hook_add = 'call hyokoji#twitvim#hook_add()'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/twitvim.vim'
 
 [[plugins]]
 repo = 'Shougo/vimshell'
-hook_add = 'call hyokoji#vimshell#hook_add()'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/vimshell.vim'
 
 [[plugins]]
 repo = 'kakkyz81/evervim'
-hook_add = 'call hyokoji#evervim#hook_add()'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
-hook_add = 'call hyokoji#openbrowser#hook_add()'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/openbrowser.vim'
 
 [[plugins]]
 repo = 'yaasita/edit-slack.vim'

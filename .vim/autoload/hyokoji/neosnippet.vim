@@ -1,4 +1,3 @@
-function! hyokoji#neosnippet#hook_source() abort
   let g:neosnippet#snippets_directory='~/.vim/my_snippet'
 
   " SuperTab like snippets behavior.
@@ -13,4 +12,3 @@ function! hyokoji#neosnippet#hook_source() abort
   if has('conceal')
     set conceallevel=2 concealcursor=i
   endif
-endfunction

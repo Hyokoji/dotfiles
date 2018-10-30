@@ -6,9 +6,20 @@ on_ft = ['tex']
 [[plugins]]
 repo = 'Shougo/neocomplete.vim'
 on_i = 1 #インサートモードに入ったら読み込む
-depends = ['vimtex','neco-vim','neco-look']
-hook_source = 'call hyokoji#neocomplete#hook_source()'
+depends = ['neoinclude.vim','vimtex','neco-vim','neco-look']
+hook_source = 'source  ~/dotfiles/.vim/autoload/hyokoji/neocomplete.vim'
 
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_ft = ['c', 'cpp']
+depends = ['neocomplete.vim']
+
+[[plugins]]
+repo = 'justmao945/vim-clang'
+on_ft = ['c', 'cpp']
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/clang.vim'
+
+#もしevervimがpython3に対応したら入れる
 #[[plugins]]
 #repo = 'Shougo/deoplete.nvim'
 #on_i = 1 #インサートモードに入ったら読み込む
@@ -32,9 +43,9 @@ on_source = ['vim-markdown']
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
 
-[[plugins]]
-repo = 'Valloric/YouCompleteme'
-on_ft = ['c','cpp']
+#[[plugins]]
+#repo = 'Valloric/YouCompleteme'
+#on_ft = ['c','cpp']
 
 [[plugins]]
 repo = 'ujihisa/neco-look'
@@ -44,7 +55,7 @@ on_ft = ['markdown','tex']
 repo = 'Shougo/neosnippet.vim'
 on_i = 1
 depends = ['neosnippet-snippets']
-hook_source = 'call hyokoji#neosnippet#hook_source()'
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/neosnippet.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
