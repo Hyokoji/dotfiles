@@ -23,7 +23,7 @@ hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/clang.vim'
 #[[plugins]]
 #repo = 'Shougo/deoplete.nvim'
 #on_i = 1 #インサートモードに入ったら読み込む
-#depends = ['vimtex']
+#depends = ['vimtex','neoinclude.vim','neco-vim','neco-look']
 #hook_source = 'call hyokoji#deoplete#hook_source()'
 
 [[plugins]]
