@@ -49,6 +49,7 @@ mecab
 diff-so-fancy
 thefuck
 mpv
+llvm
 )
 
 "brew tap..."
