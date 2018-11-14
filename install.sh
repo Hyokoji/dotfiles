@@ -19,12 +19,14 @@ for f in .??*; do
   ln -snfv ~/dotfiles/"$f" ~/
 done
 
+ln -s ~/dotfiles/.vim ~/.config/nvim
+ln -s ~/dotfiles/.vim/vimrc ~/.config/nvim/init.vim
 
 cat << END
 
-                            **************************************************
-                            DOTFILES SETUP FINISHED! bye.
-                            **************************************************
+**************************************************
+ DOTFILES SETUP FINISHED! bye.
+**************************************************
 
-                          END
+END
 

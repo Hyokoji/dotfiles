@@ -45,7 +45,9 @@ set incsearch "インクリメンタルサーチを有効にする
 
 "===== マウス設定 =====
 set mouse=a
-set ttymouse=xterm2
+if !has('nvim')
+  set ttymouse=xterm2
+endif
 
 "===== その他 =====
 "履歴を10000件保存
@@ -74,7 +76,11 @@ nnoremap : ;
 nnoremap y "+y
 nnoremap p "+p
 nnoremap d "+d
-set clipboard+=unnamed,autoselect
+if !has('nvim')
+  set clipboard+=unnamed,autoselect
+else
+  set clipboard+=unnamedplus
+endif
 
 "インデントを揃える
 nnoremap == gg=G'''
