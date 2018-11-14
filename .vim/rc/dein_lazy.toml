@@ -1,45 +1,28 @@
 # 遅延読み込み
 [[plugins]]
-repo  = 'lervag/vimtex'
-on_ft = ['tex']
+repo = 'Shougo/deoplete.nvim'
+on_i = 1 #インサートモードに入ったら読み込む
+depends = ['vimtex','deoplete-clang'] #自分の関数が相手先の設定に使われているときに使う
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete.vim'
+
+[[plugins]]
+repo = 'tbodt/deoplete-tabnine'
+on_source = ['deoplete.nvim']
+#hook_post_update = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete-tabnine.vim'
+
+[[plugins]]
+repo = 'zchee/deoplete-clang'
+on_ft = ['c','cpp','cmake']
+hook_source = """
+let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
+let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/include/clang'
+"""
 
 #[[plugins]]
 #repo = 'Shougo/neocomplete.vim'
 #on_i = 1 #インサートモードに入ったら読み込む
 #depends = ['neoinclude.vim','vimtex','neco-vim','neco-look']
 #hook_source = 'source  ~/dotfiles/.vim/autoload/hyokoji/neocomplete.vim'
-
-[[plugins]]
-repo = 'Shougo/neoinclude.vim'
-on_ft = ['c', 'cpp']
-depends = ['deoplete.vim']
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_i = 1 #インサートモードに入ったら読み込む
-depends = ['vimtex','neoinclude.vim','neco-vim','neco-look']
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete.vim'
-
-[[plugins]]
-repo = 'tpope/vim-markdown'
-on_ft = ['markdown']
-hook_source = 'let g:markdown_syntax_conceal = 0'
-
-[[plugins]]
-repo = 'iamcco/markdown-preview.vim'
-on_ft = ['markdown']
-
-[[plugins]]
-repo = 'iamcco/mathjax-support-for-mkdp'
-on_source = ['vim-markdown']
-
-[[plugins]]
-repo = 'cespare/vim-toml'
-on_ft = ['toml']
-
-[[plugins]]
-repo = 'ujihisa/neco-look'
-on_ft = ['markdown','tex']
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
@@ -50,6 +33,37 @@ hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/neosnippet.vim'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 on_i = 1
+
+[[plugins]]
+repo  = 'lervag/vimtex'
+on_ft = ['tex']
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/vimtex.vim'
+
+[[plugins]]
+repo = 'Shougo/neoinclude.vim'
+on_ft = ['c', 'cpp']
+
+[[plugins]]
+repo = 'tpope/vim-markdown'
+on_ft = ['markdown']
+hook_source = 'let g:markdown_syntax_conceal = 0'
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.vim'
+on_ft = ['vim-markdown']
+
+[[plugins]]
+repo = 'iamcco/mathjax-support-for-mkdp'
+on_source = ['vim-markdown']
+
+#toml
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = ['toml']
+
+[[plugins]]
+repo = 'ujihisa/neco-look'
+on_ft = ['markdown','tex']
 
 [[plugins]]
 repo = 'Shougo/neco-vim'

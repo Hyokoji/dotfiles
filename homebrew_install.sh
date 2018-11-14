@@ -50,6 +50,7 @@ diff-so-fancy
 thefuck
 mpv
 llvm
+neovim/neovim/neovim
 )
 
 "brew tap..."

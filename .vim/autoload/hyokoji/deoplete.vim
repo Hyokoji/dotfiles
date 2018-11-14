@@ -13,9 +13,3 @@ let g:deoplete#enable_ignore_case = 1
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " 補完候補が表示されている場合は確定。そうでない場合は改行
 inoremap <expr><CR>  pumvisible() ? deoplete#close_popup() : "<CR>"
-"texで自動補完
-if !exists('g:deoplete#omni#input_patterns')
-  let g:deoplete#omni#input_patterns = {}
-endif
-let g:deoplete#omni#input_patterns.tex = g:vimtex#re#deoplete
-let g:vimtex_compiler_latexmk = {'callback' : 0}
