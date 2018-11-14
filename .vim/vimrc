@@ -37,7 +37,7 @@ endif
 "End dein Scripts-------------------------
 
 "Python3 support
-let g:python3_host_prog = expand('$HOME') . '~/.pyenv/shims/python3.7'
+"let g:python3_host_prog = expand('$HOME') . '~/.pyenv/shims/python3.7'
 runtime! autoload/init/*.vim
 
 if filereadable(expand('~/secret/evervim.vim'))
