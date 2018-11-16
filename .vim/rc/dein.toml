@@ -33,7 +33,6 @@ repo = 'altercation/vim-colors-solarized'
 [[plugins]]
 repo = 'Shougo/unite.vim'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/unite.vim'
-depends = ['vimfiler']
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'

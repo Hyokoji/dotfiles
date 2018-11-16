@@ -257,3 +257,4 @@ if type trash-put &> /dev/null
 then
     alias rm=trash-put
 fi
+export PATH="/usr/local/opt/llvm/bin:$PATH"
