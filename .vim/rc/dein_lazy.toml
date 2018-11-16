@@ -92,7 +92,7 @@ repo = 'vim-scripts/a.vim'
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/a.vim'
 on_ft = ['c','cpp']
 
-[[plugins]]
-repo = 'critiqjo/lldb.nvim'
-on_ft = ['c','cpp']
+#[[plugins]]
+#repo = 'critiqjo/lldb.nvim'
+#on_ft = ['c','cpp']
 
