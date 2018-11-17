@@ -68,10 +68,6 @@ alias -g GI='| grep -ri'
 
 
 # エイリアス
-alias lst='ls -ltr --color=auto'
-alias l='ls -ltr --color=auto'
-alias la='ls -la --color=auto'
-alias ll='ls -l --color=auto'
 alias ls='ls -G'
 alias so='source'
 alias v='vim'
@@ -204,14 +200,6 @@ function title {
 }
 
 
-
-#どこからでも.vimrc .latexmkrc .zshrc .tmux.confへ
-alias .vimrc='vim ~/dotfiles/.vimrc'
-alias .latexmkrc='vim ~/dotfiles/.latexmkrc'
-alias .zshrc='vim ~/dotfiles/.zshrc'
-alias .tmux.conf='vim ~/dotfiles/.tmux.conf'
-alias .gitconfig='vim ~/dotfiles/.gitconfig'
-
 #tmuxで現在のブランチ名表示
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
 
@@ -252,9 +240,19 @@ if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+if [ -e /usr/local/share/zsh-completions ]; then
+    fpath=(/usr/local/share/zsh-completions $fpath)
+fi
+
 #rmしてもすぐには削除しない。いったんゴミ箱に行く。
 if type trash-put &> /dev/null
 then
     alias rm=trash-put
 fi
 export PATH="/usr/local/opt/llvm/bin:$PATH"
+#source ~/.zprofile
+
+eval "$(pyenv init -)"
+eval "$(pipenv --completion)"
+eval "$(thefuck --alias)"
+alias brew='PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew'

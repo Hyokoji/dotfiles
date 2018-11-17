@@ -30,7 +30,6 @@ peco
 hub
 tig
 node
-python3
 lua
 "vim --with-lua --with-client-server --with-clipboard --with-python@2"
 mysql
@@ -51,6 +50,7 @@ thefuck
 mpv
 llvm
 neovim/neovim/neovim
+pyenv
 )
 
 "brew tap..."
