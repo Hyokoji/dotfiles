@@ -181,7 +181,7 @@ PROMPT+=""
 #else
 #        export PROMPT='$ '
 #fi
-PROMPT+="%F{cyan}<%n>%f "
+PROMPT+="%F{cyan}<%n@%m>%f "
 
 
 # -------------------------------------
