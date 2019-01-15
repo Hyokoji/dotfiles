@@ -88,3 +88,6 @@ nnoremap == gg=G'''
 "swapファイルを作らない
 set noswapfile
 
+"statusline設定
+"set statusline=%{b:charCounterCount}
+

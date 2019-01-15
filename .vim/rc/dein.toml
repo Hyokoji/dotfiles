@@ -9,9 +9,9 @@ repo = 'Shougo/dein.vim'
 repo = 'vim-scripts/vim-auto-save'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/autosave.vim'
 
-[[plugins]]
-repo = 'itchyny/lightline.vim'
-hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/lightline.vim'
+#[[plugins]]
+#repo = 'itchyny/lightline.vim'
+#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/lightline.vim'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
