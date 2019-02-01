@@ -1,5 +1,5 @@
-# 設定ファイルをプレフィックスキー＋rでリロードする
-bind r source-file ~/.tmux.conf \; display "GENE TMUX reloaded!"
+# ローカルファイルを読み込む
+source-file ~/dotfiles/.tmux.conf.local
 # コピーモードを設定する
 ## viのキーバインドを使用する
 setw -g mode-keys vi
@@ -7,13 +7,13 @@ setw -g mode-keys vi
 ## コピーモードの操作をvi風に設定する
 bind -T copy-mode-vi v send-keys -X begin-selection
 
-#ステータスライン関連
+#ステータスライン関連(テンプレ)
 # status line を更新する間隔を1秒にする
-set -g status-interval 1
+#set -g status-interval 1
 # status line の背景色を指定する。
-set -g status-bg "colour99"
+#set -g status-bg "colour99"
 # window-status のフォーマットを指定する。
-setw -g window-status-format " #I: #W "
+#setw -g window-status-format " #I: #W "
 
-set -g status-left-length 110
-set -g status-right-length 120
+#set -g status-left-length 110
+#set -g status-right-length 120

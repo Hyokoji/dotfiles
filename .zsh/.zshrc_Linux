@@ -3,36 +3,6 @@ LINUXBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 PATH="${LINUXBREW_PREFIX}/bin:${LINUXBREW_PREFIX}/sbin:${PATH}"
 MANPATH="${LINUXBREW_PREFIX}/share/man:${MANPATH}"
 
-
-# -------------------------------------
-# プロンプト
-# -------------------------------------
-# git設定
-RPROMPT="%{${fg[blue]}%}[%d]%{${reset_color}%}"
-autoload -Uz vcs_info
-setopt prompt_subst
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
-RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
-autoload -U promptinit; promptinit
-autoload -Uz colors; colors
-autoload -Uz is-at-least
-OK="^_^*"
-NG="~_~;"
-PROMPT=""
-PROMPT+="%(?.%F{green}$OK%f.%F{red}$NG%f) "
-PROMPT+=""
-PROMPT+="%F{207}<%n@%m>%f "
-#if [ -n "$SSH_CONNECTION" ]; then
-#    export PROMPT='%n@%m $ '
-#else
-#        export PROMPT='$ '
-#fi
-
 # エイリアス
 alias lst='ls -ltr --color=auto'
 alias l='ls -ltr --color=auto'
@@ -41,6 +11,35 @@ alias ll='ls -l --color=auto'
 alias ls='ls -v --color=auto'
 alias brew="sudo -iu linuxbrew brew"
 
-if [ -f /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh]; then
+if [ -f /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+## -------------------------------------
+## プロンプト(テンプレ)
+## -------------------------------------
+## git設定
+#RPROMPT="%{${fg[blue]}%}[%d]%{${reset_color}%}"
+#autoload -Uz vcs_info
+#setopt prompt_subst
+#zstyle ':vcs_info:git:*' check-for-changes true
+#zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+#zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+#zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+#zstyle ':vcs_info:*' actionformats '[%b|%a]'
+#precmd () { vcs_info }
+#RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+#autoload -U promptinit; promptinit
+#autoload -Uz colors; colors
+#autoload -Uz is-at-least
+#OK="^_^*"
+#NG="~_~;"
+#PROMPT=""
+#PROMPT+="%(?.%F{green}$OK%f.%F{red}$NG%f) "
+#PROMPT+=""
+#PROMPT+="%F{207}<%n@%m>%f "
+##if [ -n "$SSH_CONNECTION" ]; then
+##    export PROMPT='%n@%m $ '
+##else
+##        export PROMPT='$ '
+##fi
+

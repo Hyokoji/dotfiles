@@ -17,7 +17,6 @@ endif
 if !exists('g:VimYoutube_mpsyt')
   let g:VimYoutube_mpsyt = '/usr/local/bin/mpsyt'
 endif
-
 function! s:openyoutube()
   if !bufexists('Youtube')
     execute 'terminal' . g:VimYoutube_mpsyt
