@@ -2,20 +2,7 @@
 export LANG=en_US.UTF-8
 export LC_CTYPE="en_US.UTF-8"
 
-#export LANG=ja_JP.UTF-8
-#export LESSCHARSET=utf-8
-
-# パスを追加したい場合
-export PATH="/usr/local/Cellar:$PATH"
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.linuxbrew/bin:$PATH"
-export PATH="$HOME/inst/bin:$PATH"
-export PATH="$HOME/inst/share/cling/Jupyter/kernel:$PATH"
-export PATH="$HOME/.nodebrew/current/bin:$PATH"
-export PATH="$HOME/inst/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-
-
+#escを速く
 KEYTIMEOUT=1
 
 # 色を使用
@@ -39,7 +26,8 @@ zstyle ':completion:*:descriptions' format '%F{yellow}Completing %B%d%b%f'$DEFAU
 zstyle ':completion:*' group-name ''
 
 #viキーバインド
-bindkey -v
+#bindkey -v
+set -o vi
 
 # 他のターミナルとヒストリーを共有
 setopt share_history
@@ -69,17 +57,11 @@ alias -g GI='| grep -ri'
 
 
 # エイリアス
-alias ls='ls -G'
 alias so='source'
 alias v='vim'
 alias vi='vim'
 alias vz='vim'
 alias c='cdr'
-alias chrome='open -a "Google Chrome"'
-alias evernote='vim +"EvervimNotebookList"'
-alias slackgene='vim +"SlaqOpenChannel gene"'
-alias slackgeneral='vim +"SlaqOpenChannel general"'
-alias slackrandom='vim +"SlaqOpenChannel random"'
 
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'
@@ -146,39 +128,6 @@ alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 # cdしたあとで、自動的に ls する
 function chpwd() { ls -G }
 
-# -------------------------------------
-# プロンプト
-# -------------------------------------
-# git設定
-RPROMPT="%{${fg[blue]}%}[%d]%{${reset_color}%}"
-autoload -Uz vcs_info
-setopt prompt_subst
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
-zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
-zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
-zstyle ':vcs_info:*' actionformats '[%b|%a]'
-precmd () { vcs_info }
-RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
-
-autoload -U promptinit; promptinit
-autoload -Uz colors; colors
-autoload -Uz is-at-least
-
-
-OK="^_^*"
-NG="~_~;"
-
-PROMPT=""
-PROMPT+="%(?.%F{green}$OK%f.%F{red}$NG%f) "
-PROMPT+=""
-
-#if [ -n "$SSH_CONNECTION" ]; then
-#    export PROMPT='%n@%m $ '
-#else
-#        export PROMPT='$ '
-#fi
-PROMPT+="%F{cyan}<%n@%m>%f "
 
 
 # -------------------------------------
@@ -195,10 +144,6 @@ $HOME/bin(N-/)
 $path
 )
 
-# iTerm2のタブ名を変更する
-function title {
-    echo -ne "\033]0;"$*"\007"
-}
 
 
 #tmuxで現在のブランチ名表示
@@ -213,19 +158,6 @@ PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -
 #    fi
 #fi
 
-#w3mの設定
-function google() {
-    local str opt
-    if [ $# != 0 ]; then
-        for i in $*; do
-            str="$str+$i"
-        done
-        str=`echo $str | sed 's/^\+//'`
-        opt='search?num=50&hl=ja&lr=lang_ja'
-        opt="${opt}&q=${str}"
-    fi
-    w3m http://www.google.co.jp/$opt
-}
 
 # 区切り文字の設定
 autoload -Uz select-word-style
@@ -236,24 +168,9 @@ zstyle ':zle:*' word-style unspecified
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH=$HOME/bin:$PATH
 
-
-if [ -f ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-    source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-
-if [ -e /usr/local/share/zsh-completions ]; then
-    fpath=(/usr/local/share/zsh-completions $fpath)
-fi
-
 #rmしてもすぐには削除しない。いったんゴミ箱に行く。
 if type trash-put &> /dev/null
 then
     alias rm=trash-put
 fi
-export PATH="/usr/local/opt/llvm/bin:$PATH"
-#source ~/.zprofile
 
-eval "$(pyenv init -)"
-eval "$(pipenv --completion)"
-eval "$(thefuck --alias)"
-alias brew='PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew'

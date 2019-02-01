@@ -45,9 +45,6 @@ set incsearch "インクリメンタルサーチを有効にする
 
 "===== マウス設定 =====
 set mouse=a
-if !has('nvim')
-  set ttymouse=xterm2
-endif
 
 "===== その他 =====
 "履歴を10000件保存
@@ -58,7 +55,7 @@ noremap!  
 
 "一度ファイルを閉じてもundoできる
 if has('persistent_undo')
-  set undodir=~/.vimundo/undo
+  set undodir=~/.cache/undo
   set undofile
 endif
 
@@ -72,22 +69,17 @@ nnoremap <C-p> :so ~/.vim/vimrc<CR>
 nnoremap ; :
 nnoremap : ;
 
-"クリップボードにコピペできるように
-nnoremap y "+y
-nnoremap p "+p
-nnoremap d "+d
-if !has('nvim')
-  set clipboard+=unnamed,autoselect
-else
-  set clipboard+=unnamedplus
-endif
-
 "インデントを揃える
 nnoremap == gg=G'''
 
 "swapファイルを作らない
 set noswapfile
 
-"statusline設定
-"set statusline=%{b:charCounterCount}
+" 左側にgitgutterとかのスペースを開けておく
+set signcolumn=yes
 
+"vimでファイルをひらいたとき最後にカーソルが元にあった場所に移動する
+augroup vimrcEx
+  au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
+        \ exe "normal g`\"" | endif
+augroup END

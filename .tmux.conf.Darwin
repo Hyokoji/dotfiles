@@ -1,0 +1,66 @@
+#OSX用tmuxの設定ファイルです！
+# Homebrewでいれたzshの場合
+set -g default-shell   /usr/local/bin/zsh
+set -g default-command /usr/local/bin/zsh
+
+# prefixキーをC-aに変更する
+set -g prefix C-a
+
+# C-bのキーバインドを解除する
+unbind C-b
+
+# 設定ファイルをプレフィックスキー＋rでリロードする
+bind r source-file ~/.tmux.conf \; display "TMUX reloaded!"
+
+#w3mを使う
+bind-key g command-prompt -p "google:" "split-window 'source ~/.zshrc; google %%'"
+
+# 256色端末を使用する
+set -g terminal-overrides 'xterm:colors=256'
+
+# コピーモードを設定する
+# vim <=> tmux 間でクリップボード利用を可能にする
+set -g default-command "reattach-to-user-namespace -l zsh"
+## viのキーバインドを使用する
+setw -g mode-keys vi
+## コピーモードの操作をvi風に設定する
+bind -T copy-mode-vi v send-keys -X begin-selection
+bind -T copy-mode-vi y send-keys copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+unbind -T copy-mode-vi Enter
+bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
+
+#ステータスライン関連
+# status line を更新する間隔を 1 秒にする
+set -g status-interval 1
+# status line の背景色を指定する。
+set -g status-bg "colour16"
+# window-status のフォーマットを指定する。
+setw -g window-status-format " #I: #W "
+# カレントウィンドウの window-status のフォーマットを指定する
+setw -g window-status-current-format "#[fg=colour255,bg=colour23,bold] #I  #W #[default]"
+# status-left のフォーマットを指定する。
+set -g status-left "#[fg=colour255,bg=colour241]Session: #S #[default]"
+
+set -g status-left-length 110
+set -g status-right-length 120
+set -g status-right "#[fg=colour255,bg=colour16,bold]#(get_volume_tmux)#(battery --tmux)#(get_ssid_tmux)#[fg=colour246]%H:%M:%S | %Y/%m/%d %a"
+
+#プラグインマネージャー----------------------------------------------------------------------------
+# List of plugins
+set -g @plugin 'tmux-plugins/tpm'
+set -g @plugin 'tmux-plugins/tmux-yank'
+set -g @plugin 'tmux-plugins/tmux-copycat'
+set -g @plugin 'tmux-plugins/tmux-resurrect'
+
+# Other examples:
+# set -g @plugin 'github_username/plugin_name'
+# set -g @plugin 'git@github.com/user/plugin'
+# set -g @plugin 'git@bitbucket.com/user/plugin'
+
+# resurrect
+#prefix + Ctrl-sでsave、prefix + Ctrl-rでrestore
+set -g @resurrect-strategy-vim 'session'
+
+# Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
+run '~/.tmux/plugins/tpm/tpm'
+#--------------------------------------------------------------------------------------------------

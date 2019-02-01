@@ -6,6 +6,14 @@ depends = ['vimtex','deoplete-clang'] #自分の関数が相手先の設定に�
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete.vim'
 
 [[plugins]]
+repo = 'roxma/nvim-yarp'
+on_source = ['deoplete.nvim']
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+on_source = ['deoplete.nvim']
+
+[[plugins]]
 repo = 'tbodt/deoplete-tabnine'
 on_source = ['deoplete.nvim']
 #hook_post_update = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete-tabnine.vim'
@@ -13,20 +21,11 @@ on_source = ['deoplete.nvim']
 [[plugins]]
 repo = 'zchee/deoplete-clang'
 on_ft = ['c','cpp','cmake']
-hook_source = """
-let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/include/clang'
-"""
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete-clang.vim'
 
 [[plugins]]
 repo = 'Shougo/neco-syntax'
 on_i = 1
-
-#[[plugins]]
-#repo = 'Shougo/neocomplete.vim'
-#on_i = 1 #インサートモードに入ったら読み込む
-#depends = ['neoinclude.vim','vimtex','neco-vim','neco-look']
-#hook_source = 'source  ~/dotfiles/.vim/autoload/hyokoji/neocomplete.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
@@ -73,9 +72,9 @@ on_ft = ['markdown','tex']
 repo = 'Shougo/neco-vim'
 on_ft = ['vim']
 
-[[plugins]]
-repo = 'Shougo/vimfiler'
-on_source = ['unite.vim']
+#[[plugins]]
+#repo = 'Shougo/vimfiler'
+#on_source = ['unite.vim']
 
 [[plugins]]
 repo = 'w0rp/ale'
@@ -92,7 +91,7 @@ repo = 'vim-scripts/a.vim'
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/a.vim'
 on_ft = ['c','cpp']
 
-#[[plugins]]
-#repo = 'critiqjo/lldb.nvim'
-#on_ft = ['c','cpp']
+[[plugins]]
+repo = 'critiqjo/lldb.nvim'
+on_ft = ['c','cpp']
 

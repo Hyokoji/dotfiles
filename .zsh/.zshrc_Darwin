@@ -1,0 +1,82 @@
+# パスを追加したい場合
+export PATH="/usr/local/Cellar:$PATH"
+export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.linuxbrew/bin:$PATH"
+export PATH="$HOME/inst/bin:$PATH"
+export PATH="$HOME/inst/share/cling/Jupyter/kernel:$PATH"
+export PATH="$HOME/.nodebrew/current/bin:$PATH"
+export PATH="$HOME/inst/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/llvm/bin:$PATH"
+
+# エイリアス
+alias ls='ls -G'
+alias chrome='open -a "Google Chrome"'
+alias evernote='vim +"EvervimNotebookList"'
+alias slackgene='vim +"SlaqOpenChannel gene"'
+alias slackgeneral='vim +"SlaqOpenChannel general"'
+alias slackrandom='vim +"SlaqOpenChannel random"'
+
+# -------------------------------------
+# プロンプト
+# -------------------------------------
+# git設定
+RPROMPT="%{${fg[blue]}%}[%d]%{${reset_color}%}"
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
+autoload -U promptinit; promptinit
+autoload -Uz colors; colors
+autoload -Uz is-at-least
+OK="^_^*"
+NG="~_~;"
+PROMPT=""
+PROMPT+="%(?.%F{green}$OK%f.%F{red}$NG%f) "
+PROMPT+=""
+PROMPT+="%F{cyan}<%n@%m>%f "
+#if [ -n "$SSH_CONNECTION" ]; then
+#    export PROMPT='%n@%m $ '
+#else
+#        export PROMPT='$ '
+#fi
+
+# iTerm2のタブ名を変更する
+function title {
+    echo -ne "\033]0;"$*"\007"
+}
+
+#w3mの設定
+function google() {
+    local str opt
+    if [ $# != 0 ]; then
+        for i in $*; do
+            str="$str+$i"
+        done
+        str=`echo $str | sed 's/^\+//'`
+        opt='search?num=50&hl=ja&lr=lang_ja'
+        opt="${opt}&q=${str}"
+    fi
+    w3m http://www.google.co.jp/$opt
+}
+
+# 補完の設定
+if [ -e /usr/local/share/zsh-completions ]; then
+    fpath=(/usr/local/share/zsh-completions $fpath)
+fi
+
+# コマンドに色を付ける
+if [ -f /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+    source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+eval "$(pyenv init -)"
+eval "$(pipenv --completion)"
+eval "$(thefuck --alias)"
+#alias brew='PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew'
+export PATH="/usr/local/opt/ruby/bin:$PATH"
