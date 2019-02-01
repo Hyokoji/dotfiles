@@ -1,3 +1,5 @@
 .chpwd-recent-dirs
 .zcompdump
+.vim/.vim
+.vim/init.vim
 *.log
