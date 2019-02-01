@@ -3,17 +3,18 @@ LINUXBREW_PREFIX="/home/linuxbrew/.linuxbrew"
 PATH="${LINUXBREW_PREFIX}/bin:${LINUXBREW_PREFIX}/sbin:${PATH}"
 MANPATH="${LINUXBREW_PREFIX}/share/man:${MANPATH}"
 
-# エイリアス
-alias lst='ls -ltr --color=auto'
-alias l='ls -ltr --color=auto'
-alias la='ls -la --color=auto'
-alias ll='ls -l --color=auto'
-alias ls='ls -v --color=auto'
-alias brew="sudo -iu linuxbrew brew"
-
 if [ -f /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
     source /home/linuxbrew/.linuxbrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+
+## エイリアス(テンプレ)
+#alias lst='ls -ltr --color=auto'
+#alias l='ls -ltr --color=auto'
+#alias la='ls -la --color=auto'
+#alias ll='ls -l --color=auto'
+#alias ls='ls -v --color=auto'
+#alias brew="sudo -iu linuxbrew brew"
+
 ## -------------------------------------
 ## プロンプト(テンプレ)
 ## -------------------------------------
