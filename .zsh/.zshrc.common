@@ -111,8 +111,6 @@ zstyle ":chpwd:*" recent-dirs-default true
 autoload -Uz zmv
 alias zmv='noglob zmv -W'
 
-
-
 ## 入力しているコマンド名が間違っている場合にもしかして：を出す。
 setopt correct
 
@@ -166,7 +164,6 @@ zstyle ':zle:*' word-chars "_-./;@"
 zstyle ':zle:*' word-style unspecified
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export PATH=$HOME/bin:$PATH
 
 #rmしてもすぐには削除しない。いったんゴミ箱に行く。
 if type trash-put &> /dev/null
