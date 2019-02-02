@@ -1,9 +1,9 @@
 # ローカルファイルを読み込む
-source-file ~/dotfiles/.tmux.conf.local
+source-file ~/.tmux.conf.local
 # コピーモードを設定する
 ## viのキーバインドを使用する
 setw -g mode-keys vi
-↲
+
 ## コピーモードの操作をvi風に設定する
 bind -T copy-mode-vi v send-keys -X begin-selection
 
