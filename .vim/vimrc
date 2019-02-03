@@ -21,15 +21,15 @@ let &runtimepath = s:dein_repo_dir .",". &runtimepath
 let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/rc/dein.toml'
 let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/rc/dein_lazy.toml'
 if dein#load_state(s:dein_dir)
+"  if !has('nvim')
+"    call dein#add('roxma/nvim-yarp')
+"    call dein#add('roxma/vim-hug-neovim-rpc')
+"  endif
   call dein#begin(s:dein_dir)
   call dein#load_toml(s:toml_file, {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
   call dein#end()
   call dein#save_state()
-  if !has('nvim')
-    call dein#add('roxma/nvim-yarp')
-    call dein#add('roxma/vim-hug-neovim-rpc')
-  endif
 endif
 " 不足プラグインの自動インストール
 if has('vim_starting') && dein#check_install()

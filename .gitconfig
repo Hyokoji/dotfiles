@@ -2,7 +2,7 @@
   path = ~/.gitconfig.local
 [core]
   quotepath = false
-  editor = vim
+	editor = nvim
   pager = LESSCHARSET=utf-8 less
 [color]
   ui = true
