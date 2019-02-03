@@ -31,7 +31,7 @@ repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/unite.vim'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/denite.vim'
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -72,5 +72,5 @@ repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'Shougo/defx.nvim'
-#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/unite.vim'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/defx.vim'
 
