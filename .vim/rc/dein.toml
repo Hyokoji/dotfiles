@@ -3,6 +3,12 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+
+[[plugins]]
 repo = 'vim-scripts/vim-auto-save'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/autosave.vim'
 
@@ -63,4 +69,8 @@ repo = 'agatan/vim-vlack'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/unite.vim'
 
