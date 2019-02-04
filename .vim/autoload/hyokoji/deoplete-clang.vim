@@ -7,7 +7,7 @@ if OSTYPE == "Darwin\n"
 
 elseif OSTYPE == "Linux\n"
   ""ここにLinux向けの設定
-  let g:deoplete#sources#clang#libclang_path = '~/.linuxbrew/opt/llvm/lib/libclang.so'
-  let g:deoplete#sources#clang#clang_header = '~/.linuxbrew/opt/llvm/include/clang'
+  let g:deoplete#sources#clang#libclang_path = '/home/linuxbrew/.linuxbrew/opt/llvm/lib/libclang.so'
+  let g:deoplete#sources#clang#clang_header = '/home/linuxbrew/.linuxbrew/opt/llvm/include/clang'
 
 endif
