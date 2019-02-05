@@ -53,9 +53,9 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/twitvim.vim'
 repo = 'Shougo/vimshell'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/vimshell.vim'
 
-[[plugins]]
-repo = 'kakkyz81/evervim'
-hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
+#[[plugins]]
+#repo = 'kakkyz81/evervim'
+#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'
