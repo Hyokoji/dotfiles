@@ -45,9 +45,9 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/easymotion.vim'
 repo = 'Shougo/vimproc.vim'
 hook_post_update = 'source ~/dotfiles/.vim/autoload/hyokoji/vimproc.vim'
 
-[[plugins]]
-repo = 'twitvim/twitvim'
-hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/twitvim.vim'
+#[[plugins]]
+#repo = 'twitvim/twitvim'
+#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/twitvim.vim'
 
 [[plugins]]
 repo = 'Shougo/vimshell'
@@ -73,4 +73,12 @@ repo = 'tpope/vim-fugitive'
 [[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/defx.vim'
+
+[[plugins]]
+repo = 'basyura/twibill.vim'
+#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/defx.vim'
+
+[[plugins]]
+repo = 'basyura/Tweetvim'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
 
