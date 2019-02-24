@@ -2,12 +2,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-#[[plugins]]
-#repo = 'roxma/nvim-yarp'
-#
-#[[plugins]]
-#repo = 'roxma/vim-hug-neovim-rpc'
-
 [[plugins]]
 repo = 'vim-scripts/vim-auto-save'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/autosave.vim'
@@ -61,11 +55,11 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/vimshell.vim'
 repo = 'tyru/open-browser.vim'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/openbrowser.vim'
 
-[[plugins]]
-repo = 'yaasita/edit-slack.vim'
+#[[plugins]]
+#repo = 'yaasita/edit-slack.vim'
 
-[[plugins]]
-repo = 'agatan/vim-vlack'
+#[[plugins]]
+#repo = 'agatan/vim-vlack'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
