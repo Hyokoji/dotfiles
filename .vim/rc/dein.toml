@@ -76,3 +76,11 @@ repo = 'basyura/twibill.vim'
 repo = 'basyura/Tweetvim'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
 
+[[plugins]]
+repo = 'mattn/excitetranslate-vim'
+#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
+
