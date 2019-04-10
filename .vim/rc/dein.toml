@@ -88,3 +88,7 @@ repo = 'mattn/googletranslate-vim'
 repo = 'mattn/webapi-vim'
 #hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
 
+[[plugins]]
+repo = 'koron/dicwin-vim'
+#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
+
