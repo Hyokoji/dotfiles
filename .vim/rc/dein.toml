@@ -96,3 +96,7 @@ repo = 'koron/dicwin-vim'
 repo = 'yuratomo/w3m.vim'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/w3m.vim'
 
+[[plugins]]
+repo = 'thinca/vim-ref'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/ref.vim'
+
