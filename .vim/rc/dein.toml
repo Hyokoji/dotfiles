@@ -92,3 +92,7 @@ repo = 'mattn/webapi-vim'
 repo = 'koron/dicwin-vim'
 #hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
 
+[[plugins]]
+repo = 'yuratomo/w3m.vim'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/w3m.vim'
+
