@@ -15,9 +15,9 @@ let g:ref_source_webdict_sites = {
 let g:ref_source_webdict_sites.default = 'ej'
 
 ""出力に対するフィルタ。最初の数行を削除
-"function! g:ref_source_webdict_sites.je.filter(output)
-"  return join(split(a:output, "\n")[15 :], "\n")
-"endfunction
+function! g:ref_source_webdict_sites.je.filter(output)
+  return join(split(a:output, "\n")[15 :], "\n")
+endfunction
 "function! g:ref_source_webdict_sites.ej.filter(output)
 "  return join(split(a:output, "\n")[15 :], "\n")
 "endfunction
