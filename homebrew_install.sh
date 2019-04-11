@@ -51,6 +51,7 @@ mpv
 llvm
 neovim/neovim/neovim
 pyenv
+translate-shell
 )
 
 "brew tap..."
