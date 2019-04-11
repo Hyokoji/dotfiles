@@ -142,7 +142,9 @@ $HOME/bin(N-/)
 $path
 )
 
-
+export MANPAGER="/usr/local/bin/vimpager"
+alias less=$PAGER
+alias zless=$PAGER
 
 #tmuxで現在のブランチ名表示
 PS1="$PS1"'$([ -n "$TMUX" ] && tmux setenv TMUXPWD_$(tmux display -p "#D" | tr -d %) "$PWD")'
