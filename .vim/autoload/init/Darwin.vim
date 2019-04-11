@@ -27,7 +27,3 @@ function! s:openyoutube()
 endfunction
 command! Youtube call s:openyoutube()
 
-" View pdf file in Vim
-if executable('pdftotext')
-    command! -complete=file -nargs=1 Pdf :r !pdftotext -nopgbrk -layout <q-args> -
-endif
