@@ -81,7 +81,7 @@ repo = 'mattn/excitetranslate-vim'
 #hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
 
 [[plugins]]
-repo = 'mattn/googletranslate-vim'
+repo = 'daisuzu/translategoogle.vim'
 #hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
 
 [[plugins]]
