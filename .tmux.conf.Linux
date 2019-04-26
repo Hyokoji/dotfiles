@@ -7,13 +7,24 @@ setw -g mode-keys vi
 ## コピーモードの操作をvi風に設定する
 bind -T copy-mode-vi v send-keys -X begin-selection
 
-#ステータスライン関連(テンプレ)
-# status line を更新する間隔を1秒にする
+#以下は.tmux.conf.localのテンプレ
+## プレフィックスキーを変更
+#set -g prefix C-g
+#unbind C-b
+## 設定ファイルをプレフィックスキー＋rでリロードする
+#bind r source-file ~/.tmux.conf \; display "HASWELL TMUX reloaded!"
+#
+#bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "xclip -i -sel clip > /dev/null"
+#bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "xclip -i -sel clip > /dev/null"
+##ステータスライン関連
+## ステータスバーをトップに配置する
+#set -g status-position top
+## status line を更新する間隔を1秒にする
 #set -g status-interval 1
-# status line の背景色を指定する。
-#set -g status-bg "colour99"
-# window-status のフォーマットを指定する。
+## status line の背景色を指定する。
+#set -g status-bg "colour150"
+## window-status のフォーマットを指定する。
 #setw -g window-status-format " #I: #W "
-
+#
 #set -g status-left-length 110
 #set -g status-right-length 120
