@@ -123,10 +123,6 @@ setopt hist_ignore_dups
 # tree
 alias tree="tree -NC" # N: 文字化け対策, C:色をつける
 
-# cdしたあとで、自動的に ls する
-function chpwd() { ls -G }
-
-
 
 # -------------------------------------
 # パス
