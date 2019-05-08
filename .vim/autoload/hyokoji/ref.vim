@@ -25,6 +25,6 @@ endfunction
 "  return join(split(a:output, "\n")[17 :], "\n")
 "endfunction
 
-nnoremap rj :Ref webdict je<Space>
-nnoremap re :Ref webdict ej<Space>
-nnoremap wiki :Ref webdict wiki<Space>
+nnoremap <leader>rj :Ref webdict je<Space>
+nnoremap <leader>re :Ref webdict ej<Space>
+nnoremap <leader>wiki :Ref webdict wiki<Space>
