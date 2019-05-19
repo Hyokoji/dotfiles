@@ -62,6 +62,11 @@ case ${OSTYPE} in
         PROMPT+="%F{144}<%n@%m>%f "
         case ${HOSTNAME} in
             g*)
+                OK="^_^*"
+                NG="~_~;"
+                PROMPT=""
+                PROMPT+="%(?.%F{green}$OK%f.%F{red}$NG%f) "
+                PROMPT+=""
                 PROMPT+="%F{207}<%n@%m>%f "
                 ;;
         esac
