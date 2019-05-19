@@ -7,7 +7,6 @@ case ${OSTYPE} in
         export PATH="$HOME/inst/bin:$PATH"
         export PATH="$HOME/inst/share/cling/Jupyter/kernel:$PATH"
         export PATH="$HOME/.nodebrew/current/bin:$PATH"
-        export PATH="$HOME/inst/bin:$PATH"
         export PATH="/usr/local/bin:$PATH"
         export PATH="/usr/local/sbin:$PATH"
         export PATH="/usr/local/Cellar:$PATH"
