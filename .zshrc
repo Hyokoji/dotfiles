@@ -32,7 +32,7 @@ case ${OSTYPE} in
         alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew" # brew doctorでpyenv関連のエラーが出ないようにする。
         ;;
     linux*)
-        case hostname in
+        case ${HOSTNAME} in
             g*)
                 alias ls='ls -v --color=auto'
                 alias brew='sudo -iu linuxbrew brew'
@@ -62,8 +62,9 @@ case ${OSTYPE} in
         PROMPT+="%F{cyan}<%n@%m>%f "
         ;;
     linux*)
-        case hostname in
-            g*)
+#        case hostname in
+        case ${HOSTNAME} in
+            gene*)
                 PROMPT+="%F{207}<%n@%m>%f "
                 ;;
             h*)
@@ -251,7 +252,7 @@ if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
     zcompile ~/.zshrc
 fi
 ### Added by Zplugin's installer
-source '/Users/hyokoji/.zplugin/bin/zplugin.zsh'
+source $HOME/.zplugin/bin/zplugin.zsh
 autoload -Uz _zplugin
 (( ${+_comps} )) && _comps[zplugin]=_zplugin
 ### End of Zplugin's installer chunk
