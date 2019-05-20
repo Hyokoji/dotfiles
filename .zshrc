@@ -31,16 +31,24 @@ case ${OSTYPE} in
         alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew" # brew doctorでpyenv関連のエラーが出ないようにする。
         ;;
     linux*)
-        export PATH="$HOME/bin:$PATH"
-        LINUXBREW_PREFIX="/home/linuxbrew/.linuxbrew"
-        PATH="${LINUXBREW_PREFIX}/bin:${LINUXBREW_PREFIX}/sbin:${PATH}"
-        MANPATH="${LINUXBREW_PREFIX}/share/man:${MANPATH}"
-        export PATH="/home/linuxbrew/.linuxbrew/opt/gnu-getopt/bin:$PATH"
-        alias ls='ls --color'
+        export HOSTNAME=`hostname`
         case ${HOSTNAME} in
             g*)
+                export PATH="$HOME/bin:$PATH"
+                LINUXBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+                PATH="${LINUXBREW_PREFIX}/bin:${LINUXBREW_PREFIX}/sbin:${PATH}"
+                MANPATH="${LINUXBREW_PREFIX}/share/man:${MANPATH}"
                 alias ls='ls -v --color=auto'
                 alias brew='sudo -iu linuxbrew brew'
+                ;;
+            h*)
+                export PATH="$HOME/bin:$PATH"
+                LINUXBREW_PREFIX="/home/linuxbrew/.linuxbrew"
+                PATH="${LINUXBREW_PREFIX}/bin:${LINUXBREW_PREFIX}/sbin:${PATH}"
+                MANPATH="${LINUXBREW_PREFIX}/share/man:${MANPATH}"
+                export PATH="/home/linuxbrew/.linuxbrew/opt/gnu-getopt/bin:$PATH"
+                export PATH="/home/linuxbrew/.linuxbrew/opt/sphinx-doc/bin:$PATH"
+                alias ls='ls --color'
                 ;;
         esac
         ;;
@@ -59,16 +67,12 @@ case ${OSTYPE} in
         PROMPT+="%F{cyan}<%n@%m>%f "
         ;;
     linux*)
-        PROMPT+="%F{144}<%n@%m>%f "
         case ${HOSTNAME} in
             g*)
-                OK="^_^*"
-                NG="~_~;"
-                PROMPT=""
-                PROMPT+="%(?.%F{green}$OK%f.%F{red}$NG%f) "
-                PROMPT+=""
                 PROMPT+="%F{207}<%n@%m>%f "
                 ;;
+            h*)
+                PROMPT+="%F{144}<%n@%m>%f "
         esac
         ;;
 esac
