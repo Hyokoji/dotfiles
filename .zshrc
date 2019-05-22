@@ -18,9 +18,6 @@ case ${OSTYPE} in
         export PATH="/usr/local/opt/libxml2/bin:$PATH"
         export PATH="/usr/local/opt/nss/bin:$PATH"
         export PATH="/usr/local/opt/qt/bin:$PATH"
-        eval "$(thefuck --alias)"
-        eval "$(pyenv init -)"
-        eval "$(pipenv --completion)"
         # エイリアス
         alias ls='ls -G'
         alias chrome='open -a "Google Chrome"'
@@ -128,6 +125,16 @@ KEYTIMEOUT=1
 # 色を使用
 autoload -Uz colors
 colors
+zstyle ":completion:*" matcher-list                                        \
+    ""                                                                  \
+    '                                     m:{[:lower:]\-}={[:upper:]_}' \
+    'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{[:lower:]\-}={[:upper:]_}' \
+    'r:|?=**                              m:{[:lower:]\-}={[:upper:]_}'
+
+
+#補完
+autoload -Uz compinit
+compinit
 
 #viキーバインド
 #bindkey -v
@@ -254,15 +261,25 @@ fi
 if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
     zcompile ~/.zshrc
 fi
-### Added by Zplugin's installer
-source $HOME/.zplugin/bin/zplugin.zsh
-autoload -Uz _zplugin
-(( ${+_comps} )) && _comps[zplugin]=_zplugin
-### End of Zplugin's installer chunk
-zplugin ice wait'!0'; zplugin load zsh-users/zsh-syntax-highlighting # 実行可能なコマンドに色付け
-zplugin ice wait'!0'; zplugin load zsh-users/zsh-completions # 補完
-#起動速度を測る(.zshenvの先頭も必要)
-#if (which zprof > /dev/null) ;then
-    #    zprof | less
-    #fi
 
+#プラグイン管理
+: ${ZSHRC_ROOT:="${HOME}/.zsh"}
+: ${ZSHRC_PLUGDIR:="${ZSHRC_ROOT}/plugins"}
+
+zsh_plugin() {
+    local repo
+    local uri
+    local repopath
+
+    repo=$1
+    uri="https://github.com/${repo}.git"
+    repopath="${ZSHRC_PLUGDIR}/${repo}"
+    plugname=${repo:t}
+
+    if [ ! -d ${repopath} ]; then
+        git clone -q ${uri} ${repopath}
+    fi
+    source "${repopath}/${plugname}.zsh"
+}
+
+zsh_plugin 'zsh-users/zsh-syntax-highlighting'
