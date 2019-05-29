@@ -13,7 +13,7 @@ unbind C-b
 bind r source-file ~/.tmux.conf \; display "TMUX reloaded!"
 
 #w3mを使う
-bind-key g command-prompt -p "google:" "split-window 'source ~/.zsh/.zshrc_Darwin; google %%'"
+bind-key g command-prompt -p "google:" "split-window 'source ~/.zshrc; google %%'"
 
 # 256色端末を使用する
 set -g terminal-overrides 'xterm:colors=256'
