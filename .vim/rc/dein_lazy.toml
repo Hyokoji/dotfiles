@@ -72,10 +72,6 @@ on_ft = ['markdown','tex','vim','toml','c','cpp','gitcommit']
 repo = 'Shougo/neco-vim'
 on_ft = ['vim']
 
-#[[plugins]]
-#repo = 'Shougo/vimfiler'
-#on_source = ['unite.vim']
-
 [[plugins]]
 repo = 'w0rp/ale'
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/ale.vim'
@@ -83,7 +79,7 @@ on_ft = ['c','cpp']
 
 [[plugins]]
 repo = 'lyuts/vim-rtags'
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/ale.vim'
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/rtags.vim'
 on_ft = ['c','cpp']
 
 [[plugins]]

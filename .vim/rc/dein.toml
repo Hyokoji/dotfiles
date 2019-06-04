@@ -62,7 +62,6 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/defx.vim'
 
 [[plugins]]
 repo = 'basyura/twibill.vim'
-#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/defx.vim'
 
 [[plugins]]
 repo = 'basyura/Tweetvim'
@@ -70,15 +69,12 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
 
 [[plugins]]
 repo = 'mattn/excitetranslate-vim'
-#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
 
 [[plugins]]
 repo = 'mattn/webapi-vim'
-#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
 
 [[plugins]]
 repo = 'koron/dicwin-vim'
-#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
 
 [[plugins]]
 repo = 'yuratomo/w3m.vim'
@@ -87,4 +83,14 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/w3m.vim'
 [[plugins]]
 repo = 'thinca/vim-ref'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/ref.vim'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+on_source = ['defx.nvim']
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/defx-icons.vim'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
+on_source = ['defx.nvim']
+#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/defx-git.vim'
 
