@@ -1,9 +1,14 @@
 " defx Config: start -----------------
+" Df に隠しフォルダを表示するオプション付きのエイリアス設定
+:command! Df :Defx -show-ignored-files -split=vertical -winwidth=50 -direction=topleft
+
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   " Define mappings
   nnoremap <silent><buffer><expr> <CR>
-        \ defx#do_action('open')
+        \ defx#is_directory() ?
+        \ defx#do_action('open') :
+        \ defx#do_action('multi', ['drop', 'quit'])
   nnoremap <silent><buffer><expr> c
         \ defx#do_action('copy')
   nnoremap <silent><buffer><expr> m
@@ -11,9 +16,17 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> p
         \ defx#do_action('paste')
   nnoremap <silent><buffer><expr> l
-        \ defx#do_action('open')
-  nnoremap <silent><buffer><expr> E
-        \ defx#do_action('open', 'vsplit')
+        \ defx#is_directory() ?
+        \ defx#do_action('open') :
+        \ defx#do_action('multi', ['drop', 'quit'])
+  nnoremap <silent><buffer><expr> V
+        \ defx#is_directory() ?
+        \ defx#do_action('open') :
+        \ defx#do_action('multi', [['drop', 'vsplit'], 'quit'])
+  nnoremap <silent><buffer><expr> S
+        \ defx#is_directory() ?
+        \ defx#do_action('open') :
+        \ defx#do_action('multi', [['drop', 'split'], 'quit'])
   nnoremap <silent><buffer><expr> P
         \ defx#do_action('open', 'pedit')
   nnoremap <silent><buffer><expr> o
@@ -27,7 +40,7 @@ function! s:defx_my_settings() abort
   nnoremap <silent><buffer><expr> C
         \ defx#do_action('toggle_columns',
         \                'mark:indent:icon:filename:type:size:time')
-  nnoremap <silent><buffer><expr> S
+  nnoremap <silent><buffer><expr> s
         \ defx#do_action('toggle_sort', 'time')
   nnoremap <silent><buffer><expr> d
         \ defx#do_action('remove')
