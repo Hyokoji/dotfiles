@@ -79,12 +79,12 @@ esac
 function rprompt-git-current-branch {
     local branch_name st branch_status
 
-    if [ ! -e  ".git" ]; then
-        # gitで管理されていないディレクトリは何も返さない
-        return
-    fi
     branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
     st=`git status 2> /dev/null`
+#    if [ $? -gt 0 ]; then
+#        # git status が働かないディレクトリでは何も返さない
+#        return
+#    fi
     if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
         # 全てcommitされてクリーンな状態
         branch_status="%F{green}"
@@ -103,7 +103,8 @@ function rprompt-git-current-branch {
         return
     else
         # 上記以外の状態の場合は青色で表示させる
-        branch_status="%F{blue}"
+        return
+#        branch_status="%F{blue}"
     fi
     # ブランチ名を色付きで表示する
     echo "${branch_status}[$branch_name]"
