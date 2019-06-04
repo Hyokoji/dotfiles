@@ -1,3 +1,6 @@
+" denite Config
+nnoremap <silent><Leader>dn :<C-u>Denite file/rec buffer -split="floating"<CR>
+
 " Define mappings
 autocmd FileType denite call s:denite_my_settings()
 function! s:denite_my_settings() abort
@@ -13,6 +16,12 @@ function! s:denite_my_settings() abort
         \ denite#do_map('open_filter_buffer')
   nnoremap <silent><buffer><expr> <Space>
         \ denite#do_map('toggle_select').'j'
+  nnoremap <silent><buffer><expr> V
+        \ denite#do_map('do_action', 'vsplit')
+  nnoremap <silent><buffer><expr> S
+        \ denite#do_map('do_action', 'split')
+  nnoremap <silent><buffer><expr> T
+        \ denite#do_map('do_action', 'tabopen')
 endfunction
 
 " Change file/rec command.
