@@ -40,14 +40,6 @@ repo = 'Shougo/vimproc.vim'
 hook_post_update = 'source ~/dotfiles/.vim/autoload/hyokoji/vimproc.vim'
 
 #[[plugins]]
-#repo = 'twitvim/twitvim'
-#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/twitvim.vim'
-
-[[plugins]]
-repo = 'Shougo/vimshell'
-hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/vimshell.vim'
-
-#[[plugins]]
 #repo = 'kakkyz81/evervim'
 #hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
 
