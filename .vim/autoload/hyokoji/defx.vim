@@ -1,6 +1,6 @@
 " defx Config: start -----------------
 " Df に隠しフォルダを表示するオプション付きのエイリアス設定
-:command! Df :Defx -show-ignored-files -split=vertical -winwidth=50 -direction=topleft
+:command! Df :Defx -show-ignored-files -split=vertical -winwidth=50 -direction=topleft -columns=git:icons:filename:type
 
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort

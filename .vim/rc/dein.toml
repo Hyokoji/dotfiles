@@ -86,11 +86,9 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/ref.vim'
 
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
-on_source = ['defx.nvim']
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/defx-icons.vim'
 
 [[plugins]]
 repo = 'kristijanhusak/defx-git'
-on_source = ['defx.nvim']
 #hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/defx-git.vim'
 
