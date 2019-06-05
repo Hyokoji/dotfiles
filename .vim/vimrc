@@ -3,6 +3,9 @@ if !&compatible
   set nocompatible
 endif
 
+" リーダーキーのマッピング
+let mapleader = "\,"
+
 " reset augroup
 augroup MyAutoCmd
   autocmd!
