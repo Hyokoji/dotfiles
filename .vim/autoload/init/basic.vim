@@ -72,6 +72,9 @@ nnoremap : ;
 "インデントを揃える
 nnoremap == gg=G'''
 
+"インデントを揃える
+nnoremap <ESC><ESC> :noh<CR>
+
 "swapファイルを作らない
 set noswapfile
 
