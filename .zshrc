@@ -19,7 +19,7 @@ case ${OSTYPE} in
         export PATH="/usr/local/opt/nss/bin:$PATH"
         export PATH="/usr/local/opt/qt/bin:$PATH"
         # エイリアス
-        alias ls='ls -G'
+        alias ls='lsd -G'
         alias chrome='open -a "Google Chrome"'
         alias evernote='vim +"EvervimNotebookList"'
         alias slackgene='vim +"SlaqOpenChannel gene"'
@@ -35,7 +35,7 @@ case ${OSTYPE} in
                 LINUXBREW_PREFIX="/home/linuxbrew/.linuxbrew"
                 PATH="${LINUXBREW_PREFIX}/bin:${LINUXBREW_PREFIX}/sbin:${PATH}"
                 MANPATH="${LINUXBREW_PREFIX}/share/man:${MANPATH}"
-                alias ls='ls -v --color=auto'
+                alias ls='lsd -v --color=auto'
                 alias brew='sudo -iu linuxbrew brew'
                 ;;
             h*)
@@ -45,7 +45,7 @@ case ${OSTYPE} in
                 MANPATH="${LINUXBREW_PREFIX}/share/man:${MANPATH}"
                 export PATH="/home/linuxbrew/.linuxbrew/opt/gnu-getopt/bin:$PATH"
                 export PATH="/home/linuxbrew/.linuxbrew/opt/sphinx-doc/bin:$PATH"
-                alias ls='ls --color'
+                alias ls='lsd --color'
                 ;;
         esac
         ;;
