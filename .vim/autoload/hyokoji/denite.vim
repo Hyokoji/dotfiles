@@ -1,5 +1,15 @@
 " denite Config
-nnoremap <silent><Leader>dn :<C-u>Denite file/rec buffer -split="floating"<CR>
+nnoremap [denite] <Nop>
+nmap <silent><Leader>dn [denite]
+
+"現在開いているファイルのディレクトリ下のファイル一覧。
+nnoremap <silent> [denite]f :<C-u>Denite file<CR>
+"バッファ一覧
+nnoremap <silent> [denite]b :<C-u>Denite buffer<CR>
+"レジスタ一覧
+nnoremap <silent> [denite]r :<C-u>Denite register<CR>
+"最近使用したファイル一覧
+nnoremap <silent> [denite]m :<C-u>Denite file/old<CR>
 
 " Define mappings
 autocmd FileType denite call s:denite_my_settings()
