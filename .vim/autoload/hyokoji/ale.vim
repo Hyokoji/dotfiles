@@ -10,7 +10,8 @@ let g:ale_completion_enabled = 1
 let g:ale_sign_error = '⨉'
 " エラー行にカーソルをあわせた際に表示されるメッセージフォーマット
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 let g:ale_linters = {
-      \   'c' : ['gcc'],
-      \   'cpp' : ['g++']
+      \   'c' : ['clangd'],
+      \   'cpp' : ['clangd']
       \}
