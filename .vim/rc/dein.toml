@@ -92,3 +92,6 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/defx-icons.vim'
 repo = 'kristijanhusak/defx-git'
 #hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/defx-git.vim'
 
+#[[plugins]]
+#repo = 'ryanoasis/vim-devicons'
+##hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/defx-git.vim'
