@@ -1,6 +1,6 @@
 " denite Config
 nnoremap [denite] <Nop>
-nmap <silent><C-c> [denite]
+nmap <silent><Leader>dn [denite]
 
 "現在開いているファイルのディレクトリ下のファイル一覧。
 nnoremap <silent> [denite]f :<C-u>Denite file<CR>

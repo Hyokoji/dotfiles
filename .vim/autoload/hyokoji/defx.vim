@@ -1,5 +1,5 @@
 " defx Config: start -----------------
-nnoremap <silent><C-d> :<C-u>Defx -show-ignored-files -split=vertical -winwidth=50 -direction=topleft -columns=git:icons:filename:type<CR>
+nnoremap <silent><Leader>df :<C-u>Defx -show-ignored-files -split=vertical -winwidth=50 -direction=topleft -columns=git:icons:filename:type<CR>
 
 "Define mappings
 autocmd FileType defx call s:defx_my_settings()
