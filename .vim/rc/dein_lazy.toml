@@ -1,11 +1,5 @@
 # 遅延読み込み
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertEnter' #インサートモードに入ったら読み込む
-depends = ['vimtex','deoplete-clang'] #自分の関数が相手先の設定に使われているときに使う
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete.vim'
-
-[[plugins]]
 repo = 'roxma/nvim-yarp'
 on_if = '!has("nvim")'
 
@@ -14,28 +8,37 @@ repo = 'roxma/vim-hug-neovim-rpc'
 on_if = '!has("nvim")'
 
 [[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_event = 'InsertEnter' #インサートモードに入ったら読み込む
+depends = ['vimtex','deoplete-clang'] #自分の関数が相手先の設定に使われているときに使う
+depends = ['vimtex'] #自分の関数が相手先の設定に使われているときに使う
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete.vim'
+
+[[plugins]]
 repo = 'tbodt/deoplete-tabnine'
 on_source = ['deoplete.nvim']
 hook_post_update = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete-tabnine.vim'
 
 [[plugins]]
-repo = 'zchee/deoplete-clang'
-on_ft = ['c','cpp','cmake']
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete-clang.vim'
+repo = 'autozimu/LanguageClient-neovim'
+on_source = ['deoplete.nvim']
+rev = 'next'
+build = 'bash install.sh'
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/languageclient-neovim.vim'
 
 [[plugins]]
 repo = 'Shougo/neco-syntax'
 on_event = 'InsertEnter'
 
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-on_event = 'InsertEnter'
-depends = ['neosnippet-snippets']
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/neosnippet.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_event = 'InsertEnter'
+#[[plugins]]
+#repo = 'Shougo/neosnippet.vim'
+#on_event = 'InsertEnter'
+#depends = ['neosnippet-snippets']
+#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/neosnippet.vim'
+#
+#[[plugins]]
+#repo = 'Shougo/neosnippet-snippets'
+#on_event = 'InsertEnter'
 
 [[plugins]]
 repo  = 'lervag/vimtex'
@@ -73,21 +76,38 @@ repo = 'Shougo/neco-vim'
 on_ft = ['vim']
 
 [[plugins]]
-repo = 'w0rp/ale'
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/ale.vim'
-on_ft = ['c','cpp']
-
-[[plugins]]
 repo = 'lyuts/vim-rtags'
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/rtags.vim'
 on_ft = ['c','cpp']
 
 [[plugins]]
 repo = 'vim-scripts/a.vim'
-#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/a.vim'
 on_ft = ['c','cpp']
+
+#[[plugins]]
+#repo = 'neoclide/coc-neco'
+#on_event = 'InsertEnter'
+#
+#[[plugins]]
+#repo = 'jsfaint/coc-neoinclude'
+#on_event = 'InsertEnter'
 
 #[[plugins]]
 #repo = 'critiqjo/lldb.nvim'
 #on_ft = ['c','cpp']
+
+#[[plugins]]
+#repo = 'w0rp/ale'
+#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/ale.vim'
+#on_ft = ['c','cpp']
+
+#[[plugins]]
+#repo = 'Shougo/deoplete-lsp'
+#on_source = ['deoplete.nvim']
+#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete-lsp.vim'
+
+#[[plugins]]
+#repo = 'zchee/deoplete-clang'
+#on_ft = ['c','cpp','cmake']
+#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete-clang.vim'
 

@@ -10,18 +10,23 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/autosave.vim'
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/vim-airline.vim'
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+#[[plugins]]
+#repo = 'edkolev/tmuxline.vim'
+#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tmuxline.vim'
+
+[[plugins]]
 repo = 'airblade/vim-gitgutter'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/gitgutter.vim'
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/whitespace.vim'
-
-[[plugins]]
-repo = 'KeitaNakamura/railscasts.vim'
-
-[[plugins]]
-repo = 'altercation/vim-colors-solarized'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
@@ -39,19 +44,9 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/easymotion.vim'
 repo = 'Shougo/vimproc.vim'
 hook_post_update = 'source ~/dotfiles/.vim/autoload/hyokoji/vimproc.vim'
 
-#[[plugins]]
-#repo = 'kakkyz81/evervim'
-#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
-
 [[plugins]]
 repo = 'tyru/open-browser.vim'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/openbrowser.vim'
-
-#[[plugins]]
-#repo = 'yaasita/edit-slack.vim'
-
-#[[plugins]]
-#repo = 'agatan/vim-vlack'
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
@@ -91,5 +86,18 @@ repo = 'kristijanhusak/defx-icons'
 repo = 'kristijanhusak/defx-git'
 
 #[[plugins]]
-#repo = 'ryanoasis/vim-devicons'
-#
+#repo = 'neoclide/coc.nvim'
+#build = './install.sh nightly'
+##merged = 0
+#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/coc.vim'
+
+#[[plugins]]
+#repo = 'kakkyz81/evervim'
+#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
+
+#[[plugins]]
+#repo = 'yaasita/edit-slack.vim'
+
+#[[plugins]]
+#repo = 'agatan/vim-vlack'
+
