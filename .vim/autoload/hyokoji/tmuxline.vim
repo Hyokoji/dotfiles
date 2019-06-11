@@ -1,8 +1,6 @@
 " tmuxline
 let g:airline#extensions#tmuxline#enabled = 0
-let OSTYPE = system('uname')
-let HOSTNAME = system('hostname')
-if OSTYPE == "Darwin\n"
+if has('mac')
   ""ここにMac向けの設定
   let g:tmuxline_preset = {
         \'a'    : '#S',
@@ -15,7 +13,7 @@ if OSTYPE == "Darwin\n"
         \'options' : {'status-justify':'left'}}
   let g:tmuxline_theme = 'powerline'
 
-elseif OSTYPE == "Linux\n"
+elseif has('unix')
   ""ここにLinux向けの設定
   let g:tmuxline_theme = 'jellybeans'
   let g:tmuxline_preset = {
