@@ -26,21 +26,21 @@ bind -T copy-mode-vi y send-keys copy-pipe-and-cancel "reattach-to-user-namespac
 unbind -T copy-mode-vi Enter
 bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 
-#ステータスライン関連
-# status line を更新する間隔を 1 秒にする
-set -g status-interval 1
-# status line の背景色を指定する。
-set -g status-bg "colour16"
-# window-status のフォーマットを指定する。
-setw -g window-status-format " #I: #W "
-# カレントウィンドウの window-status のフォーマットを指定する
-setw -g window-status-current-format "#[fg=colour255,bg=colour23,bold] #I  #W #[default]"
-# status-left のフォーマットを指定する。
-set -g status-left "#[fg=colour255,bg=colour241]Session: #S #[default]"
-
-set -g status-left-length 110
-set -g status-right-length 120
-set -g status-right "#[fg=colour255,bg=colour16,bold]#(get_volume_tmux)#(battery --tmux)#(get_ssid_tmux)#[fg=colour246]%H:%M:%S | %Y/%m/%d %a"
+##ステータスライン関連
+## status line を更新する間隔を 1 秒にする
+#set -g status-interval 1
+## status line の背景色を指定する。
+#set -g status-bg "colour16"
+## window-status のフォーマットを指定する。
+#setw -g window-status-format " #I: #W "
+## カレントウィンドウの window-status のフォーマットを指定する
+#setw -g window-status-current-format "#[fg=colour255,bg=colour23,bold] #I  #W #[default]"
+## status-left のフォーマットを指定する。
+#set -g status-left "#[fg=colour255,bg=colour241]Session: #S #[default]"
+#
+#set -g status-left-length 110
+#set -g status-right-length 120
+#set -g status-right "#[fg=colour255,bg=colour16,bold]#(get_volume_tmux)#(battery --tmux)#(get_ssid_tmux)#[fg=colour246]%H:%M:%S | %Y/%m/%d %a"
 
 #プラグインマネージャー----------------------------------------------------------------------------
 # List of plugins

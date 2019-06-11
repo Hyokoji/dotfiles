@@ -16,9 +16,9 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/vim-airline.vim'
 [[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
-#[[plugins]]
-#repo = 'edkolev/tmuxline.vim'
-#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tmuxline.vim'
+[[plugins]]
+repo = 'edkolev/tmuxline.vim'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tmuxline.vim'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'

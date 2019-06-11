@@ -5,7 +5,7 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#formatter = 'default'
 let g:airline#extensions#tabline#buffer_idx_mode = 1
 let g:airline#extensions#whitespace#mixed_indent_algo = 1
-let g:airline_theme = 'badcat'
+let g:airline_theme = 'dark'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
