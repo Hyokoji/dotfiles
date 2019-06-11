@@ -7,11 +7,16 @@ if has('mac')
         \'c'    : ['#(whoami)'],
         \'win'  : ['#I', '#W'],
         \'cwin' : ['#I', '#W', '#F'],
-        \'x'    : ['#(get_volume_tmux) #(battery --tmux)', '#(get_ssid_tmux)'],
-        \'y'    : ['%a', '%R', '#(ansiweather -l tokyo -w false -h false -p false -a false | cut -d " " -f7,8,9)'],
-        \'z'    : '#H',
-        \'options' : {'status-justify':'left'}}
-  let g:tmuxline_theme = 'powerline'
+        \'x'    : ['#(get_volume_tmux)#(get_ssid_tmux) #(battery --tmux)'],
+        \'z'    : ['#(ansiweather -l nagoya -w false -h false -p false -a false -s true | cut -d " " -f6,7,8)','  %a', ' %R']}
+  let g:tmuxline_separators = {
+        \ 'left' : '',
+        \ 'left_alt': '',
+        \ 'right' : ' ',
+        \ 'right_alt' : '',
+        \ 'space' : ' '}
+
+  let g:tmuxline_theme = 'airline_insert'
 
 elseif has('unix')
   ""ここにLinux向けの設定
