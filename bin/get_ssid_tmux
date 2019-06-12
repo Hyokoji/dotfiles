@@ -16,7 +16,7 @@ if air_info=($(eval "$airport_path" -I | grep -E "^ *(agrCtlRSSI|state|SSID):" |
       for ((i=0; i < $rssi_; i++ )); do
         signal="${signal}${signals[$i]}"
       done
-      airport_=" #[underscore]#[fg=colour245]${ssid}#[fg=colour245] #[default]#[fg=colour245]| ${signal} "
+      airport_=" #[underscore]#[bg=default,fg=colour245]${ssid}#[fg=colour245] #[default]#[fg=colour245]| ${signal} "
       ;;
     "init"    ) airport_="#[fg=yellow] ... " ;;
     *         ) airport_="#[fg=red] ✘  " ;;

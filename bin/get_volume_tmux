@@ -10,9 +10,9 @@ if sound_info=$(osascript -e 'get volume settings') ; then
         for ((i=$sound_volume; i < 16; i++ )); do
             str="${str} "
         done
-        sound="#[bold]#[fg=colour245][$str]#[default] "
+        sound="[$str]"
     else
-        sound="#[bold]#[fg=colour245][      mute      ]#[default] "
+        sound="[      mute      ]"
     fi
     echo $sound
 fi
