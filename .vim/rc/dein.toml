@@ -89,6 +89,9 @@ repo = 'kristijanhusak/defx-git'
 repo = 'kakkyz81/evervim'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
 
+[[plugins]]
+repo = 'itchyny/calendar.vim'
+
 #[[plugins]]
 #repo = 'neoclide/coc.nvim'
 #build = './install.sh nightly'
