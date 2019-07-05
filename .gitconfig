@@ -2,7 +2,7 @@
   path = ~/.gitconfig.local
 [core]
   quotepath = false
-	editor = nvim
+  editor = nvim
   pager = LESSCHARSET=utf-8 less
 [color]
   ui = true
@@ -11,4 +11,4 @@
   branch = auto
 
 [credential]
-	helper = osxkeychain
+  helper = osxkeychain
