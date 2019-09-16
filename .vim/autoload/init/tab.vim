@@ -1,4 +1,5 @@
 set showtabline=2 " 常にタブラインを表示
+set noequalalways
 nnoremap t <Nop>
 nnoremap tj <C-w>j
 nnoremap tk <C-w>k
