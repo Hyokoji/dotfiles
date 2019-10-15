@@ -32,6 +32,7 @@ case ${OSTYPE} in
         case ${HOSTNAME} in
             g*)
                 export PATH="$HOME/bin:$PATH"
+                export PATH="$PATH:$HOME/miniconda3/bin"
                 LINUXBREW_PREFIX="/home/linuxbrew/.linuxbrew"
                 PATH="${LINUXBREW_PREFIX}/bin:${LINUXBREW_PREFIX}/sbin:${PATH}"
                 MANPATH="${LINUXBREW_PREFIX}/share/man:${MANPATH}"
