@@ -240,12 +240,6 @@ function google() {
     fi
     w3m http://www.google.co.jp/$opt
 }
-# -------------------------------------
-# パス
-# -------------------------------------
-
-# 重複する要素を自動的に削除
-typeset -U path PATH
 
 # 区切り文字の設定
 autoload -Uz select-word-style
