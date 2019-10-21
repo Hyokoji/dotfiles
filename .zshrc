@@ -18,6 +18,7 @@ case ${OSTYPE} in
         export PATH="/usr/local/opt/libxml2/bin:$PATH"
         export PATH="/usr/local/opt/nss/bin:$PATH"
         export PATH="/usr/local/opt/qt/bin:$PATH"
+        export PATH="$PATH:$HOME/miniconda3/bin"
         # エイリアス
         alias ls='lsd'
         alias chrome='open -a "Google Chrome"'
@@ -86,33 +87,33 @@ function rprompt-git-current-branch {
     branch_name=`git rev-parse --abbrev-ref HEAD 2> /dev/null`
     st=`git status 2> /dev/null`
     #    if [ $? -gt 0 ]; then
-        #        # git status が働かないディレクトリでは何も返さない
-        #        return
-        #    fi
-        if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-            # 全てcommitされてクリーンな状態
-            branch_status="%F{green}"
-        elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
-            # gitに管理されていないファイルがある状態
-            branch_status="%F{red}?"
-        elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
-            # git addされていないファイルがある状態
-            branch_status="%F{red}+"
-        elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
-            # git commitされていないファイルがある状態
-            branch_status="%F{yellow}!"
-        elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
-            # コンフリクトが起こった状態
-            echo "%F{red}!(no branch)"
-            return
-        else
-            # 上記以外の状態の場合は青色で表示させる
-            return
-            #        branch_status="%F{blue}"
-        fi
-        # ブランチ名を色付きで表示する
-        echo "${branch_status}[$branch_name]"
-    }
+    #        # git status が働かないディレクトリでは何も返さない
+    #        return
+    #    fi
+    if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+        # 全てcommitされてクリーンな状態
+        branch_status="%F{green}"
+    elif [[ -n `echo "$st" | grep "^Untracked files"` ]]; then
+        # gitに管理されていないファイルがある状態
+        branch_status="%F{red}?"
+    elif [[ -n `echo "$st" | grep "^Changes not staged for commit"` ]]; then
+        # git addされていないファイルがある状態
+        branch_status="%F{red}+"
+    elif [[ -n `echo "$st" | grep "^Changes to be committed"` ]]; then
+        # git commitされていないファイルがある状態
+        branch_status="%F{yellow}!"
+    elif [[ -n `echo "$st" | grep "^rebase in progress"` ]]; then
+        # コンフリクトが起こった状態
+        echo "%F{red}!(no branch)"
+        return
+    else
+        # 上記以外の状態の場合は青色で表示させる
+        return
+        #        branch_status="%F{blue}"
+    fi
+    # ブランチ名を色付きで表示する
+    echo "${branch_status}[$branch_name]"
+}
 # プロンプトの右側に現在のパスを表示
 RPROMPT="%F{blue}[%d]%{${reset_color}%}"
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
@@ -243,9 +244,9 @@ function google() {
 
 # 区切り文字の設定
 autoload -Uz select-word-style
-    select-word-style default
-        zstyle ':zle:*' word-chars "_-./;@"
-        zstyle ':zle:*' word-style unspecified
+select-word-style default
+    zstyle ':zle:*' word-chars "_-./;@"
+    zstyle ':zle:*' word-style unspecified
 
 #rmしてもすぐには削除しない。いったんゴミ箱に行く。
 if type trash-put &> /dev/null
