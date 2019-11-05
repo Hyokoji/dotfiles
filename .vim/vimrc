@@ -44,9 +44,8 @@ endif
 "End dein Scripts-------------------------
 
 "Python3 support
-let g:python_host_prog  = expand('/usr/local/bin/python')
-let g:python3_host_prog = expand('/usr/local/bin/python3')
-let g:ruby_host_prog = expand('/usr/local/lib/ruby/gems/2.6.0/gems/neovim-0.8.1/exe/neovim-ruby-host')
+let g:python_host_prog  = substitute(system('which python'),"\n","","")
+let g:python3_host_prog = substitute(system('which python3'),"\n","","")
 
 runtime! autoload/init/*.vim
 
