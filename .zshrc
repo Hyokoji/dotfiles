@@ -26,7 +26,6 @@ case ${OSTYPE} in
         alias slackgene='vim +"SlaqOpenChannel gene"'
         alias slackgeneral='vim +"SlaqOpenChannel general"'
         alias slackrandom='vim +"SlaqOpenChannel random"'
-        alias brew="PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin brew" # brew doctorでpyenv関連のエラーが出ないようにする。
         ;;
     linux*)
         export HOSTNAME=`hostname`
