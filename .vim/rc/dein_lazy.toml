@@ -8,9 +8,15 @@ repo = 'roxma/vim-hug-neovim-rpc'
 on_if = '!has("nvim")'
 
 [[plugins]]
+repo = 'Shougo/denite.nvim'
+on_if = 'has("nvim")'
+on_source = ['vim-hug-neovim-rpc']
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/denite.vim'
+
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_event = 'InsertEnter' #インサートモードに入ったら読み込む
-depends = ['vimtex','deoplete-clang'] #自分の関数が相手先の設定に使われているときに使う
+depends = ['vimtex'] #自分の関数が相手先の設定に使われているときに使う
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete.vim'
 
 [[plugins]]
@@ -83,6 +89,19 @@ on_ft = ['c','cpp']
 [[plugins]]
 repo = 'vim-scripts/a.vim'
 on_ft = ['c','cpp']
+
+[[plugins]]
+repo = 'skanehira/say.vim'
+on_if = 'has("mac") && !has("nvim")'
+
+[[plugins]]
+repo = 'skanehira/translate.vim'
+on_if = '!has("nvim")'
+
+#[[plugins]]
+#repo = 'ncm2/float-preview.nvim.git'
+#on_source = ['deoplete.nvim']
+#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/float-preview.vim'
 
 #[[plugins]]
 #repo = 'neoclide/coc-neco'

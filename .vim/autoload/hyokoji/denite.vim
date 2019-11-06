@@ -1,4 +1,10 @@
 " denite Config
+
+" Change denite default options
+call denite#custom#option('default', {
+      \ 'split': 'floating',
+      \ })
+
 nnoremap [denite] <Nop>
 nmap <silent><Leader>dn [denite]
 

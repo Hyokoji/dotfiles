@@ -29,10 +29,6 @@ repo = 'bronson/vim-trailing-whitespace'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/whitespace.vim'
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/denite.vim'
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/quickrun.vim'
 
@@ -87,8 +83,8 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
 repo = 'itchyny/calendar.vim'
 
 [[plugins]]
-repo = 'skanehira/translate.vim'
-#build = './install.sh nightly'
-##merged = 0
-#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/coc.vim'
+repo = 'mattn/vim-starwars'
+
+[[plugins]]
+repo = 'willelz/badapple.nvim'
 
