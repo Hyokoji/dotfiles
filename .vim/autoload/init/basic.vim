@@ -47,13 +47,13 @@ set incsearch "インクリメンタルサーチを有効にする
 set mouse=a
 
 "===== その他 =====
-"履歴を10000件保存
+" 履歴を10000件保存
 set history=10000
 
-"バックスペースできるように
+" バックスペースできるように
 noremap!  
 
-"一度ファイルを閉じてもundoできる
+" 一度ファイルを閉じてもundoできる
 if has('persistent_undo')
   set undodir=~/.cache/undo
   set undofile
@@ -62,26 +62,26 @@ endif
 "texのconcealを無効化（#^ω^）
 let g:tex_conceal=''
 
-"control-pで:so ~/.vim/vimrc
+" control-pで:so ~/.vim/vimrc
 nnoremap <C-p> :so ~/.vim/vimrc<CR>
 
-"ノーマルモード時だけ ; と : を入れ替える
+" ノーマルモード時だけ ; と : を入れ替える
 nnoremap ; :
 nnoremap : ;
 
-"インデントを揃える
+" ハイライトを消す
 nnoremap == gg=G'''
 
-"インデントを揃える
+" インデントを揃える
 nnoremap <ESC><ESC> :noh<CR>
 
-"swapファイルを作らない
+" swapファイルを作らない
 set noswapfile
 
 " 左側にgitgutterとかのスペースを開けておく
 set signcolumn=yes
 
-"vimでファイルをひらいたとき最後にカーソルが元にあった場所に移動する
+" vimでファイルをひらいたとき最後にカーソルが元にあった場所に移動する
 augroup vimrcEx
   au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
         \ exe "normal g`\"" | endif

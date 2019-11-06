@@ -11,7 +11,6 @@ on_if = '!has("nvim")'
 repo = 'Shougo/deoplete.nvim'
 on_event = 'InsertEnter' #インサートモードに入ったら読み込む
 depends = ['vimtex','deoplete-clang'] #自分の関数が相手先の設定に使われているときに使う
-depends = ['vimtex'] #自分の関数が相手先の設定に使われているときに使う
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete.vim'
 
 [[plugins]]

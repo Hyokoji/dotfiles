@@ -10,5 +10,5 @@ $pvc_view_file_via_temporary = 0;
 if ($^O eq 'darwin') {
   $pdf_previewer = "open -ga /Applications/Skim.app";
 } elsif ($^O eq 'linux') {
-  $pdf_previewer = 'evince';
+  $pdf_previewer = "evince";
 }

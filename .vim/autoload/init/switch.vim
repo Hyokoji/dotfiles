@@ -1,11 +1,9 @@
-let OSTYPE = system('uname')
+if has('mac')
+  ""ここにMac向けの設定
+  source $HOME/.vim/autoload/init/Darwin.vim
 
-if OSTYPE == "Darwin\n"
-   ""ここにMac向けの設定
-   source $HOME/.vim/autoload/init/Darwin.vim
-
-elseif OSTYPE == "Linux\n"
-   ""ここにLinux向けの設定
-   source $HOME/.vim/autoload/init/Linux.vim
+elseif has('unix')
+  ""ここにLinux向けの設定
+  source $HOME/.vim/autoload/init/Linux.vim
 
 endif
