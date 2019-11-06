@@ -4,3 +4,6 @@
 .vim/init.vim
 *.log
 .zshrc.zwc
+*.aux
+*.gz
+*.fls
