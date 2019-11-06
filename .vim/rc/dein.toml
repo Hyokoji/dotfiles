@@ -63,12 +63,6 @@ repo = 'basyura/Tweetvim'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
 
 [[plugins]]
-repo = 'mattn/excitetranslate-vim'
-
-[[plugins]]
-repo = 'mattn/webapi-vim'
-
-[[plugins]]
 repo = 'koron/dicwin-vim'
 
 [[plugins]]
@@ -92,8 +86,8 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
 [[plugins]]
 repo = 'itchyny/calendar.vim'
 
-#[[plugins]]
-#repo = 'neoclide/coc.nvim'
+[[plugins]]
+repo = 'skanehira/translate.vim'
 #build = './install.sh nightly'
 ##merged = 0
 #hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/coc.vim'
