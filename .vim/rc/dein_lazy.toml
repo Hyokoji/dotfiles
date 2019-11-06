@@ -8,12 +8,6 @@ repo = 'roxma/vim-hug-neovim-rpc'
 on_if = '!has("nvim")'
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-on_if = 'has("nvim")'
-on_source = ['vim-hug-neovim-rpc']
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/denite.vim'
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_event = 'InsertEnter' #インサートモードに入ったら読み込む
 depends = ['vimtex'] #自分の関数が相手先の設定に使われているときに使う
