@@ -42,7 +42,8 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/easymotion.vim'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
-hook_post_update = 'source ~/dotfiles/.vim/autoload/hyokoji/vimproc.vim'
+build = 'make'
+#hook_post_update = 'source ~/dotfiles/.vim/autoload/hyokoji/vimproc.vim'
 
 [[plugins]]
 repo = 'tyru/open-browser.vim'

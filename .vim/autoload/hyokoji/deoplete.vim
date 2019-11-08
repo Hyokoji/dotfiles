@@ -16,25 +16,22 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " 補完候補が表示されている場合は確定。そうでない場合は改行
 inoremap <expr><CR>  pumvisible() ? deoplete#close_popup() : "<CR>"
 
-" rank
+" default
 call deoplete#custom#source('_', 'sorters', ['sorter_word'])
 call deoplete#custom#source('_', 'matchers', ['matcher_head']) " fuzzy matcher
-call deoplete#custom#source('tabnine', 'rank', 150)
-call deoplete#custom#source('tabnine', 'dup', v:false )
-call deoplete#custom#source('LanguageClient', 'dup', v:false)
-call deoplete#custom#source('neco-look', 'rank', 140)
 call deoplete#custom#source('buffer', 'mark', '[buffer]')
 call deoplete#custom#source('omni', 'mark', '[omni]')
 
-call deoplete#custom#var('around', {
-      \   'range_above': 15,
-      \   'range_below': 15,
-      \   'mark_above': '[↑]',
-      \   'mark_below': '[↓]',
-      \   'mark_changes': '[*]',
-      \})
-
 " Filetype
-autocmd FileType tex
-      \ call deoplete#custom#source('neco-look', 'rank', 200)
+"autocmd FileType tex
+"      \ call deoplete#custom#source('neco-look', 'rank', 200)
 
+" tabnine
+call deoplete#custom#var('tabnine', {
+      \ 'line_limit': 500,
+      \ 'max_num_results': 20,
+      \ })
+call deoplete#custom#source('tabnine', 'dup', v:false )
+" LanguageClient
+call deoplete#custom#source('LanguageClient', 'dup', v:false)
+" vimtex

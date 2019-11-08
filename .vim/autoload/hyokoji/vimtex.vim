@@ -13,8 +13,7 @@ endif
 
 let g:vimtex_compiler_latexmk = {'callback' : 0}
 
-"texで自動補完
-" This is new style
+" deopleteで補完
 call deoplete#custom#var('omni', 'input_patterns', {
       \ 'tex': g:vimtex#re#deoplete
       \})
