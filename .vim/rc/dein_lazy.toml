@@ -69,7 +69,7 @@ on_ft = ['toml']
 
 [[plugins]]
 repo = 'ujihisa/neco-look'
-on_ft = ['markdown','tex','vim','toml','c','cpp','gitcommit']
+on_ft = ['markdown','tex','gitcommit']
 
 [[plugins]]
 repo = 'Shougo/neco-vim'
@@ -92,35 +92,17 @@ on_if = 'has("mac") && !has("nvim")'
 repo = 'skanehira/translate.vim'
 on_if = '!has("nvim")'
 
-#[[plugins]]
-#repo = 'ncm2/float-preview.nvim.git'
-#on_source = ['deoplete.nvim']
-#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/float-preview.vim'
-
-#[[plugins]]
-#repo = 'neoclide/coc-neco'
-#on_event = 'InsertEnter'
-#
-#[[plugins]]
-#repo = 'jsfaint/coc-neoinclude'
-#on_event = 'InsertEnter'
+[[plugins]]
+repo = 'ncm2/float-preview.nvim'
+on_if = 'has("nvim")'
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/float-preview.vim'
 
 #[[plugins]]
 #repo = 'critiqjo/lldb.nvim'
-#on_ft = ['c','cpp']
+#on_ft = ['c','cpp','cmake']
 
 #[[plugins]]
 #repo = 'w0rp/ale'
 #hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/ale.vim'
 #on_ft = ['c','cpp']
-
-#[[plugins]]
-#repo = 'Shougo/deoplete-lsp'
-#on_source = ['deoplete.nvim']
-#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete-lsp.vim'
-
-#[[plugins]]
-#repo = 'zchee/deoplete-clang'
-#on_ft = ['c','cpp','cmake']
-#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete-clang.vim'
 
