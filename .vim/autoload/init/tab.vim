@@ -1,5 +1,5 @@
 set showtabline=2 " 常にタブラインを表示
-set noequalalways
+"set noequalalways " ウィンドウの分割比率を自動で調整
 nnoremap t <Nop>
 nnoremap tj <C-w>j
 nnoremap tk <C-w>k
