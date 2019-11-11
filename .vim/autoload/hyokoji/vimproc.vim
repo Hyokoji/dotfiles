@@ -5,6 +5,6 @@ elseif has('win32unix') " for Cygwin
 elseif executable('gmake')
   let cmd = 'gmake'
 else
-  let cmd = 'gcc -O2 -W -Wall -Wno-unused -Wno-unused-parameter -bundle -fPIC -o lib/vimproc_mac.so src/proc.c'
+  let cmd = 'make'
 endif
 let g:dein#plugin.build = cmd

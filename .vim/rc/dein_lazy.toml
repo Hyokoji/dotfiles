@@ -1,28 +1,37 @@
 # 遅延読み込み
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-on_if = '!has("nvim")'
+#[[plugins]]
+#repo = 'roxma/vim-hug-neovim-rpc'
+#on_if = '!has("nvim")'
+#
+#[[plugins]]
+#repo = 'roxma/nvim-yarp'
+#on_if = '!has("nvim")'
 
 [[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-on_if = '!has("nvim")'
+repo = 'Shougo/denite.nvim'
+on_if = 'has("nvim")'
+on_cmd = 'Denite'
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/denite.vim'
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
+on_if = 'has("nvim")'
 on_event = 'InsertEnter' #インサートモードに入ったら読み込む
 depends = ['vimtex'] #自分の関数が相手先の設定に使われているときに使う
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete.vim'
 
 [[plugins]]
-repo = 'tbodt/deoplete-tabnine'
-on_source = ['deoplete.nvim']
-build = 'bash install.sh'
+repo = 'Shougo/neocomplete.vim'
+on_if = '!has("nvim")'
+on_event = 'InsertEnter' #インサートモードに入ったら読み込む
+depends = ['vimtex'] #自分の関数が相手先の設定に使われているときに使う
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/neocomplete.vim'
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
-on_source = ['deoplete.nvim']
+on_event = 'InsertEnter'
 rev = 'next'
-build = 'bash install.sh'
+build= 'bash install.sh'
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/languageclient-neovim.vim'
 
 [[plugins]]
@@ -83,13 +92,15 @@ on_ft = ['c','cpp']
 repo = 'vim-scripts/a.vim'
 on_ft = ['c','cpp']
 
+#[[plugins]]
+#repo = 'kakkyz81/evervim'
+#on_if = 'has("python3")'
+#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
+
 [[plugins]]
 repo = 'skanehira/say.vim'
 on_if = 'has("mac") && !has("nvim")'
-
-[[plugins]]
-repo = 'skanehira/translate.vim'
-on_if = '!has("nvim")'
+on_cmd = 'Say'
 
 [[plugins]]
 repo = 'ncm2/float-preview.nvim'
