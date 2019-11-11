@@ -1,26 +1,9 @@
 # 遅延読み込み
-# 遅延読み込み
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-on_if = '!has("nvim")'
-
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-on_if = '!has("nvim")'
-
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-#on_if = 'has("nvim")'
 on_event = 'InsertEnter' #インサートモードに入ったら読み込む
 depends = ['vimtex'] #自分の関数が相手先の設定に使われているときに使う
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete.vim'
-
-#[[plugins]]
-#repo = 'Shougo/neocomplete.vim'
-#on_if = '!has("nvim")'
-#on_event = 'InsertEnter' #インサートモードに入ったら読み込む
-#depends = ['vimtex'] #自分の関数が相手先の設定に使われているときに使う
-#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/neocomplete.vim'
 
 [[plugins]]
 repo = 'autozimu/LanguageClient-neovim'
@@ -33,15 +16,15 @@ hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/languageclient-neovim.vim
 repo = 'Shougo/neco-syntax'
 on_event = 'InsertEnter'
 
-#[[plugins]]
-#repo = 'Shougo/neosnippet.vim'
-#on_event = 'InsertEnter'
-#depends = ['neosnippet-snippets']
-#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/neosnippet.vim'
-#
-#[[plugins]]
-#repo = 'Shougo/neosnippet-snippets'
-#on_event = 'InsertEnter'
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+on_event = 'InsertEnter'
+depends = ['neosnippet-snippets']
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+on_event = 'InsertEnter'
 
 [[plugins]]
 repo  = 'lervag/vimtex'
@@ -93,18 +76,9 @@ on_ft = ['c','cpp']
 #hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
 
 [[plugins]]
-repo = 'skanehira/say.vim'
-on_if = 'has("mac") && !has("nvim")'
-on_cmd = 'Say'
-
-[[plugins]]
 repo = 'ncm2/float-preview.nvim'
 on_if = 'has("nvim")'
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/float-preview.vim'
-
-#[[plugins]]
-#repo = 'critiqjo/lldb.nvim'
-#on_ft = ['c','cpp','cmake']
 
 #[[plugins]]
 #repo = 'w0rp/ale'
