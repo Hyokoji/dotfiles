@@ -1,1 +1,1 @@
-tnoremap <silent><C-d> <C-\><C-n>
+"tnoremap <silent><C-d> <C-\><C-n>
