@@ -1,4 +1,5 @@
 # 遅延読み込み
+# 遅延読み込み
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 on_if = '!has("nvim")'
