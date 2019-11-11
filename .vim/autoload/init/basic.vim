@@ -20,8 +20,6 @@ set list "タブ、空白、改行を可視化
 set visualbell "ビープ音を視覚表示
 set laststatus=2 "ステータスを表示
 set ruler "カーソル位置を表示
-"===== 文字、カーソル設定 =====
-"---- エンコード ----
 set encoding=utf-8
 set fileencodings=utf-8,iso-2022-jp,euc-jp,sjis
 set fileformats=unix,dos,mac
@@ -58,9 +56,6 @@ if has('persistent_undo')
   set undodir=~/.cache/undo
   set undofile
 endif
-
-"texのconcealを無効化（#^ω^）
-let g:tex_conceal=''
 
 " control-pで:so ~/.vim/vimrc
 nnoremap <C-p> :so ~/.vim/vimrc<CR>
