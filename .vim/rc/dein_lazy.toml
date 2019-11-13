@@ -70,6 +70,11 @@ on_ft = ['c','cpp']
 repo = 'vim-scripts/a.vim'
 on_ft = ['c','cpp']
 
+[[plugins]]
+repo = 'basyura/Tweetvim'
+on_if = 'has("mac")'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
+
 #[[plugins]]
 #repo = 'kakkyz81/evervim'
 #on_if = 'has("python3")'

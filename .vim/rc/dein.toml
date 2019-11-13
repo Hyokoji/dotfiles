@@ -67,10 +67,6 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/defx.vim'
 repo = 'basyura/twibill.vim'
 
 [[plugins]]
-repo = 'basyura/Tweetvim'
-hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
-
-[[plugins]]
 repo = 'koron/dicwin-vim'
 
 [[plugins]]
