@@ -73,7 +73,12 @@ on_ft = ['c','cpp']
 [[plugins]]
 repo = 'basyura/Tweetvim'
 on_if = 'has("mac")'
-hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
+hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
+
+[[plugins]]
+repo = 'basyura/twibill.vim'
+on_if = 'has("mac")'
+on_source = ['Tweetvim']
 
 #[[plugins]]
 #repo = 'kakkyz81/evervim'

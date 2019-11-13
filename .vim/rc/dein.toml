@@ -64,9 +64,6 @@ repo = 'Shougo/defx.nvim'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/defx.vim'
 
 [[plugins]]
-repo = 'basyura/twibill.vim'
-
-[[plugins]]
 repo = 'koron/dicwin-vim'
 
 [[plugins]]
