@@ -3,8 +3,8 @@
 set -g default-shell   /usr/local/bin/zsh
 set -g default-command /usr/local/bin/zsh
 
-# prefixキーをC-aに変更する
-set -g prefix C-a
+# prefixキーをC-sに変更する
+set -g prefix C-s
 
 # C-bのキーバインドを解除する
 unbind C-b
