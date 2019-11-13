@@ -60,6 +60,13 @@ hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/openbrowser.vim'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
+repo = 'basyura/Tweetvim'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/tweetvim.vim'
+
+[[plugins]]
+repo = 'basyura/twibill.vim'
+
+[[plugins]]
 repo = 'Shougo/defx.nvim'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/defx.vim'
 
