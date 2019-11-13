@@ -76,6 +76,9 @@ set noswapfile
 " 左側にgitgutterとかのスペースを開けておく
 set signcolumn=yes
 
+" ポップアップメニューの半透明度を指定する
+set pumblend=30
+
 " vimでファイルをひらいたとき最後にカーソルが元にあった場所に移動する
 augroup vimrcEx
   au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
