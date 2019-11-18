@@ -77,7 +77,7 @@ set noswapfile
 set signcolumn=yes
 
 " ポップアップメニューの半透明度を指定する
-set pumblend=30
+set pumblend=90
 
 " vimでファイルをひらいたとき最後にカーソルが元にあった場所に移動する
 augroup vimrcEx
