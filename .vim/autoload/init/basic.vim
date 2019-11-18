@@ -80,7 +80,7 @@ set signcolumn=yes
 set termguicolors
 
 " ポップアップメニューの半透明度を指定する
-set pumblend=30
+"set pumblend=30
 
 " vimでファイルをひらいたとき最後にカーソルが元にあった場所に移動する
 augroup vimrcEx
