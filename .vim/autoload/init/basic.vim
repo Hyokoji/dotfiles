@@ -76,8 +76,11 @@ set noswapfile
 " 左側にgitgutterとかのスペースを開けておく
 set signcolumn=yes
 
+" ターミナルでも True Color を使えるようにする。
+set termguicolors
+
 " ポップアップメニューの半透明度を指定する
-set pumblend=90
+set pumblend=30
 
 " vimでファイルをひらいたとき最後にカーソルが元にあった場所に移動する
 augroup vimrcEx
