@@ -13,12 +13,13 @@ let g:deoplete#enable_smart_case = 1
 let g:deoplete#file#enable_buffer_path = 1
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " 補完候補が表示されている場合は確定。そうでない場合は改行
 inoremap <expr><CR>  pumvisible() ? deoplete#close_popup() : "<CR>"
 
 " default
 call deoplete#custom#source('_', 'sorters', ['sorter_word'])
-call deoplete#custom#source('_', 'matchers', ['matcher_head']) " fuzzy matcher
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy']) " fuzzy matcher
 call deoplete#custom#source('buffer', 'mark', '[buffer]')
 call deoplete#custom#source('omni', 'mark', '[omni]')
 
