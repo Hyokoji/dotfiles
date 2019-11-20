@@ -241,6 +241,9 @@ function google() {
     w3m http://www.google.co.jp/$opt
 }
 
+bindkey -M viins '^P' history-beginning-search-backward-end
+bindkey -M viins '^N' history-beginning-search-forward-end
+
 # 区切り文字の設定
 autoload -Uz select-word-style
 select-word-style default
