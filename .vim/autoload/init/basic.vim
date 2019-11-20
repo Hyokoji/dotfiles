@@ -77,7 +77,8 @@ set noswapfile
 set signcolumn=yes
 
 " ターミナルでも True Color を使えるようにする。
-set termguicolors
+set notermguicolors
+"set termguicolors
 
 " ポップアップメニューの半透明度を指定する
 "set pumblend=30
