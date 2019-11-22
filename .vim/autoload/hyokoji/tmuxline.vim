@@ -26,7 +26,13 @@ elseif has('unix')
           \'c'    : ['#(whoami)'],
           \'win'  : ['#I', '#W'],
           \'cwin' : ['#I', '#W', '#F'],
-          \'z'    : [' #(ansiweather -l nagoya -w false -h false -p false -a false -s true | cut -d " " -f6,7,8)',' %d %a',' %R']}
+          \'z'    : [' #(ansiweather -l nagoya -w false -h false -p false -a false -s true | cut -d " " -f6,7,8) ',' %d %a',' %R']}
+  let g:tmuxline_separators = {
+        \ 'left' : '',
+        \ 'left_alt': '>',
+        \ 'right' : ' ',
+        \ 'right_alt' : '<',
+        \ 'space' : ' '}
     let g:tmuxline_theme = 'nightly_fox'
 
   else
@@ -39,14 +45,13 @@ elseif has('unix')
           \'x'    : '%a',
           \'y'    : '#W %R',
           \'z'    : '#H'}
-    let g:tmuxline_theme = 'jellybeans'
-  endif
-
   let g:tmuxline_separators = {
         \ 'left' : '▶',
         \ 'left_alt': '>',
         \ 'right' : '◀ ',
         \ 'right_alt' : '<',
         \ 'space' : ' '}
+    let g:tmuxline_theme = 'jellybeans'
+  endif
 
 endif
