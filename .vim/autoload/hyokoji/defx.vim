@@ -1,7 +1,8 @@
 " defx Config: start -----------------
-nnoremap <silent><Leader>df :<C-u>Defx -show-ignored-files -split=vertical -winwidth=50 -direction=topleft -columns=git:icons:filename:type<CR>
+nnoremap <silent><C-f> :<C-u>Defx -show-ignored-files -split=floating -winwidth=90 -direction=topleft -columns=mark:git:icons:filename:type:size:time<CR>
 
 "Define mappings
+autocmd BufWritePost * call defx#redraw()
 autocmd FileType defx call s:defx_my_settings()
 function! s:defx_my_settings() abort
   " Define mappings

@@ -82,6 +82,10 @@ repo = 'thinca/vim-ref'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/ref.vim'
 
 [[plugins]]
+repo = 'ryanoasis/vim-devicons'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/vim-devicons.vim'
+
+[[plugins]]
 repo = 'kristijanhusak/defx-icons'
 
 [[plugins]]

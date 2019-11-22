@@ -6,7 +6,7 @@ call denite#custom#option('default', {
       \ })
 
 nnoremap [denite] <Nop>
-nmap <silent><Leader>dn [denite]
+nmap <silent><C-i> [denite]
 
 "現在開いているファイルのディレクトリ下のファイル一覧。
 nnoremap <silent> [denite]f :<C-u>Denite file<CR>
