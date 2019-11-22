@@ -44,9 +44,9 @@ elseif has('unix')
 
   let g:tmuxline_separators = {
         \ 'left' : '▶',
-        \ 'left_alt': '▶',
+        \ 'left_alt': '>',
         \ 'right' : '◀ ',
-        \ 'right_alt' : '◀',
+        \ 'right_alt' : '<',
         \ 'space' : ' '}
 
 endif
