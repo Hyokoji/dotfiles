@@ -23,7 +23,8 @@ elseif has('unix')
   if executable('ansiweather')
     let g:tmuxline_preset = {
           \'a'    : '#S',
-          \'c'    : ['#(whoami)'],
+          \'b'    : ['#(whoami)'],
+          \'c'    : ['#H'],
           \'win'  : ['#I', '#W'],
           \'cwin' : ['#I', '#W', '#F'],
           \'z'    : [' #(ansiweather -l nagoya -w false -h false -p false -a false -s true | cut -d " " -f6,7,8) ',' %d %a',' %R']}
@@ -38,17 +39,17 @@ elseif has('unix')
   else
     let g:tmuxline_preset = {
           \'a'    : '#S',
-          \'b'    : '#W',
-          \'c'    : '#H',
-          \'win'  : '#I #W',
-          \'cwin' : '#I #W',
-          \'x'    : '%a',
-          \'y'    : '#W %R',
-          \'z'    : '#H'}
+          \'b'    : ['#(whoami)'],
+          \'c'    : ['#H'],
+          \'win'  : ['#I #W'],
+          \'cwin' : ['#I #W'],
+          \'x'    : [' #H'],
+          \'y'    : [' %R'],
+          \'z'    : [' %d %a']}
   let g:tmuxline_separators = {
-        \ 'left' : '▶',
+        \ 'left' : '',
         \ 'left_alt': '>',
-        \ 'right' : '◀ ',
+        \ 'right' : ' ',
         \ 'right_alt' : '<',
         \ 'space' : ' '}
     let g:tmuxline_theme = 'jellybeans'
