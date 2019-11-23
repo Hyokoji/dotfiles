@@ -77,8 +77,17 @@ set noswapfile
 set signcolumn=yes
 
 " ターミナルでも True Color を使えるようにする。
-set notermguicolors
-"set termguicolors
+set termguicolors
+
+"クリップボードにコピペできるように
+nnoremap y "+y
+nnoremap p "+p
+nnoremap d "+d
+if !has('nvim')
+  set clipboard+=unnamed,autoselect
+else
+  set clipboard+=unnamedplus
+endif
 
 " ポップアップメニューの半透明度を指定する
 "set pumblend=30

@@ -6,8 +6,8 @@ filetype plugin indent on
 
 " c,cpp
 " 関数を色付け
-autocmd FileType c,cpp syntax match CFunction /[a-zA-Z_]\w*(\@=/
-autocmd FileType c,cpp hi CFunction ctermfg=120
+" autocmd FileType c,cpp syntax match CFunction /[a-zA-Z_]\w*(\@=/
+" autocmd FileType c,cpp hi CFunction ctermfg=120
 " 新規ファイル作成時にテンプレートの読み込み
 "autocmd BufNewFile *.c 0r $HOME/dotfiles/.vim/template/c.txt
 

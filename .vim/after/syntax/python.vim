@@ -16,7 +16,7 @@ syn keyword pythonSpecialWord self
 
 hi link pythonSpecialWord    Special
 hi link pythonDelimiter      Special
-hi link pythonFunction Function
+hi link pythonFunction       Function
 
 let b:current_after_syntax = 'python'
 

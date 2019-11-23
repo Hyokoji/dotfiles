@@ -3,16 +3,6 @@ if !has('nvim')
   set ttymouse=xterm2
 endif
 
-"クリップボードにコピペできるように
-nnoremap y "+y
-nnoremap p "+p
-nnoremap d "+d
-if !has('nvim')
-  set clipboard+=unnamed,autoselect
-else
-  set clipboard+=unnamedplus
-endif
-
 " Play Youtube in Vim
 if !exists('g:VimYoutube_mpsyt')
   let g:VimYoutube_mpsyt = '/usr/local/bin/mpsyt'

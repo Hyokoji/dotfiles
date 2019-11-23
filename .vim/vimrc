@@ -43,8 +43,6 @@ endif
 let g:python_host_prog  = substitute(system('which python'),"\n","","")
 let g:python3_host_prog = substitute(system('which python3'),"\n","","")
 
-runtime! autoload/init/*.vim
-
 if filereadable(expand('~/secret/evervim.vim'))
   source ~/secret/evervim.vim
 endif
