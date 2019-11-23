@@ -58,7 +58,7 @@ if has('persistent_undo')
 endif
 
 " control-pで:so ~/.vim/vimrc
-nnoremap <C-p> :so ~/.vim/vimrc<CR>
+nnoremap <C-p> :<C-u>so ~/.vim/vimrc<CR>
 
 " ノーマルモード時だけ ; と : を入れ替える
 nnoremap ; :
@@ -68,7 +68,7 @@ nnoremap : ;
 nnoremap == gg=G'''
 
 " インデントを揃える
-nnoremap <ESC><ESC> :noh<CR>
+nnoremap <ESC><ESC> :<C-u>noh<CR>
 
 " swapファイルを作らない
 set noswapfile

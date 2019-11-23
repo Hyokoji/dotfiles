@@ -1,1 +1,1 @@
-nnoremap <leader>w :W3mSplit <cword>
+nnoremap <leader>w :<C-u>W3mSplit<cword>

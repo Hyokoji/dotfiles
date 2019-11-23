@@ -5,4 +5,4 @@ let g:w3m#hit_a_hint_key = '<leader>i'
 "###Set External Browser:###
 let g:w3m#external_browser = 'chrome'
 
-nnoremap <leader>g :W3m<Space>
+nnoremap <leader>g :<C-u>W3m<Space>

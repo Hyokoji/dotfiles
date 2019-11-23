@@ -78,8 +78,8 @@ let g:quickrun_config.tmptex = {
       \                        '%a/tmptex.dvi'
       \                        ],
       \}"
-vnoremap <silent><buffer> <F5> :QuickRun -mode v -type tmptex<CR>
+vnoremap <silent><buffer> <F5> :<C-u>QuickRun -mode v -type tmptex<CR>
 
 " QuickRun and view compile result quickly (but don't preview pdffile)F5でコンパイル
-nnoremap <silent><F5> :QuickRun<CR>
+nnoremap <silent><F5> :<C-u>QuickRun<CR>
 

@@ -1,6 +1,6 @@
-nnoremap <Up>    :bp<CR>
-nnoremap <Down>  :bn<CR>
+nnoremap <Up>    :<C-u>bp<CR>
+nnoremap <Down>  :<C-u>bn<CR>
 nnoremap <Left>  <C-o>
 nnoremap <Right> <C-i>
-nnoremap <C-k>   :bp<CR>
-nnoremap <C-j>   :bn<CR>
+nnoremap <C-k>   :<C-u>bp<CR>
+nnoremap <C-j>   :<C-u>bn<CR>
