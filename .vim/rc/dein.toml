@@ -98,5 +98,9 @@ repo = 'itchyny/calendar.vim'
 repo = 'mattn/vim-starwars'
 
 [[plugins]]
+repo = 'mattn/sonictemplate-vim'
+hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/sonictemplate.vim'
+
+[[plugins]]
 repo = 'willelz/badapple.nvim'
 

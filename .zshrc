@@ -22,10 +22,6 @@ case ${OSTYPE} in
         # エイリアス
         alias ls='lsd'
         alias chrome='open -a "Google Chrome"'
-        alias evernote='vim +"EvervimNotebookList"'
-        alias slackgene='vim +"SlaqOpenChannel gene"'
-        alias slackgeneral='vim +"SlaqOpenChannel general"'
-        alias slackrandom='vim +"SlaqOpenChannel random"'
         ;;
     linux*)
         export HOSTNAME=`hostname`
