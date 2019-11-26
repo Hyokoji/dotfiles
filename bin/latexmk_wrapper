@@ -14,7 +14,7 @@
 #=#=
 
 if [ "$1" = '-h' ]; then
-usage_all "$0"; exit 0
+  usage_all "$0"; exit 0
 fi
 
 
@@ -36,43 +36,43 @@ notification_icon='/usr/share/icons/gnome/scalable/actions/document-send-symboli
 
 message() {
   echo "There is$1 '$rootfile' in the directory '$2'," >&2
-    echo "so this script compiles this file." >&2
-    echo "" >&2
+  echo "so this script compiles this file." >&2
+  echo "" >&2
 }
 
 search_rootfile() {
   if [ -f "$1"/"$rootfile" ]; then
     texfile="$1"/"$rootfile"
-      message "" "$1"
-      return 0
+    message "" "$1"
+    return 0
   else
     texfile="$1"/"$name"
-      return 1
-      fi
+    return 1
+  fi
 }
 
 dir="$(cd "$(dirname "$1")"; pwd)"
 name="$(basename "$1")"
 
 if [ ! -f "$dir/$name" ]; then
-echo "$dir/$name doesn't exist." >&2
-exit 1
+  echo "$dir/$name doesn't exist." >&2
+  exit 1
 fi
 
 currentdir="$(basename "$dir")"
 dir_up="$(dirname "$dir")"
 
 if [ "${currentdir}" = $sourcedir ]; then
-echo "This file is in '$sourcedir', so search '$rootfile' recursively." >&2
-outdir="${dir_up}"
-search_rootfile "${dir_up}" || search_rootfile "$dir" || message " not" "$dir"
+  echo "This file is in '$sourcedir', so search '$rootfile' recursively." >&2
+  outdir="${dir_up}"
+  search_rootfile "${dir_up}" || search_rootfile "$dir" || message " not" "$dir"
 else
-outdir="$dir"
-search_rootfile "$dir" || message " not" "$dir"
+  outdir="$dir"
+  search_rootfile "$dir" || message " not" "$dir"
 fi
 
 if [ -d "${outdir}/${savedir}" ]; then
-outdir="${outdir}/${savedir}"
+  outdir="${outdir}/${savedir}"
 fi
 
 notificationcmd="notify-send 'LaTeX build done!' '$outdir\n <- $texfile'
@@ -84,6 +84,6 @@ echo ""
 shift 1
 
 latexmk -pdfdvi -output-directory="$outdir" "$@" "$texfile" \
-                                   && latexmk -output-directory="$outdir" -c "$texfile" \
-                                   && $notification \
-                                   && eval $notificationcmd
+  && latexmk -output-directory="$outdir" -c "$texfile" \
+  && $notification \
+  && eval $notificationcmd

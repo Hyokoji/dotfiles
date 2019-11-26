@@ -18,24 +18,35 @@ let g:quickrun_config = {
       \ },
       \ }
 
-let g:quickrun_config['tex'] = {
-      \ 'runner' : 'vimproc',
-      \ 'command' : 'latexmk',
-      \ 'outputter' : 'error',
-      \ 'outputter/error/success' : 'null',
-      \ 'srcfile' : expand("%"),
-      \ 'cmdopt': '-pdfdvi',
-      \ 'hook/sweep/files' : [
-      \                      '%S:p:r.bbl',
-      \                      '%S:p:r.blg',
-      \                      '%S:p:r.dvi',
-      \                      '%S:p:r.fdb_latexmk',
-      \                      '%S:p:r.fls',
-      \                      '%S:p:r.log',
-      \                      '%S:p:r.out'
-      \                      ],
-      \ 'exec': ['%c %o %a %s','open -ga /Applications/Skim.app %s:r.pdf']
-      \}
+if has('mac')
+  let g:quickrun_config['tex'] = {
+        \ 'runner' : 'vimproc',
+        \ 'command' : 'latexmk',
+        \ 'outputter' : 'error',
+        \ 'outputter/error/success' : 'null',
+        \ 'srcfile' : expand("%"),
+        \ 'cmdopt': '-pdfdvi',
+        \ 'hook/sweep/files' : [
+        \                      '%S:p:r.bbl',
+        \                      '%S:p:r.blg',
+        \                      '%S:p:r.dvi',
+        \                      '%S:p:r.fdb_latexmk',
+        \                      '%S:p:r.fls',
+        \                      '%S:p:r.log',
+        \                      '%S:p:r.out'
+        \                      ],
+        \ 'exec': ['%c %o %a %s','open -ga /Applications/Skim.app %s:r.pdf']
+        \}
+elseif has('unix') "コンパイルしても自動で表示まではされない
+  let g:quickrun_config['tex'] = {
+        \ 'runner' : 'vimproc',
+        \ 'command' : 'latexmk_wrapper',
+        \ 'outputter' : 'error',
+        \ 'outputter/error/success' : 'null',
+        \ 'srcfile' : expand("%"),
+        \ 'exec': ['%c %o %a %s']
+        \}
+endif
 "保存する度に自動でコンパイル(tex)
 autocmd BufWritePost,FileWritePost *.tex QuickRun tex
 " 部分的に選択してコンパイル

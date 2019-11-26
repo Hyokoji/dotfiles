@@ -3,6 +3,7 @@ case ${OSTYPE} in
     darwin*)
         export PATH="/usr/local/Cellar:$PATH"
         export PATH="$HOME/bin:$PATH"
+        export PATH="$HOME/dotfiles/bin:$PATH"
         export PATH="$HOME/.linuxbrew/bin:$PATH"
         export PATH="$HOME/inst/bin:$PATH"
         export PATH="$HOME/inst/share/cling/Jupyter/kernel:$PATH"
@@ -37,6 +38,7 @@ case ${OSTYPE} in
                 ;;
             h*)
                 export PATH="$HOME/bin:$PATH"
+                export PATH="$HOME/dotfiles/bin:$PATH"
                 export PATH="$PATH:$HOME/miniconda3/bin"
                 LINUXBREW_PREFIX="/home/linuxbrew/.linuxbrew"
                 PATH="${LINUXBREW_PREFIX}/bin:${LINUXBREW_PREFIX}/sbin:${PATH}"
