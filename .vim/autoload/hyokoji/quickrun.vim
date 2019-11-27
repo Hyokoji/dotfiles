@@ -25,6 +25,7 @@ if has('mac')
         \ 'outputter' : 'error',
         \ 'outputter/error/success' : 'null',
         \ 'srcfile' : expand("%"),
+        \ 'cmdopt' : '-pvc'
         \ 'exec': ['%c %o %a %s','open -ga /Applications/Skim.app %s:r.pdf']
         \}
 elseif has('unix') "コンパイルしても自動で表示まではされない

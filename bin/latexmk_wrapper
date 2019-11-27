@@ -83,7 +83,7 @@ echo "=============="
 echo ""
 shift 1
 
-latexmk -pdfdvi -pv -output-directory="$outdir" "$@" "$texfile" \
+latexmk -pdfdvi $1 -output-directory="$outdir" "$@" "$texfile" \
   && latexmk -output-directory="$outdir" -c "$texfile" \
   && $notification \
   && eval $notificationcmd
