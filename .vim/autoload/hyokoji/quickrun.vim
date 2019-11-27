@@ -21,11 +21,10 @@ let g:quickrun_config = {
 if has('mac')
   let g:quickrun_config['tex'] = {
         \ 'runner' : 'vimproc',
-        \ 'command' : 'latexmk_wrapper',
+        \ 'command' : 'latexmk_wrapper_mac',
         \ 'outputter' : 'error',
         \ 'outputter/error/success' : 'null',
         \ 'srcfile' : expand("%"),
-        \ 'cmdopt' : '-pvc'
         \ 'exec': ['%c %o %a %s','open -ga /Applications/Skim.app %s:r.pdf']
         \}
 elseif has('unix') "コンパイルしても自動で表示まではされない
