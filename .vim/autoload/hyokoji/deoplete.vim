@@ -11,6 +11,7 @@ let g:deoplete#enable_camel_case = 0
 let g:deoplete#enable_refresh_always = 0
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#file#enable_buffer_path = 1
+"let g:deoplete#prev_completion_mode='mirror'
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
@@ -28,10 +29,7 @@ call deoplete#custom#source('omni', 'mark', '[omni]')
 "      \ call deoplete#custom#source('neco-look', 'rank', 200)
 
 " tabnine
-call deoplete#custom#var('tabnine', {
-      \ 'line_limit': 500,
-      \ 'max_num_results': 20,
-      \ })
+call deoplete#custom#source('tabnine', 'prev_completion_mode', 'mirror')
 call deoplete#custom#source('tabnine', 'dup', v:false )
 " LanguageClient
 call deoplete#custom#source('LanguageClient', 'dup', v:false)
