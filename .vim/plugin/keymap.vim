@@ -16,9 +16,9 @@ nnoremap <C-j>   :<C-u>bn<CR>
 " ESC２回押しでハイライトを消す
 nnoremap <ESC><ESC> :<C-u>noh<CR>
 "クリップボードにコピペできるように
-nnoremap y "+y
-nnoremap p "+p
-nnoremap d "+d
+"nnoremap y "+y
+"nnoremap p "+p
+"nnoremap d "+d
 " tをタブ操作の基本キーとする
 nnoremap t <Nop>
 nnoremap tj gt
