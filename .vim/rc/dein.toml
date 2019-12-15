@@ -11,10 +11,6 @@ repo = 'Shougo/denite.nvim'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/denite.vim'
 
 [[plugins]]
-repo = 'tbodt/deoplete-tabnine'
-build = 'bash install.sh'
-
-[[plugins]]
 repo = 'vim-scripts/vim-auto-save'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/autosave.vim'
 
