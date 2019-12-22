@@ -7,3 +7,7 @@ let g:LanguageClient_serverCommands = {
       \ 'cmake'   : ['clangd'],
       \ 'python'  : ['pyls'],
       \ }
+nnoremap <silent><Leader>lh :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent><Leader>ld :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent><Leader>lr :call LanguageClient_textDocument_rename()<CR>
+nnoremap <silent><Leader>lf :call LanguageClient_textDocument_formatting()<CR>

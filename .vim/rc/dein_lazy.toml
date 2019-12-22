@@ -11,13 +11,6 @@ on_if = 'has("mac")'
 build = 'bash install.sh'
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-on_event = 'InsertEnter'
-rev = 'next'
-build= 'bash install.sh'
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/languageclient-neovim.vim'
-
-[[plugins]]
 repo = 'Shougo/neco-syntax'
 on_event = 'InsertEnter'
 
