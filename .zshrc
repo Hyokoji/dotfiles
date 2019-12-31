@@ -259,6 +259,9 @@ if [ ! -f ~/.zshrc.zwc -o ~/.zshrc -nt ~/.zshrc.zwc ]; then
     zcompile ~/.zshrc
 fi
 
+#重複したパスの削除
+typeset -U path cdpath fpath manpath PATH
+
 #プラグイン管理
 : ${ZSHRC_ROOT:="${HOME}/.zsh"}
 : ${ZSHRC_PLUGDIR:="${ZSHRC_ROOT}/plugins"}
