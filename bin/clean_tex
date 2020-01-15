@@ -2,4 +2,8 @@
 rm ./*.aux
 rm ./*.log
 rm ./*.fls
+rm ./*.blg
+rm ./*.bbl
+rm ./*.dvi
+rm ./*.toc
 rm ./*.fdb_latexmk
