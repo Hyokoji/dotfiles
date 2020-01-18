@@ -7,3 +7,4 @@ rm ./*.bbl
 rm ./*.dvi
 rm ./*.toc
 rm ./*.fdb_latexmk
+rm ./*.synctex.gz
