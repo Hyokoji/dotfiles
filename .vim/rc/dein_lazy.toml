@@ -6,6 +6,11 @@ depends = ['vimtex'] #自分の関数が相手先の設定に使われている�
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete.vim'
 
 [[plugins]]
+repo = 'tbodt/deoplete-tabnine'
+on_ft = ['tex']
+build = 'bash install.sh'
+
+[[plugins]]
 repo = 'Shougo/neco-syntax'
 on_event = 'InsertEnter'
 
