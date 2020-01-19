@@ -2,32 +2,17 @@
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_event = 'InsertEnter' #インサートモードに入ったら読み込む
-depends = ['vimtex'] #自分の関数が相手先の設定に使われているときに使う
+depends = ['deoplete-vim-lsp'] #自分の関数が相手先の設定に使われているときに使う
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete.vim'
 
 [[plugins]]
-repo = 'tbodt/deoplete-tabnine'
-on_ft = ['tex']
-build = 'bash install.sh'
+repo = 'lighttiger2505/deoplete-vim-lsp'
+on_event = 'InsertEnter' #インサートモードに入ったら読み込む
 
-[[plugins]]
-repo = 'Shougo/neco-syntax'
-on_event = 'InsertEnter'
-
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
-on_event = 'InsertEnter'
-depends = ['neosnippet-snippets']
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/neosnippet.vim'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-on_event = 'InsertEnter'
-
-[[plugins]]
-repo  = 'lervag/vimtex'
-on_ft = ['tex']
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/vimtex.vim'
+#[[plugins]]
+#repo = 'tbodt/deoplete-tabnine'
+#on_ft = ['tex']
+#build = 'bash install.sh'
 
 [[plugins]]
 repo = 'Shougo/neoinclude.vim'
@@ -46,7 +31,6 @@ on_ft = ['vim-markdown']
 repo = 'iamcco/mathjax-support-for-mkdp'
 on_source = ['vim-markdown']
 
-#toml
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
@@ -54,10 +38,6 @@ on_ft = ['toml']
 [[plugins]]
 repo = 'ujihisa/neco-look'
 on_ft = ['markdown','tex','gitcommit']
-
-[[plugins]]
-repo = 'Shougo/neco-vim'
-on_ft = ['vim']
 
 [[plugins]]
 repo = 'lyuts/vim-rtags'
@@ -68,18 +48,41 @@ on_ft = ['c','cpp']
 repo = 'vim-scripts/a.vim'
 on_ft = ['c','cpp']
 
-#[[plugins]]
-#repo = 'kakkyz81/evervim'
-#on_if = 'has("python3")'
-#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
-
 [[plugins]]
 repo = 'ncm2/float-preview.nvim'
 on_if = 'has("nvim")'
 hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/float-preview.vim'
 
 #[[plugins]]
+#repo = 'Shougo/neco-vim'
+#on_ft = ['vim']
+
+#[[plugins]]
+#repo = 'kakkyz81/evervim'
+#on_if = 'has("python3")'
+#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
+
+#[[plugins]]
 #repo = 'w0rp/ale'
 #hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/ale.vim'
 #on_ft = ['c','cpp']
+
+#[[plugins]]
+#repo = 'Shougo/neco-syntax'
+#on_event = 'InsertEnter'
+#
+#[[plugins]]
+#repo = 'Shougo/neosnippet.vim'
+#on_event = 'InsertEnter'
+#depends = ['neosnippet-snippets']
+#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/neosnippet.vim'
+#
+#[[plugins]]
+#repo = 'Shougo/neosnippet-snippets'
+#on_event = 'InsertEnter'
+
+#[[plugins]]
+#repo  = 'lervag/vimtex'
+#on_ft = ['tex']
+#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/vimtex.vim'
 

@@ -3,18 +3,22 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'prabirshrestha/async.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+merged = 0
+
+[[plugins]]
 repo = 'Shougo/deol.nvim'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/deol.vim'
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/denite.vim'
-
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build= 'bash install.sh'
-hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/languageclient-neovim.vim'
 
 [[plugins]]
 repo = 'vim-scripts/vim-auto-save'
@@ -109,4 +113,14 @@ repo = 'willelz/badapple.nvim'
 [[plugins]]
 repo = 'bfredl/nvim-miniyank'
 hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/miniyank.vim'
+
+#[[plugins]]
+#repo = 'neovim/nvim-lsp'
+#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/nvim-lsp.vim'
+
+#[[plugins]]
+#repo = 'autozimu/LanguageClient-neovim'
+#rev = 'next'
+#build= 'bash install.sh'
+#hook_add = 'source ~/dotfiles/.vim/autoload/hyokoji/languageclient-neovim.vim'
 
