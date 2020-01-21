@@ -20,6 +20,8 @@ case ${OSTYPE} in
         export PATH="/usr/local/opt/nss/bin:$PATH"
         export PATH="/usr/local/opt/qt/bin:$PATH"
         export PATH="$PATH:$HOME/miniconda3/bin"
+        export BIBINPUTS=$BIBINPUTS:/usr/local/texlive/2019/texmf-dist/bibtex/bib
+        export BSTINPUTS=$BSTINPUTS:/usr/local/texlive/2019/texmf-dist/bibtex/bst
         # エイリアス
         alias ls='lsd'
         alias chrome='open -a "Google Chrome"'
@@ -33,6 +35,8 @@ case ${OSTYPE} in
                 LINUXBREW_PREFIX="/home/linuxbrew/.linuxbrew"
                 PATH="${LINUXBREW_PREFIX}/bin:${LINUXBREW_PREFIX}/sbin:${PATH}"
                 MANPATH="${LINUXBREW_PREFIX}/share/man:${MANPATH}"
+                export BIBINPUTS=$BIBINPUTS:/usr/share/texlive/texmf-dist/bibtex/bib
+                export BSTINPUTS=$BSTINPUTS:/usr/share/texlive/texmf-dist/bibtex/bst
                 alias ls='lsd'
                 alias brew='sudo -iu linuxbrew brew'
                 ;;
