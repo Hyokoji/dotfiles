@@ -35,8 +35,6 @@ case ${OSTYPE} in
                 LINUXBREW_PREFIX="/home/linuxbrew/.linuxbrew"
                 PATH="${LINUXBREW_PREFIX}/bin:${LINUXBREW_PREFIX}/sbin:${PATH}"
                 MANPATH="${LINUXBREW_PREFIX}/share/man:${MANPATH}"
-                export BIBINPUTS=$BIBINPUTS:/usr/share/texlive/texmf-dist/bibtex/bib
-                export BSTINPUTS=$BSTINPUTS:/usr/share/texlive/texmf-dist/bibtex/bst
                 alias ls='lsd'
                 alias brew='sudo -iu linuxbrew brew'
                 ;;
@@ -49,6 +47,8 @@ case ${OSTYPE} in
                 MANPATH="${LINUXBREW_PREFIX}/share/man:${MANPATH}"
                 export PATH="/home/linuxbrew/.linuxbrew/opt/gnu-getopt/bin:$PATH"
                 export PATH="/home/linuxbrew/.linuxbrew/opt/sphinx-doc/bin:$PATH"
+                export BIBINPUTS=$BIBINPUTS:/usr/share/texlive/texmf-dist/bibtex/bib
+                export BSTINPUTS=$BSTINPUTS:/usr/share/texlive/texmf-dist/bibtex/bst
                 alias ls='lsd'
                 ;;
         esac

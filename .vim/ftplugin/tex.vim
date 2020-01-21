@@ -10,5 +10,5 @@ function! s:replace_comma()
   call setpos(".", now_cursor)
   unlet now_cursor
 endfunction
-autocmd BufWritePost *.tex call <SID>replace_comma()
+autocmd BufWritePre *.tex call <SID>replace_comma()
 
