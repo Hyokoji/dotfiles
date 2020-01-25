@@ -38,7 +38,7 @@ elseif has('unix') "コンパイルしても自動で表示まではされない
         \}
 endif
 "保存する度に自動でコンパイル(tex)
-autocmd BufWritePost,FileWritePost *.tex QuickRun tex
+" autocmd BufWritePost,FileWritePost *.tex QuickRun tex
 " 部分的に選択してコンパイル
 " http://auewe.hatenablog.com/entry/2013/12/25/033416 を参考に
 let g:quickrun_config.tmptex = {
