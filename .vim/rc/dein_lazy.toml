@@ -3,7 +3,7 @@
 repo = 'Shougo/deoplete.nvim'
 on_event = 'InsertEnter' #インサートモードに入ったら読み込む
 depends = ['deoplete-vim-lsp','vimtex'] #自分の関数が相手先の設定に使われているときに使う
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/deoplete.vim'
+hook_source = 'source ~/dotfiles/.vim/autoload/user/deoplete.vim'
 
 [[plugins]]
 repo = 'lighttiger2505/deoplete-vim-lsp'
@@ -41,7 +41,7 @@ on_ft = ['markdown','tex','gitcommit']
 
 [[plugins]]
 repo = 'lyuts/vim-rtags'
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/rtags.vim'
+hook_source = 'source ~/dotfiles/.vim/autoload/user/rtags.vim'
 on_ft = ['c','cpp']
 
 [[plugins]]
@@ -51,7 +51,7 @@ on_ft = ['c','cpp']
 [[plugins]]
 repo = 'ncm2/float-preview.nvim'
 on_if = 'has("nvim")'
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/float-preview.vim'
+hook_source = 'source ~/dotfiles/.vim/autoload/user/float-preview.vim'
 
 #[[plugins]]
 #repo = 'Shougo/neco-vim'
@@ -60,11 +60,11 @@ hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/float-preview.vim'
 #[[plugins]]
 #repo = 'kakkyz81/evervim'
 #on_if = 'has("python3")'
-#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/evervim.vim'
+#hook_source = 'source ~/dotfiles/.vim/autoload/user/evervim.vim'
 
 #[[plugins]]
 #repo = 'w0rp/ale'
-#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/ale.vim'
+#hook_source = 'source ~/dotfiles/.vim/autoload/user/ale.vim'
 #on_ft = ['c','cpp']
 
 #[[plugins]]
@@ -75,7 +75,7 @@ hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/float-preview.vim'
 #repo = 'Shougo/neosnippet.vim'
 #on_event = 'InsertEnter'
 #depends = ['neosnippet-snippets']
-#hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/neosnippet.vim'
+#hook_source = 'source ~/dotfiles/.vim/autoload/user/neosnippet.vim'
 #
 #[[plugins]]
 #repo = 'Shougo/neosnippet-snippets'
@@ -84,5 +84,5 @@ hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/float-preview.vim'
 [[plugins]]
 repo  = 'lervag/vimtex'
 on_ft = ['tex']
-hook_source = 'source ~/dotfiles/.vim/autoload/hyokoji/vimtex.vim'
+hook_source = 'source ~/dotfiles/.vim/autoload/user/vimtex.vim'
 
