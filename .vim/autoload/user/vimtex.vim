@@ -11,8 +11,6 @@ if has('nvim')
         \ = 'nvr'
 endif
 
-let g:vimtex_compiler_latexmk = {'callback' : 0}
-
 if has('nvim')
   " deopleteで補完
   call deoplete#custom#var('omni', 'input_patterns', {
