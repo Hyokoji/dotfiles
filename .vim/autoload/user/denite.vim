@@ -1,12 +1,7 @@
-" denite Config
-
-" Change denite default options
-call denite#custom#option('default', {
-      \ 'split': 'floating',
-      \ })
+" denite Config: start --------------------
 
 nnoremap [denite] <Nop>
-nmap <silent><C-i> [denite]
+nmap <silent><space>d [denite]
 
 "現在開いているファイルのディレクトリ下のファイル一覧。
 nnoremap <silent> [denite]f :<C-u>Denite file<CR>
@@ -40,120 +35,54 @@ function! s:denite_my_settings() abort
         \ denite#do_map('do_action', 'tabopen')
 endfunction
 
-" Change file/rec command.
+" use floating
+let s:denite_win_width_percent = 0.85
+let s:denite_win_height_percent = 0.7
+let s:denite_default_options = {
+      \ 'split': 'floating',
+      \ 'winwidth': float2nr(&columns * s:denite_win_width_percent),
+      \ 'wincol': float2nr((&columns - (&columns * s:denite_win_width_percent)) / 2),
+      \ 'winheight': float2nr(&lines * s:denite_win_height_percent),
+      \ 'winrow': float2nr((&lines - (&lines * s:denite_win_height_percent)) / 2),
+      \ 'highlight_filter_background': 'DeniteFilter',
+      \ 'prompt': '$ ',
+      \ 'start_filter': v:true,
+      \ }
+let s:denite_option_array = []
+for [key, value] in items(s:denite_default_options)
+  call add(s:denite_option_array, '-'.key.'='.value)
+endfor
+call denite#custom#option('default', s:denite_default_options)
+
 call denite#custom#var('file/rec', 'command',
       \ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
-" For ripgrep
-" Note: It is slower than ag
-call denite#custom#var('file/rec', 'command',
-      \ ['rg', '--files', '--glob', '!.git'])
-" For Pt(the platinum searcher)
-" NOTE: It also supports windows.
-call denite#custom#var('file/rec', 'command',
-      \ ['pt', '--follow', '--nocolor', '--nogroup',
-      \  (has('win32') ? '-g:' : '-g='), ''])
-" For python script scantree.py
-" Read bellow on this file to learn more about scantree.py
-call denite#custom#var('file/rec', 'command', ['scantree.py'])
-
-" Change matchers.
-call denite#custom#source(
-      \ 'file_mru', 'matchers', ['matcher/fuzzy', 'matcher/project_files'])
-call denite#custom#source(
-      \ 'file/rec', 'matchers', ['matcher/cpsm'])
-
-" Change sorters.
-call denite#custom#source(
-      \ 'file/rec', 'sorters', ['sorter/sublime'])
-
-" Add custom menus
-let s:menus = {}
-
-let s:menus.zsh = {
-      \ 'description': 'Edit your import zsh configuration'
-      \ }
-let s:menus.zsh.file_candidates = [
-      \ ['zshrc', '~/.config/zsh/.zshrc'],
-      \ ['zshenv', '~/.zshenv'],
-      \ ]
-
-let s:menus.my_commands = {
-      \ 'description': 'Example commands'
-      \ }
-let s:menus.my_commands.command_candidates = [
-      \ ['Split the window', 'vnew'],
-      \ ['Open zsh menu', 'Denite menu:zsh'],
-      \ ['Format code', 'FormatCode', 'go,python'],
-      \ ]
-
-call denite#custom#var('menu', 'menus', s:menus)
-
-" Ag command on grep source
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'default_opts',
-      \ ['-i', '--vimgrep'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-" Ack command on grep source
-call denite#custom#var('grep', 'command', ['ack'])
-call denite#custom#var('grep', 'default_opts',
-      \ ['--ackrc', $HOME.'/.ackrc', '-H', '-i',
-      \  '--nopager', '--nocolor', '--nogroup', '--column'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--match'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-" Ripgrep command on grep source
-call denite#custom#var('grep', 'command', ['rg'])
-call denite#custom#var('grep', 'default_opts',
-      \ ['-i', '--vimgrep', '--no-heading'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-" Pt command on grep source
-call denite#custom#var('grep', 'command', ['pt'])
-call denite#custom#var('grep', 'default_opts',
-      \ ['-i', '--nogroup', '--nocolor', '--smart-case'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-" jvgrep command on grep source
-call denite#custom#var('grep', 'command', ['jvgrep'])
-call denite#custom#var('grep', 'default_opts', ['-i'])
-call denite#custom#var('grep', 'recursive_opts', ['-R'])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', [])
-call denite#custom#var('grep', 'final_opts', [])
-
-" Specify multiple paths in grep source
-"call denite#start([{'name': 'grep',
-"      \ 'args': [['a.vim', 'b.vim'], '', 'pattern']}])
-
-" Define alias
-call denite#custom#alias('source', 'file/rec/git', 'file/rec')
-call denite#custom#var('file/rec/git', 'command',
-      \ ['git', 'ls-files', '-co', '--exclude-standard'])
-
-call denite#custom#alias('source', 'file/rec/py', 'file/rec')
-call denite#custom#var('file/rec/py', 'command',['scantree.py'])
-
-" Change ignore_globs
 call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
       \ [ '.git/', '.ropeproject/', '__pycache__/',
       \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+" Ag command on grep source
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+" grep
+command! -nargs=? Dgrep call s:Dgrep(<f-args>)
+function s:Dgrep(...)
+  if a:0 > 0
+    execute(':Denite -buffer-name=grep-buffer-denite grep -path='.a:1)
+  else
+    execute(':Denite -buffer-name=grep-buffer-denite '.join(s:denite_option_array, ' ').' grep')
+  endif
+endfunction
+" show Denite grep results
+command! Dresume execute(':Denite -resume -buffer-name=grep-buffer-denite '.join(s:denite_option_array, ' ').'')
+" next Denite grep result
+command! Dnext execute(':Denite -resume -buffer-name=grep-buffer-denite -cursor-pos=+1 -immediately '.join(s:denite_option_array, ' ').'')
+" previous Denite grep result
+command! Dprev execute(':Denite -resume -buffer-name=grep-buffer-denite -cursor-pos=-1 -immediately '.join(s:denite_option_array, ' ').'')
+" keymap
+call denite#custom#map('insert', '<C-n>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-p>', '<denite:move_to_previous_line>', 'noremap')
 
-" Custom action
-" Note: lambda function is not supported in Vim8.
-call denite#custom#action('file', 'test',
-      \ {context -> execute('let g:foo = 1')})
-call denite#custom#action('file', 'test2',
-      \ {context -> denite#do_action(
-      \ context, 'open', context['targets'])})
+" denite Config: end --------------------

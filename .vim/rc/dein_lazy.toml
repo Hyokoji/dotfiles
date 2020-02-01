@@ -9,28 +9,6 @@ hook_source = 'source ~/dotfiles/.vim/autoload/user/deoplete.vim'
 repo = 'lighttiger2505/deoplete-vim-lsp'
 on_event = 'InsertEnter' #インサートモードに入ったら読み込む
 
-#[[plugins]]
-#repo = 'tbodt/deoplete-tabnine'
-#on_ft = ['tex']
-#build = 'bash install.sh'
-
-[[plugins]]
-repo = 'Shougo/neoinclude.vim'
-on_ft = ['c', 'cpp']
-
-[[plugins]]
-repo = 'tpope/vim-markdown'
-on_ft = ['markdown']
-hook_source = 'let g:markdown_syntax_conceal = 0'
-
-[[plugins]]
-repo = 'iamcco/markdown-preview.vim'
-on_ft = ['vim-markdown']
-
-[[plugins]]
-repo = 'iamcco/mathjax-support-for-mkdp'
-on_source = ['vim-markdown']
-
 [[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = ['toml']
@@ -40,11 +18,6 @@ repo = 'ujihisa/neco-look'
 on_ft = ['markdown','tex','gitcommit']
 
 [[plugins]]
-repo = 'lyuts/vim-rtags'
-hook_source = 'source ~/dotfiles/.vim/autoload/user/rtags.vim'
-on_ft = ['c','cpp']
-
-[[plugins]]
 repo = 'vim-scripts/a.vim'
 on_ft = ['c','cpp']
 
@@ -52,6 +25,39 @@ on_ft = ['c','cpp']
 repo = 'ncm2/float-preview.nvim'
 on_if = 'has("nvim")'
 hook_source = 'source ~/dotfiles/.vim/autoload/user/float-preview.vim'
+
+[[plugins]]
+repo  = 'lervag/vimtex'
+on_ft = ['tex']
+hook_source = 'source ~/dotfiles/.vim/autoload/user/vimtex.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet.vim'
+on_event = 'InsertCharPre'
+on_ft = 'snippet'
+depends = ['neosnippet-snippets']
+hook_source = 'source ~/dotfiles/.vim/autoload/user/neosnippet.vim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+#[[plugins]]
+#repo = 'tpope/vim-markdown'
+#on_ft = ['markdown']
+#hook_source = 'let g:markdown_syntax_conceal = 0'
+#
+#[[plugins]]
+#repo = 'iamcco/markdown-preview.vim'
+#on_ft = ['vim-markdown']
+#
+#[[plugins]]
+#repo = 'iamcco/mathjax-support-for-mkdp'
+#on_source = ['vim-markdown']
+
+#[[plugins]]
+#repo = 'tbodt/deoplete-tabnine'
+#on_ft = ['tex']
+#build = 'bash install.sh'
 
 #[[plugins]]
 #repo = 'Shougo/neco-vim'
@@ -72,17 +78,11 @@ hook_source = 'source ~/dotfiles/.vim/autoload/user/float-preview.vim'
 #on_event = 'InsertEnter'
 #
 #[[plugins]]
-#repo = 'Shougo/neosnippet.vim'
-#on_event = 'InsertEnter'
-#depends = ['neosnippet-snippets']
-#hook_source = 'source ~/dotfiles/.vim/autoload/user/neosnippet.vim'
-#
+#repo = 'lyuts/vim-rtags'
+#hook_source = 'source ~/dotfiles/.vim/autoload/user/rtags.vim'
+#on_ft = ['c','cpp']
+
 #[[plugins]]
-#repo = 'Shougo/neosnippet-snippets'
-#on_event = 'InsertEnter'
-
-[[plugins]]
-repo  = 'lervag/vimtex'
-on_ft = ['tex']
-hook_source = 'source ~/dotfiles/.vim/autoload/user/vimtex.vim'
-
+#repo = 'Shougo/neoinclude.vim'
+#on_ft = ['c', 'cpp']
+#

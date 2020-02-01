@@ -26,11 +26,11 @@ call deoplete#custom#source('omni', 'mark', '[omni]')
 
 " Filetype
 "autocmd FileType tex
-"      \ call deoplete#custom#source('neco-look', 'rank', 200)
+"      \ call deoplete#custom#source('vimtex', 'rank', 500)
 
-" tabnine
-call deoplete#custom#source('tabnine', 'prev_completion_mode', 'mirror')
-call deoplete#custom#source('tabnine', 'dup', v:false )
-" LanguageClient
-call deoplete#custom#source('LanguageClient', 'dup', v:false)
-" vimtex
+"" tabnine
+"call deoplete#custom#source('tabnine', 'prev_completion_mode', 'mirror')
+"call deoplete#custom#source('tabnine', 'dup', v:false )
+"" LanguageClient
+"call deoplete#custom#source('LanguageClient', 'dup', v:false)
+"" vimtex

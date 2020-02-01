@@ -5,14 +5,6 @@ nnoremap ; :
 nnoremap : ;
 " ==でインデントを揃える
 nnoremap == gg=G'''
-" 矢印キーでバッファ移動
-nnoremap <Up>    :<C-u>bp<CR>
-nnoremap <Down>  :<C-u>bn<CR>
-nnoremap <Left>  <C-o>
-nnoremap <Right> <C-i>
-" Ctrl-k,jでバッファ移動
-nnoremap <C-k>   :<C-u>bp<CR>
-nnoremap <C-j>   :<C-u>bn<CR>
 " ESC２回押しでハイライトを消す
 nnoremap <ESC><ESC> :<C-u>noh<CR>
 "クリップボードにコピペできるように

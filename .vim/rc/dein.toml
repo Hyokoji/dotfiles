@@ -3,6 +3,13 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+on_if = '!has("nvim")'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
 repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
@@ -13,16 +20,22 @@ repo = 'mattn/vim-lsp-settings'
 merged = 0
 
 [[plugins]]
-repo = 'Shougo/deol.nvim'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/deol.vim'
-
-[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = 'source ~/dotfiles/.vim/autoload/user/denite.vim'
 
 [[plugins]]
-repo = 'vim-scripts/vim-auto-save'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/autosave.vim'
+repo = 'Shougo/deol.nvim'
+hook_add = 'source ~/dotfiles/.vim/autoload/user/deol.vim'
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+hook_add = 'source ~/dotfiles/.vim/autoload/user/defx.vim'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
+
+[[plugins]]
+repo = 'kristijanhusak/defx-git'
 
 [[plugins]]
 repo = 'Yggdroot/indentLine'
@@ -66,6 +79,18 @@ hook_add = 'source ~/dotfiles/.vim/autoload/user/openbrowser.vim'
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
+repo = 'bfredl/nvim-miniyank'
+hook_add = 'source ~/dotfiles/.vim/autoload/user/miniyank.vim'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+hook_add = 'source ~/dotfiles/.vim/autoload/user/vim-devicons.vim'
+
+[[plugins]]
+repo = 'mattn/sonictemplate-vim'
+hook_add = 'source ~/dotfiles/.vim/autoload/user/sonictemplate.vim'
+
+[[plugins]]
 repo = 'basyura/Tweetvim'
 hook_add = 'source ~/dotfiles/.vim/autoload/user/tweetvim.vim'
 
@@ -73,46 +98,14 @@ hook_add = 'source ~/dotfiles/.vim/autoload/user/tweetvim.vim'
 repo = 'basyura/twibill.vim'
 
 [[plugins]]
-repo = 'Shougo/defx.nvim'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/defx.vim'
-
-[[plugins]]
-repo = 'koron/dicwin-vim'
-
-[[plugins]]
-repo = 'yuratomo/w3m.vim'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/w3m.vim'
-
-[[plugins]]
-repo = 'thinca/vim-ref'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/ref.vim'
-
-[[plugins]]
-repo = 'ryanoasis/vim-devicons'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/vim-devicons.vim'
-
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-
-[[plugins]]
-repo = 'itchyny/calendar.vim'
-
-[[plugins]]
 repo = 'mattn/vim-starwars'
-
-[[plugins]]
-repo = 'mattn/sonictemplate-vim'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/sonictemplate.vim'
 
 [[plugins]]
 repo = 'willelz/badapple.nvim'
 
 [[plugins]]
-repo = 'bfredl/nvim-miniyank'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/miniyank.vim'
+repo = 'vim-scripts/vim-auto-save'
+hook_add = 'source ~/dotfiles/.vim/autoload/user/autosave.vim'
 
 #[[plugins]]
 #repo = 'neovim/nvim-lsp'
@@ -123,4 +116,18 @@ hook_add = 'source ~/dotfiles/.vim/autoload/user/miniyank.vim'
 #rev = 'next'
 #build= 'bash install.sh'
 #hook_add = 'source ~/dotfiles/.vim/autoload/user/languageclient-neovim.vim'
+
+#[[plugins]]
+#repo = 'itchyny/calendar.vim'
+
+#[[plugins]]
+#repo = 'thinca/vim-ref'
+#hook_add = 'source ~/dotfiles/.vim/autoload/user/ref.vim'
+#
+#[[plugins]]
+#repo = 'yuratomo/w3m.vim'
+#hook_add = 'source ~/dotfiles/.vim/autoload/user/w3m.vim'
+#
+#[[plugins]]
+#repo = 'koron/dicwin-vim'
 
