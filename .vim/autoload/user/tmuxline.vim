@@ -8,7 +8,7 @@ if has('mac')
         \'win'  : ['#I', '#W'],
         \'cwin' : ['#I', '#W', '#F'],
         \'x'    : ['#(get_volume_tmux)#(get_ssid_tmux) #(battery --tmux)'],
-        \'z'    : [' #(ansiweather -l nagoya -w false -h false -p false -a false -s true | cut -d " " -f6,7,8)',' %d %a',' %R']}
+        \'z'    : [' #(ansiweather -l nagoya -w false -h false -p false -a false -s true | cut -d " " -f5,6,7)',' %d %a',' %R']}
   let g:tmuxline_separators = {
         \ 'left' : '',
         \ 'left_alt': '',
@@ -27,7 +27,7 @@ elseif has('unix')
           \'c'    : ['#H'],
           \'win'  : ['#I', '#W'],
           \'cwin' : ['#I', '#W', '#F'],
-          \'z'    : [' #(ansiweather -l nagoya -w false -h false -p false -a false -s true | cut -d " " -f6,7,8) ',' %d %a',' %R']}
+          \'z'    : [' #(ansiweather -l nagoya -w false -h false -p false -a false -s true | cut -d " " -f5,6,7) ',' %d %a',' %R']}
   let g:tmuxline_separators = {
         \ 'left' : '',
         \ 'left_alt': '>',
