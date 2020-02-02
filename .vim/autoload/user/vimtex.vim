@@ -6,14 +6,11 @@ elseif has('unix')
   let g:vimtex_view_general_viewer = 'evince'
 endif
 
-if has('nvim')
-  let g:vimtex_compiler_progname
-        \ = 'nvr'
-endif
-
 let g:vimtex_compiler_latexmk = {'callback' : 0}
 
 if has('nvim')
+  let g:vimtex_compiler_progname
+        \ = 'nvr'
   " deopleteで補完
   call deoplete#custom#var('omni', 'input_patterns', {
         \ 'tex': g:vimtex#re#deoplete

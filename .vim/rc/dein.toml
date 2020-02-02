@@ -98,12 +98,6 @@ hook_add = 'source ~/dotfiles/.vim/autoload/user/tweetvim.vim'
 repo = 'basyura/twibill.vim'
 
 [[plugins]]
-repo = 'mattn/vim-starwars'
-
-[[plugins]]
-repo = 'willelz/badapple.nvim'
-
-[[plugins]]
 repo = 'vim-scripts/vim-auto-save'
 hook_add = 'source ~/dotfiles/.vim/autoload/user/autosave.vim'
 
@@ -131,3 +125,9 @@ hook_add = 'source ~/dotfiles/.vim/autoload/user/autosave.vim'
 #[[plugins]]
 #repo = 'koron/dicwin-vim'
 
+#[[plugins]]
+#repo = 'mattn/vim-starwars'
+#
+#[[plugins]]
+#repo = 'willelz/badapple.nvim'
+#

@@ -43,9 +43,3 @@ endif
 let g:python_host_prog  = substitute(system('which python'),"\n","","")
 let g:python3_host_prog = substitute(system('which python3'),"\n","","")
 
-if filereadable(expand('~/secret/evervim.vim'))
-  source ~/secret/evervim.vim
-endif
-if filereadable(expand('~/secret/slack.vim'))
-  source ~/secret/slack.vim
-endif
