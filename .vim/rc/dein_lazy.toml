@@ -41,6 +41,11 @@ hook_source = 'source ~/dotfiles/.vim/autoload/user/neosnippet.vim'
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
+[[plugins]]
+repo = 'bfredl/nvim-miniyank'
+on_if = 'has("nvim")'
+hook_source = 'source ~/dotfiles/.vim/autoload/user/miniyank.vim'
+
 #[[plugins]]
 #repo = 'tpope/vim-markdown'
 #on_ft = ['markdown']
