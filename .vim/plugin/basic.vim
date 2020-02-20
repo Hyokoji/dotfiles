@@ -7,7 +7,6 @@ au BufWrite /private/tmp/crontab.* set nowritebackup nobackup " Don't write back
 au BufWrite /private/etc/pw.* set nowritebackup nobackup " Don't write backup file if vim is being called by "chpass"
 "===== 表示設定 =====
 set number "行番号の表示
-set termguicolors
 set title "編集中ファイル名の表示
 set showmatch "括弧入力時に対応する括弧を示す
 set list "タブ、空白、改行を可視化
