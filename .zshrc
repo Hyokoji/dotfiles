@@ -114,7 +114,7 @@ function rprompt-git-current-branch {
         #        branch_status="%F{blue}"
     fi
     # ブランチ名を色付きで表示する
-    echo "%K{238}${branch_status} $branch_name%k%K{238}%F{0} "
+    echo "%K{238}${branch_status} $branch_name%k%K{238}%F{0} %f%k"
 }
 # プロンプトの右側に現在のパスを表示
 RPROMPT="%F{17} %f%K{17}%F{white} %d%f%k%K{17}%F{238} %k%f"
