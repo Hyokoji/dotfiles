@@ -55,31 +55,31 @@ case ${OSTYPE} in
         ;;
 esac
 
+# 色を使用
+autoload -Uz colors
+colors
+zstyle ":completion:*" matcher-list                                        \
+    ""                                                                  \
+    '                                     m:{[:lower:]\-}={[:upper:]_}' \
+    'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{[:lower:]\-}={[:upper:]_}' \
+    'r:|?=**                              m:{[:lower:]\-}={[:upper:]_}'
+
+
+#補完
+autoload -Uz compinit
+compinit
+
 # ------------------------------------
 # プロンプト
 # -------------------------------------
-OK="^_^*"
-NG="~_~;"
-PROMPT=""
-PROMPT+="%(?.%F{green}$OK%f.%F{red}$NG%f) "
+local HOSTCOLOR=$'%{\e[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
+local DEFAULTC=$'%{\e[m%}'
+PROMPT="%K{238}%F{0}%f%k"
+PROMPT+="%K{238}"
+PROMPT+="%(?.%F{82}.%F{196})"
+PROMPT+=" %n %f%k$HOSTCOLOR%K{238}%S%s%k"
+PROMPT+=$HOSTCOLOR'%S %m $DEFAULTC%s'$HOSTCOLOR' '$DEFAULTC
 PROMPT+=""
-case ${OSTYPE} in
-    darwin*)
-        PROMPT+="%F{cyan}<%n@%m>%f "
-        ;;
-    freebsd*)
-        PROMPT+="%F{194}<%n@%m>%f "
-        ;;
-    linux*)
-        case ${HOSTNAME} in
-            g*)
-                PROMPT+="%F{207}<%n@%m>%f "
-                ;;
-            h*)
-                PROMPT+="%F{144}<%n@%m>%f "
-        esac
-        ;;
-esac
 
 # gitの状態を表示したい
 # ブランチ名を色付きで表示させるメソッド
@@ -114,10 +114,10 @@ function rprompt-git-current-branch {
         #        branch_status="%F{blue}"
     fi
     # ブランチ名を色付きで表示する
-    echo "${branch_status}[$branch_name]"
+    echo "%K{238}${branch_status} $branch_name%k%K{238}%F{0} "
 }
 # プロンプトの右側に現在のパスを表示
-RPROMPT="%F{blue}[%d]%{${reset_color}%}"
+RPROMPT="%F{17} %f%K{17}%F{white} %d%f%k%K{17}%F{238} %k%f"
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 # プロンプトの右側(RPROMPT)にメソッドの結果を表示させる
@@ -130,19 +130,6 @@ export LC_CTYPE="en_US.UTF-8"
 #escを速く
 KEYTIMEOUT=1
 
-# 色を使用
-autoload -Uz colors
-colors
-zstyle ":completion:*" matcher-list                                        \
-    ""                                                                  \
-    '                                     m:{[:lower:]\-}={[:upper:]_}' \
-    'r:[^[:alpha:]]||[[:alpha:]]=** r:|=* m:{[:lower:]\-}={[:upper:]_}' \
-    'r:|?=**                              m:{[:lower:]\-}={[:upper:]_}'
-
-
-#補完
-autoload -Uz compinit
-compinit
 
 #viキーバインド
 #bindkey -v
