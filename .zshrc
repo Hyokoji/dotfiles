@@ -128,10 +128,10 @@ function rprompt-git-current-branch {
     # ブランチ名を色付きで表示する
     case ${OSTYPE} in
         darwin*)
-            echo "%K{238}${branch_status} $branch_name%k%K{238}%F{0} %f%k"
+            echo "%K{238}${branch_status} $branch_name%k"
             ;;
         linux*)
-            echo "%K{238} ${branch_status}⎇  $branch_name%k%K{238}%F{0}◀ %f%k"
+            echo "%K{238} ${branch_status}⎇  $branch_name%k"
             ;;
     esac
 }
@@ -139,15 +139,18 @@ function rprompt-git-current-branch {
 case ${OSTYPE} in
     darwin*)
         RPROMPT="%F{17} %f%K{17}%F{white} %d%f%k%K{17}%F{238} %k%f"
+        RPROMPT+='`rprompt-git-current-branch`'
+        RPROMPT+='%K{238}%F{0} %k%f'
         ;;
     linux*)
         RPROMPT="%F{17}◀ %f%K{17}%F{white} %d%f%k%K{17}%F{238}◀ %k%f"
+        RPROMPT+='`rprompt-git-current-branch`'
+        RPROMPT+='%K{238}%F{0}◀ %k%f'
         ;;
 esac
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 # プロンプトの右側(RPROMPT)にメソッドの結果を表示させる
-RPROMPT+='`rprompt-git-current-branch`'
 
 #日本語を使用
 export LANG=en_US.UTF-8
