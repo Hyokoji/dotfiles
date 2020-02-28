@@ -74,12 +74,24 @@ compinit
 # -------------------------------------
 local HOSTCOLOR=$'%{\e[38;5;'"$(printf "%d\n" 0x$(hostname|md5sum|cut -c1-2))"'m%}'
 local DEFAULTC=$'%{\e[m%}'
-PROMPT="%K{238}%F{0}%f%k"
-PROMPT+="%K{238}"
-PROMPT+="%(?.%F{82}.%F{196})"
-PROMPT+=" %n %f%k$HOSTCOLOR%K{238}%S%s%k"
-PROMPT+=$HOSTCOLOR'%S %m $DEFAULTC%s'$HOSTCOLOR' '$DEFAULTC
-PROMPT+=""
+case ${OSTYPE} in
+    darwin*)
+        PROMPT="%K{238}%F{0}%f%k"
+        PROMPT+="%K{238}"
+        PROMPT+="%(?.%F{82}.%F{196})"
+        PROMPT+=" %n %f%k$HOSTCOLOR%K{238}%S%s%k"
+        PROMPT+=$HOSTCOLOR'%S %m $DEFAULTC%s'$HOSTCOLOR' '$DEFAULTC
+        PROMPT+=""
+        ;;
+    linux*)
+        PROMPT="%K{238}%F{0}▶%f%k"
+        PROMPT+="%K{238}"
+        PROMPT+="%(?.%F{82}.%F{196})"
+        PROMPT+=" %n %f%k$HOSTCOLOR%K{238}%S▶%s%k"
+        PROMPT+=$HOSTCOLOR'%S %m $DEFAULTC%s'$HOSTCOLOR'▶ '$DEFAULTC
+        PROMPT+=""
+        ;;
+esac
 
 # gitの状態を表示したい
 # ブランチ名を色付きで表示させるメソッド
@@ -114,10 +126,24 @@ function rprompt-git-current-branch {
         #        branch_status="%F{blue}"
     fi
     # ブランチ名を色付きで表示する
-    echo "%K{238}${branch_status} $branch_name%k%K{238}%F{0} %f%k"
+    case ${OSTYPE} in
+        darwin*)
+            echo "%K{238}${branch_status} $branch_name%k%K{238}%F{0} %f%k"
+            ;;
+        linux*)
+            echo "%K{238} ${branch_status}⎇  $branch_name%k%K{238}%F{0}◀ %f%k"
+            ;;
+    esac
 }
 # プロンプトの右側に現在のパスを表示
-RPROMPT="%F{17} %f%K{17}%F{white} %d%f%k%K{17}%F{238} %k%f"
+case ${OSTYPE} in
+    darwin*)
+        RPROMPT="%F{17} %f%K{17}%F{white} %d%f%k%K{17}%F{238} %k%f"
+        ;;
+    linux*)
+        RPROMPT="%F{17}◀ %f%K{17}%F{white} %d%f%k%K{17}%F{238}◀ %k%f"
+        ;;
+esac
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
 setopt prompt_subst
 # プロンプトの右側(RPROMPT)にメソッドの結果を表示させる
