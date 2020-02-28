@@ -88,7 +88,7 @@ case ${OSTYPE} in
         PROMPT+="%K{238}"
         PROMPT+="%(?.%F{82}.%F{196})"
         PROMPT+=" %n %f%k$HOSTCOLOR%K{238}%S▶%s%k"
-        PROMPT+=$HOSTCOLOR'%S %m $DEFAULTC%s'$HOSTCOLOR'▶ '$DEFAULTC
+        PROMPT+=$HOSTCOLOR'%S %m $DEFAULTC%s'$HOSTCOLOR'▶  '$DEFAULTC
         PROMPT+=""
         ;;
 esac
@@ -143,9 +143,9 @@ case ${OSTYPE} in
         RPROMPT+='%K{238}%F{0} %k%f'
         ;;
     linux*)
-        RPROMPT="%F{17}◀ %f%K{17}%F{white} %d%f%k%K{17}%F{238}◀ %k%f"
+        RPROMPT="%F{17}◀ %f%K{17}%F{white} %d%f%k%K{17}%F{238} ◀ %k%f"
         RPROMPT+='`rprompt-git-current-branch`'
-        RPROMPT+='%K{238}%F{0}◀ %k%f'
+        RPROMPT+='%K{238}%F{0} ◀ %k%f'
         ;;
 esac
 # プロンプトが表示されるたびにプロンプト文字列を評価、置換する
