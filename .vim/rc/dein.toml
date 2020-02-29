@@ -88,6 +88,7 @@ repo = 'basyura/twibill.vim'
 repo = 'vim-scripts/vim-auto-save'
 hook_add = '''
 let g:auto_save = 1  " デフォルトで有効にする
+let g:auto_save_in_insert_mode = 0 "インサートモードのときは自動保存しない
 let g:auto_save_silent = 1  " auto_saveの表示をしない
 '''
 

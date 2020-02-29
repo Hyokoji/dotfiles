@@ -19,6 +19,7 @@ for f in .??*; do
   ln -snfv ~/dotfiles/"$f" ~/
 done
 
+mkdir -p $HOME/.config/nvim
 ln -snfv ~/dotfiles/.vim ~/.config/nvim
 ln -snfv ~/dotfiles/.vim/vimrc ~/.config/nvim/init.vim
 

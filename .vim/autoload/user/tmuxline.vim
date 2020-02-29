@@ -29,9 +29,9 @@ elseif has('unix')
           \'cwin' : ['#I', '#W', '#F'],
           \'z'    : [' #(ansiweather -l nagoya -w false -h false -p false -a false -s true | cut -d " " -f5,6,7) ',' %d %a',' %R']}
   let g:tmuxline_separators = {
-        \ 'left' : '',
+        \ 'left' : '▶',
         \ 'left_alt': '>',
-        \ 'right' : ' ',
+        \ 'right' : '◀ ',
         \ 'right_alt' : '<',
         \ 'space' : ' '}
     let g:tmuxline_theme = 'nightly_fox'
@@ -47,9 +47,9 @@ elseif has('unix')
           \'y'    : [' %R'],
           \'z'    : [' %d %a']}
   let g:tmuxline_separators = {
-        \ 'left' : '',
+        \ 'left' : '▶',
         \ 'left_alt': '>',
-        \ 'right' : ' ',
+        \ 'right' : '◀ ',
         \ 'right_alt' : '<',
         \ 'space' : ' '}
     let g:tmuxline_theme = 'jellybeans'
