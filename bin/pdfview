@@ -1,2 +1,0 @@
-#!/bin/sh
-pdftotext -nopgbrk -layout $1 -|less
