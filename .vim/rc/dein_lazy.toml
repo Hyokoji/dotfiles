@@ -1,13 +1,68 @@
 # 遅延読み込み
 [[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+on_if = '!has("nvim")'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+on_source = 'vim-hug-neovim-rpc'
+
+[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 on_event = 'InsertEnter' #インサートモードに入ったら読み込む
 depends = ['deoplete-vim-lsp','vimtex'] #自分の関数が相手先の設定に使われているときに使う
-hook_source = 'source ~/dotfiles/.vim/autoload/user/deoplete.vim'
+hook_source = '''
+let g:deoplete#enable_at_startup = 1 "起動時に有効
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"               " TABキーで補完候補を下向きに移動
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"           " Shiftキー + TABキーで補完候補を上向きに移動
+inoremap <expr><CR>  pumvisible() ? deoplete#close_popup() : "<CR>"    " 補完候補が表示されている場合は確定。そうでない場合は改行
+call deoplete#custom#source('_', 'sorters', ['sorter_word'])
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy']) " fuzzy matcher
+call deoplete#custom#source('buffer', 'mark', '[buffer]')
+call deoplete#custom#source('omni', 'mark', '[omni]')
+'''
 
 [[plugins]]
 repo = 'lighttiger2505/deoplete-vim-lsp'
 on_event = 'InsertEnter' #インサートモードに入ったら読み込む
+
+[[plugins]]
+repo = 'prabirshrestha/async.vim'
+on_source = 'deoplete-vim-lsp'
+
+[[plugins]]
+repo = 'prabirshrestha/vim-lsp'
+on_source = 'deoplete-vim-lsp'
+
+[[plugins]]
+repo = 'mattn/vim-lsp-settings'
+on_source = 'deoplete-vim-lsp'
+merged = 0
+
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+on_if = 'has("nvim")'
+hook_source = 'source ~/dotfiles/.vim/autoload/user/denite.vim'
+
+[[plugins]]
+repo = 'Shougo/deol.nvim'
+on_if = 'has("nvim")'
+hook_source = '''
+nnoremap <silent><space>s :<C-u>Deol zsh -split=floating<CR>
+'''
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+on_if = 'has("nvim")'
+hook_source = 'source ~/dotfiles/.vim/autoload/user/defx.vim'
+
+[[plugins]]
+on_if = 'has("nvim")'
+repo = 'kristijanhusak/defx-icons'
+
+[[plugins]]
+on_if = 'has("nvim")'
+repo = 'kristijanhusak/defx-git'
 
 [[plugins]]
 repo = 'cespare/vim-toml'
@@ -24,19 +79,50 @@ on_ft = ['c','cpp']
 [[plugins]]
 repo = 'ncm2/float-preview.nvim'
 on_if = 'has("nvim")'
-hook_source = 'source ~/dotfiles/.vim/autoload/user/float-preview.vim'
-
+hook_source = '''
+set completeopt-=preview
+let g:float_preview#docked = 0
+'''
 [[plugins]]
 repo  = 'lervag/vimtex'
 on_ft = ['tex']
-hook_source = 'source ~/dotfiles/.vim/autoload/user/vimtex.vim'
+hook_source = '''
+if has('mac') " この順番じゃないとうまくOS判定できない
+let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
+let g:vimtex_view_general_options = '@line @pdf @tex'
+elseif has('unix')
+let g:vimtex_view_general_viewer = 'evince'
+endif
+let g:vimtex_compiler_latexmk = {'callback' : 0}
+if has('nvim')
+let g:vimtex_compiler_progname
+\ = 'nvr'
+" deopleteで補完
+call deoplete#custom#var('omni', 'input_patterns', {'tex': g:vimtex#re#deoplete})
+else
+if !exists('g:neocomplete#sources#omni#input_patterns') "texで自動補完
+let g:neocomplete#sources#omni#input_patterns = {}
+endif
+let g:neocomplete#sources#omni#input_patterns.tex = g:vimtex#re#neocomplete
+endif
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet.vim'
 on_event = 'InsertCharPre'
 on_ft = 'snippet'
 depends = ['neosnippet-snippets']
-hook_source = 'source ~/dotfiles/.vim/autoload/user/neosnippet.vim'
+hook_source = '''
+let g:neosnippet#snippets_directory="~/.vim/my_snippet"
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+if has('conceal')
+set conceallevel=2 concealcursor=i
+endif
+" Expand the completed snippet trigger by <CR>.
+imap <expr><CR> (pumvisible() && neosnippet#expandable()) ? "\<Plug>(neosnippet_expand)" : "\<CR>"
+'''
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
@@ -44,50 +130,8 @@ repo = 'Shougo/neosnippet-snippets'
 [[plugins]]
 repo = 'bfredl/nvim-miniyank'
 on_if = 'has("nvim")'
-hook_source = 'source ~/dotfiles/.vim/autoload/user/miniyank.vim'
+hook_source = '''
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoput)
+'''
 
-#[[plugins]]
-#repo = 'tpope/vim-markdown'
-#on_ft = ['markdown']
-#hook_source = 'let g:markdown_syntax_conceal = 0'
-#
-#[[plugins]]
-#repo = 'iamcco/markdown-preview.vim'
-#on_ft = ['vim-markdown']
-#
-#[[plugins]]
-#repo = 'iamcco/mathjax-support-for-mkdp'
-#on_source = ['vim-markdown']
-
-#[[plugins]]
-#repo = 'tbodt/deoplete-tabnine'
-#on_ft = ['tex']
-#build = 'bash install.sh'
-
-#[[plugins]]
-#repo = 'Shougo/neco-vim'
-#on_ft = ['vim']
-
-#[[plugins]]
-#repo = 'kakkyz81/evervim'
-#on_if = 'has("python3")'
-#hook_source = 'source ~/dotfiles/.vim/autoload/user/evervim.vim'
-
-#[[plugins]]
-#repo = 'w0rp/ale'
-#hook_source = 'source ~/dotfiles/.vim/autoload/user/ale.vim'
-#on_ft = ['c','cpp']
-
-#[[plugins]]
-#repo = 'Shougo/neco-syntax'
-#on_event = 'InsertEnter'
-#
-#[[plugins]]
-#repo = 'lyuts/vim-rtags'
-#hook_source = 'source ~/dotfiles/.vim/autoload/user/rtags.vim'
-#on_ft = ['c','cpp']
-
-#[[plugins]]
-#repo = 'Shougo/neoinclude.vim'
-#on_ft = ['c', 'cpp']
-#

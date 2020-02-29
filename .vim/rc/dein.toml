@@ -3,41 +3,6 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-on_if = '!has("nvim")'
-
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
-merged = 0
-
-[[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/denite.vim'
-
-[[plugins]]
-repo = 'Shougo/deol.nvim'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/deol.vim'
-
-[[plugins]]
-repo = 'Shougo/defx.nvim'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/defx.vim'
-
-[[plugins]]
-repo = 'kristijanhusak/defx-icons'
-
-[[plugins]]
-repo = 'kristijanhusak/defx-git'
-
-[[plugins]]
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
@@ -49,15 +14,20 @@ repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
 repo = 'edkolev/tmuxline.vim'
+on_cmd = 'Tmuxline'
 hook_add = 'source ~/dotfiles/.vim/autoload/user/tmuxline.vim'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/gitgutter.vim'
+hook_add = '''
+set updatetime=50
+'''
 
 [[plugins]]
 repo = 'bronson/vim-trailing-whitespace'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/whitespace.vim'
+hook_add = '''
+let g:extra_whitespace_ignored_filetypes = ['defx']
+'''
 
 [[plugins]]
 repo = 'thinca/vim-quickrun'
@@ -65,65 +35,59 @@ hook_add = 'source ~/dotfiles/.vim/autoload/user/quickrun.vim'
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/easymotion.vim'
+hook_add = '''
+map <Leader> <Plug>(easymotion-prefix)
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+nmap f <Plug>(easymotion-overwin-f2)
+let g:EasyMotion_smartcase = 1
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+'''
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
-hook_post_update = 'source ~/dotfiles/.vim/autoload/user/vimproc.vim'
-
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/openbrowser.vim'
+hook_post_update = '''
+if has('win32')
+  let cmd = 'tools\\update-dll-mingw'
+elseif has('win32unix') " for Cygwin
+  let cmd = 'make -f make_cygwin.mak'
+elseif executable('gmake')
+  let cmd = 'gmake'
+else
+  let cmd = 'make'
+endif
+let g:dein#plugin.build = cmd
+'''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/vim-devicons.vim'
+hook_add = '''
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:webdevicons_enable_denite = 1
+let g:airline_powerline_fonts = 1
+let g:webdevicons_enable_airline_tabline = 1
+let g:webdevicons_enable_airline_statusline = 1
+'''
 
 [[plugins]]
 repo = 'mattn/sonictemplate-vim'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/sonictemplate.vim'
+hook_add = '''
+let g:sonictemplate_vim_template_dir = ['$HOME/.vim/autoload/template']
+'''
 
 [[plugins]]
 repo = 'basyura/Tweetvim'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/tweetvim.vim'
 
 [[plugins]]
 repo = 'basyura/twibill.vim'
 
 [[plugins]]
 repo = 'vim-scripts/vim-auto-save'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/autosave.vim'
+hook_add = '''
+let g:auto_save = 1  " デフォルトで有効にする
+let g:auto_save_silent = 1  " auto_saveの表示をしない
+'''
 
-#[[plugins]]
-#repo = 'neovim/nvim-lsp'
-#hook_add = 'source ~/dotfiles/.vim/autoload/user/nvim-lsp.vim'
-
-#[[plugins]]
-#repo = 'autozimu/LanguageClient-neovim'
-#rev = 'next'
-#build= 'bash install.sh'
-#hook_add = 'source ~/dotfiles/.vim/autoload/user/languageclient-neovim.vim'
-
-#[[plugins]]
-#repo = 'itchyny/calendar.vim'
-
-#[[plugins]]
-#repo = 'thinca/vim-ref'
-#hook_add = 'source ~/dotfiles/.vim/autoload/user/ref.vim'
-#
-#[[plugins]]
-#repo = 'yuratomo/w3m.vim'
-#hook_add = 'source ~/dotfiles/.vim/autoload/user/w3m.vim'
-#
-#[[plugins]]
-#repo = 'koron/dicwin-vim'
-
-#[[plugins]]
-#repo = 'mattn/vim-starwars'
-#
-#[[plugins]]
-#repo = 'willelz/badapple.nvim'
-#
