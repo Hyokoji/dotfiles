@@ -1,0 +1,3 @@
+#!/bin/sh
+
+ansiweather -l nagoya -w true -h true -p false -a false -s true | cut -d " " -f5,6,7

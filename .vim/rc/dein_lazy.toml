@@ -1,5 +1,10 @@
 # 遅延読み込み
 [[plugins]]
+repo = 'vim-airline/vim-airline'
+on_if = 'has("nvim")'
+hook_source = 'source ~/dotfiles/.vim/autoload/user/vim-airline.vim'
+
+[[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
 on_if = '!has("nvim")'
 
@@ -24,7 +29,6 @@ call deoplete#custom#source('omni', 'mark', '[omni]')
 
 [[plugins]]
 repo = 'lighttiger2505/deoplete-vim-lsp'
-on_event = 'InsertEnter' #インサートモードに入ったら読み込む
 
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
@@ -41,28 +45,44 @@ merged = 0
 
 [[plugins]]
 repo = 'Shougo/denite.nvim'
-on_if = 'has("nvim")'
+on_cmd = 'Denite'
+hook_add = '''
+nnoremap [denite] <Nop>
+nmap <silent><space>d [denite]
+"現在開いているファイルのディレクトリ下のファイル一覧。
+nnoremap <silent> [denite]f :<C-u>Denite file<CR>
+"バッファ一覧
+nnoremap <silent> [denite]b :<C-u>Denite buffer<CR>
+"レジスタ一覧
+nnoremap <silent> [denite]r :<C-u>Denite register<CR>
+"最近使用したファイル一覧
+nnoremap <silent> [denite]m :<C-u>Denite file/old<CR>
+'''
 hook_source = 'source ~/dotfiles/.vim/autoload/user/denite.vim'
 
 [[plugins]]
 repo = 'Shougo/deol.nvim'
-on_if = 'has("nvim")'
-hook_source = '''
+on_cmd = 'Deol'
+hook_add = '''
 nnoremap <silent><space>s :<C-u>Deol zsh -split=floating<CR>
 '''
 
 [[plugins]]
 repo = 'Shougo/defx.nvim'
-on_if = 'has("nvim")'
+on_cmd = 'Defx'
+hook_add = '''
+nnoremap <silent><space>f :<C-u>Defx -show-ignored-files -split=floating -winwidth=90 -direction=topleft -columns=mark:git:icons:filename:type:size:time<CR>
+'''
 hook_source = 'source ~/dotfiles/.vim/autoload/user/defx.vim'
 
 [[plugins]]
-on_if = 'has("nvim")'
-repo = 'kristijanhusak/defx-icons'
-
-[[plugins]]
-on_if = 'has("nvim")'
-repo = 'kristijanhusak/defx-git'
+repo = 'vim-scripts/vim-auto-save'
+on_event = ['InsertEnter','TextChanged']
+hook_source = '''
+let g:auto_save = 1  " デフォルトで有効にする
+let g:auto_save_in_insert_mode = 0 "インサートモードのときは自動保存しない
+let g:auto_save_silent = 1  " auto_saveの表示をしない
+'''
 
 [[plugins]]
 repo = 'cespare/vim-toml'
@@ -85,7 +105,6 @@ let g:float_preview#docked = 0
 '''
 [[plugins]]
 repo  = 'lervag/vimtex'
-on_ft = ['tex']
 hook_source = '''
 if has('mac') " この順番じゃないとうまくOS判定できない
 let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
@@ -95,12 +114,10 @@ let g:vimtex_view_general_viewer = 'evince'
 endif
 let g:vimtex_compiler_latexmk = {'callback' : 0}
 if has('nvim')
-let g:vimtex_compiler_progname
-\ = 'nvr'
-" deopleteで補完
-call deoplete#custom#var('omni', 'input_patterns', {'tex': g:vimtex#re#deoplete})
+let g:vimtex_compiler_progname = 'nvr'
+call deoplete#custom#var('omni', 'input_patterns', {'tex': g:vimtex#re#deoplete}) " deopleteで補完
 else
-if !exists('g:neocomplete#sources#omni#input_patterns') "texで自動補完
+if !exists('g:neocomplete#sources#omni#input_patterns') "neocompleteで補完
 let g:neocomplete#sources#omni#input_patterns = {}
 endif
 let g:neocomplete#sources#omni#input_patterns.tex = g:vimtex#re#neocomplete
@@ -134,4 +151,9 @@ hook_source = '''
 map p <Plug>(miniyank-autoput)
 map P <Plug>(miniyank-autoput)
 '''
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+on_cmd = 'Quickrun'
+hook_source = 'source ~/dotfiles/.vim/autoload/user/quickrun.vim'
 

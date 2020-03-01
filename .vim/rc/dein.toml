@@ -6,16 +6,7 @@ repo = 'Shougo/dein.vim'
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
-repo = 'vim-airline/vim-airline'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/vim-airline.vim'
-
-[[plugins]]
 repo = 'vim-airline/vim-airline-themes'
-
-[[plugins]]
-repo = 'edkolev/tmuxline.vim'
-on_cmd = 'Tmuxline'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/tmuxline.vim'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
@@ -30,31 +21,22 @@ let g:extra_whitespace_ignored_filetypes = ['defx']
 '''
 
 [[plugins]]
-repo = 'thinca/vim-quickrun'
-hook_add = 'source ~/dotfiles/.vim/autoload/user/quickrun.vim'
+repo = 'kristijanhusak/defx-icons'
 
 [[plugins]]
-repo = 'easymotion/vim-easymotion'
-hook_add = '''
-map <Leader> <Plug>(easymotion-prefix)
-let g:EasyMotion_do_mapping = 0 " Disable default mappings
-nmap f <Plug>(easymotion-overwin-f2)
-let g:EasyMotion_smartcase = 1
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-'''
+repo = 'kristijanhusak/defx-git'
 
 [[plugins]]
 repo = 'Shougo/vimproc.vim'
 hook_post_update = '''
 if has('win32')
-  let cmd = 'tools\\update-dll-mingw'
+let cmd = 'tools\\update-dll-mingw'
 elseif has('win32unix') " for Cygwin
-  let cmd = 'make -f make_cygwin.mak'
+let cmd = 'make -f make_cygwin.mak'
 elseif executable('gmake')
-  let cmd = 'gmake'
+let cmd = 'gmake'
 else
-  let cmd = 'make'
+let cmd = 'make'
 endif
 let g:dein#plugin.build = cmd
 '''
@@ -74,9 +56,7 @@ let g:webdevicons_enable_airline_statusline = 1
 
 [[plugins]]
 repo = 'mattn/sonictemplate-vim'
-hook_add = '''
-let g:sonictemplate_vim_template_dir = ['$HOME/.vim/autoload/template']
-'''
+hook_add = 'let g:sonictemplate_vim_template_dir = ["$HOME/.vim/autoload/template"]'
 
 [[plugins]]
 repo = 'basyura/Tweetvim'
@@ -85,10 +65,6 @@ repo = 'basyura/Tweetvim'
 repo = 'basyura/twibill.vim'
 
 [[plugins]]
-repo = 'vim-scripts/vim-auto-save'
-hook_add = '''
-let g:auto_save = 1  " デフォルトで有効にする
-let g:auto_save_in_insert_mode = 0 "インサートモードのときは自動保存しない
-let g:auto_save_silent = 1  " auto_saveの表示をしない
-'''
+repo = 'easymotion/vim-easymotion'
+hook_add = 'nmap f <Plug>(easymotion-overwin-f)'
 

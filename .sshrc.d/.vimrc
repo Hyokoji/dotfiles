@@ -1,13 +1,12 @@
 " Configuration file for vim
 syntax enable
-colorscheme molokai "カラースキーム
+colorscheme murphy "vimの色(colorscheme)を変更できる デフォルトのvimで指定できる種類は blue,darkblue,default,delek,desert,elflord,evening,koehler,morning,murphy,pablo,peachpuff,ron,shine,slate,torte,zellner
 filetype plugin indent on "ファイルタイプの検索を有効にする
 set modelines=0 " 数字の行数分モードラインを検索する
 au BufWrite /private/tmp/crontab.* set nowritebackup nobackup " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/etc/pw.* set nowritebackup nobackup " Don't write backup file if vim is being called by "chpass"
 "===== 表示設定 =====
 set number "行番号の表示
-set termguicolors " ターミナルでも True Color を使えるようにする。
 set title "編集中ファイル名の表示
 set showmatch "括弧入力時に対応する括弧を示す
 set list "タブ、空白、改行を可視化
@@ -27,11 +26,10 @@ set expandtab "タブ入力を複数の空白に置き換える
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮ "不可視文字の指定
 set whichwrap=b,s,h,l,<,>,[,],~ "行頭、行末で行のカーソル移動を可能にする
 set backspace=indent,eol,start "バックスペースでの行移動を可能にする
-let &t_ti.="\e[5 q" "カーソルの形状を変更
 set showtabline=2 " 常にタブラインを表示
 set signcolumn=yes " 左側にgitgutterとかのスペースを開けておく
+set modelines=0 " 数字の行数分モードラインを検索する
 "set noequalalways " ウィンドウの分割比率を自動で調整
-"set pumblend=30 " ポップアップメニューの半透明度を指定する
 "===== 検索設定 =====
 set ignorecase "大文字、小文字の区別をしない
 set smartcase "大文字が含まれている場合は区別する
@@ -40,37 +38,18 @@ set hlsearch "検索した文字を強調
 set incsearch "インクリメンタルサーチを有効にする
 "===== マウス設定 =====
 set mouse=a
-if has('mac')
-  if !has('nvim')
-    set ttymouse=xterm2
-  endif
-endif
 "===== その他 =====
 set ttimeoutlen=10 "ESCキーの効きの速さ
 set history=10000 " 履歴を10000件保存
-if has('persistent_undo') " 一度ファイルを閉じてもundoできる
-  set undodir=~/.cache/undo
-  set undofile
-endif
 set noswapfile " swapファイルを作らない
-" バックスペースできるように
+set clipboard+=unnamed,autoselect
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"  "vimのtrue color用の設定
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 noremap!  
-" ノーマルモード時だけ ; と : を入れ替える(US配列用)
 nnoremap ; :
 nnoremap : ;
-" ==でインデントを揃える
 nnoremap == gg=G'''
-" 矢印キーでバッファ移動
-nnoremap <Up>    :<C-u>bp<CR>
-nnoremap <Down>  :<C-u>bn<CR>
-nnoremap <Left>  <C-o>
-nnoremap <Right> <C-i>
-" Ctrl-k,jでバッファ移動
-nnoremap <C-k>   :<C-u>bp<CR>
-nnoremap <C-j>   :<C-u>bn<CR>
-" ESC２回押しでハイライトを消す
 nnoremap <ESC><ESC> :<C-u>noh<CR>
-" tをタブ操作の基本キーとする
 nnoremap t <Nop>
 nnoremap tj gt
 nnoremap tk gT

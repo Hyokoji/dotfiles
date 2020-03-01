@@ -13,5 +13,3 @@ export VIMINIT="let \$MYVIMRC='$SSHHOME/.sshrc.d/.vimrc' | source \$MYVIMRC"
 export SHELL=`which bash`
 
 # alias etc... as you like
-alias ll='ls -l'
-alias la='ls -A'

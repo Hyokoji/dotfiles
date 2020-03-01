@@ -1,56 +1,6 @@
-"Start dein Scripts-------------------------
-if !&compatible
-  set nocompatible
-endif
-
-" リーダーキーのマッピング
-let mapleader = "\,"
-
-" reset augroup
-augroup MyAutoCmd
-  autocmd!
-augroup END
-
-" dein settings {{{
-" dein自体の自動インストール
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
-let s:dein_dir = s:cache_home . '/dein'
-let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
-if !isdirectory(s:dein_repo_dir)
-  call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
-endif
-let &runtimepath = s:dein_repo_dir .",". &runtimepath
-" プラグイン読み込み＆キャッシュ作成
-let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/rc/dein.toml'
-let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/rc/dein_lazy.toml'
-if dein#load_state(s:dein_dir)
-  call dein#begin(s:dein_dir)
-  call dein#load_toml(s:toml_file, {'lazy': 0})
-  call dein#load_toml(s:lazy_toml, {'lazy': 1})
-  call dein#end()
-  call dein#save_state()
-endif
-" 不足プラグインの自動インストール
-if has('vim_starting') && dein#check_install()
-  call dein#install()
-endif
-" plugin remove check
-let s:removed_plugins = dein#check_clean()
-if len(s:removed_plugins) > 0
-  call map(s:removed_plugins, "delete(v:val, 'rf')")
-  call dein#recache_runtimepath()
-endif
-" }}}
-
-"End dein Scripts-------------------------
-
-"Python support
-let g:python_host_prog  = substitute(system('which python'),"\n","","")
-let g:python3_host_prog = substitute(system('which python3'),"\n","","")
-
-" Configuration file for vim
+" config for vim
 syntax enable
-colorscheme molokai "カラースキーム
+colorscheme murphy "vimの色(colorscheme)を変更できる デフォルトのvimで指定できる種類は blue,darkblue,default,delek,desert,elflord,evening,koehler,morning,murphy,pablo,peachpuff,ron,shine,slate,torte,zellner
 filetype plugin indent on "ファイルタイプの検索を有効にする
 au BufWrite /private/tmp/crontab.* set nowritebackup nobackup " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/etc/pw.* set nowritebackup nobackup " Don't write backup file if vim is being called by "chpass"
@@ -68,11 +18,10 @@ set fileformats=unix,dos,mac
 set virtualedit=onemore "カーソルを行末の一つ先まで移動可能にする
 set autoindent "自動インデント
 set smartindent "オートインデント
-set smarttab "新しい行での自動インデント
-set expandtab "タブ入力を複数の空白に置き換える
 set tabstop=2 "インデントをスペース2つ分に設定
 set shiftwidth=2 "自動的に入力されたインデントの空白を2つ分に設定
-set softtabstop=2 "キーボードから入るタブの数
+set softtabstop=0 "キーボードから入るタブの数
+set expandtab "タブ入力を複数の空白に置き換える
 set listchars=tab:▸\ ,eol:↲,extends:❯,precedes:❮ "不可視文字の指定
 set whichwrap=b,s,h,l,<,>,[,],~ "行頭、行末で行のカーソル移動を可能にする
 set backspace=indent,eol,start "バックスペースでの行移動を可能にする
@@ -96,17 +45,9 @@ if has('persistent_undo') " 一度ファイルを閉じてもundoできる
   set undodir=~/.cache/undo
   set undofile
 endif
-if !has('nvim') " クリップボードと色の設定
-  set clipboard+=unnamed,autoselect
-  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"  "vimのtrue color用の設定
-  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-else
-  set clipboard+=unnamedplus
-endif
-augroup vimrcEx " vimでファイルをひらいたとき最後にカーソルが元にあった場所に移動する
-  au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
-        \ exe "normal g`\"" | endif
-augroup END
+set clipboard+=unnamed,autoselect
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"  "vimのtrue color用の設定
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 " keymapping
 noremap!  
 nnoremap ; :
@@ -122,9 +63,6 @@ nnoremap tt :<C-u>tabnew<CR>
 nnoremap <C-p> :<C-u>so ~/.vim/vimrc<CR>
 if has('mac') "OS別読み込み
   "mac用の設定を記述
-  if !has('nvim') " マウス設定
-    set ttymouse=xterm2
-  endif
   set termguicolors "true color
 elseif has('unix')
   "Linux用の設定を記述
@@ -151,3 +89,35 @@ elseif has('unix')
   "autocmd InsertEnter * call Fcitx2jp()
   "##### auto fcitx end ######
 endif
+" c言語用
+autocmd FileType c,cpp syn match cFunction /\v[[:alpha:]_.]+\ze(\s?\()/
+autocmd FileType c,cpp syn match cOperator "\(+\|=\|-\|\^\|\*\)"
+autocmd FileType c,cpp syn match cDelimiter "\(,\|\.\|:\)"
+autocmd FileType c,cpp syn match cSingleLetter "\<[a-z]\>"
+autocmd FileType c,cpp hi link cSingleLetter   SpecialChar
+autocmd FileType c,cpp hi link cSpecialWord    Special
+autocmd FileType c,cpp hi link cDelimiter      Special
+autocmd FileType c,cpp hi link cFunction       Function
+" python用
+autocmd FileType python syn match pythonFunction /\v[[:alpha:]_.]+\ze(\s?\()/
+autocmd FileType python syn match pythonOperator "\(+\|=\|-\|\^\|\*\)"
+autocmd FileType python syn match pythonDelimiter "\(,\|\.\|:\)"
+autocmd FileType python syn keyword pythonSpecialWord self
+autocmd FileType python hi link pythonSpecialWord    Special
+autocmd FileType python hi link pythonDelimiter      Special
+autocmd FileType python hi link pythonFunction       Function
+"sw=softtabstop, sts=shiftwidth, ts=tabstop, et=expandtabの略
+autocmd FileType c           setlocal sw=4 sts=4 ts=4 et
+autocmd FileType tex         setlocal sw=4 sts=4 ts=4 et
+autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et
+autocmd FileType js          setlocal sw=4 sts=4 ts=4 et
+autocmd FileType zsh         setlocal sw=4 sts=4 ts=4 et
+autocmd FileType python      setlocal sw=4 sts=4 ts=4 et
+autocmd FileType scala       setlocal sw=4 sts=4 ts=4 et
+autocmd FileType json        setlocal sw=4 sts=4 ts=4 et
+autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et
+autocmd FileType toml        setlocal sw=4 sts=4 ts=4 et
+augroup vimrcEx " vimでファイルをひらいたとき最後にカーソルが元にあった場所に移動する
+  au BufRead * if line("'\"") > 0 && line("'\"") <= line("$") |
+        \ exe "normal g`\"" | endif
+augroup END
