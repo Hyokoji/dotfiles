@@ -6,6 +6,10 @@ repo = 'Shougo/dein.vim'
 repo = 'Yggdroot/indentLine'
 
 [[plugins]]
+repo = 'vim-airline/vim-airline'
+hook_add = 'source ~/dotfiles/.vim/autoload/user/vim-airline.vim'
+
+[[plugins]]
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
