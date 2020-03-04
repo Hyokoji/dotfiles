@@ -100,6 +100,7 @@ let g:float_preview#docked = 0
 '''
 [[plugins]]
 repo  = 'lervag/vimtex'
+on_ft = 'tex'
 hook_source = '''
 if has('mac') " この順番じゃないとうまくOS判定できない
 let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
