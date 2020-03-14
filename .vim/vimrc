@@ -50,8 +50,9 @@ let g:python3_host_prog = substitute(system('which python3'),"\n","","")
 
 " Configuration file for vim
 syntax enable
-colorscheme molokai "カラースキーム
 filetype plugin indent on "ファイルタイプの検索を有効にする
+set background=dark
+colorscheme molokai "カラースキーム
 au BufWrite /private/tmp/crontab.* set nowritebackup nobackup " Don't write backup file if vim is being called by "crontab -e"
 au BufWrite /private/etc/pw.* set nowritebackup nobackup " Don't write backup file if vim is being called by "chpass"
 "===== 表示設定 =====
