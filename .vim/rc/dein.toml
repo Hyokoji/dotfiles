@@ -63,15 +63,24 @@ let g:webdevicons_enable_airline_statusline = 1
 
 [[plugins]]
 repo = 'mattn/sonictemplate-vim'
-hook_add = 'let g:sonictemplate_vim_template_dir = ["$HOME/.vim/autoload/template"]'
-
-[[plugins]]
-repo = 'basyura/Tweetvim'
-
-[[plugins]]
-repo = 'basyura/twibill.vim'
+hook_add = '''
+let g:sonictemplate_vim_template_dir = ["$HOME/.vim/autoload/template"]
+'''
 
 [[plugins]]
 repo = 'easymotion/vim-easymotion'
-hook_add = 'nmap f <Plug>(easymotion-overwin-f)'
+hook_add = '''
+nmap f <Plug>(easymotion-overwin-f)
+'''
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+hook_add = 'set helplang=ja'
+
+[[plugins]]
+repo = 'osyo-manga/vim-precious'
+depends = ['Shougo/context_filetype.vim']
+
+[[plugins]]
+repo = 'Shougo/context_filetype.vim'
 

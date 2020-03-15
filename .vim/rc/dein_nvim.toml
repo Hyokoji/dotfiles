@@ -1,0 +1,23 @@
+# 基本は github.com のレポジトリーを指定するだけ
+[[plugins]]
+repo = 'bfredl/nvim-miniyank'
+hook_source = '''
+map p <Plug>(miniyank-autoput)
+map P <Plug>(miniyank-autoput)
+'''
+
+[[plugins]]
+repo = 'neovim/nvim-lsp'
+hook_source = '''
+lua require'nvim_lsp'.clangd.setup{}
+lua require'nvim_lsp'.pyls.setup{}
+lua require'nvim_lsp'.vimls.setup{}
+'''
+
+[[plugins]]
+repo = 'ncm2/float-preview.nvim'
+hook_source = '''
+set completeopt-=preview
+let g:float_preview#docked = 0
+'''
+

@@ -7,8 +7,10 @@ let g:tex_flavor = "latex" " texファイルはデフォルトをlatexに
 set concealcursor="nc"
 hi Conceal ctermbg=none
 hi Conceal ctermfg=none
-hi Conceal guibg=none
-hi Conceal guifg=none
+if has('nvim')
+  hi Conceal guibg=none
+  hi Conceal guifg=none
+endif
 
 setlocal spell
 set spelllang=en_us,cjk

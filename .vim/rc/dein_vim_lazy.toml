@@ -1,0 +1,21 @@
+# 遅延読み込み
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+on_event = 'InsertEnter'
+depends = ['deoplete-vim-lsp','vimtex']
+hook_source = '''
+let g:deoplete#enable_at_startup = 1 "起動時に有効
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"               " TABキーで補完候補を下向きに移動
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"           " Shiftキー + TABキーで補完候補を上向きに移動
+inoremap <expr><CR>  pumvisible() ? deoplete#close_popup() : "<CR>"    " 補完候補が表示されている場合は確定。そうでない場合は改行
+call deoplete#custom#source('_', 'sorters', ['sorter_word'])
+call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy']) " fuzzy matcher
+call deoplete#custom#source('buffer', 'mark', '[buffer]')
+call deoplete#custom#source('omni', 'mark', '[omni]')
+call deoplete#custom#var('omni', 'input_patterns', {'tex': g:vimtex#re#deoplete}) " for vimtex
+'''
+
+[[plugins]]
+repo = 'lighttiger2505/deoplete-vim-lsp'
+on_source = 'deoplete.nvim'
+

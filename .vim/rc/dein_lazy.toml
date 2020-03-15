@@ -1,44 +1,5 @@
 # 遅延読み込み
 [[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc'
-on_if = '!has("nvim")'
-
-[[plugins]]
-repo = 'roxma/nvim-yarp'
-on_source = 'vim-hug-neovim-rpc'
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-on_event = 'InsertEnter' #インサートモードに入ったら読み込む
-depends = ['deoplete-vim-lsp','vimtex'] #自分の関数が相手先の設定に使われているときに使う
-hook_source = '''
-let g:deoplete#enable_at_startup = 1 "起動時に有効
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"               " TABキーで補完候補を下向きに移動
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"           " Shiftキー + TABキーで補完候補を上向きに移動
-inoremap <expr><CR>  pumvisible() ? deoplete#close_popup() : "<CR>"    " 補完候補が表示されている場合は確定。そうでない場合は改行
-call deoplete#custom#source('_', 'sorters', ['sorter_word'])
-call deoplete#custom#source('_', 'matchers', ['matcher_full_fuzzy']) " fuzzy matcher
-call deoplete#custom#source('buffer', 'mark', '[buffer]')
-call deoplete#custom#source('omni', 'mark', '[omni]')
-'''
-
-[[plugins]]
-repo = 'lighttiger2505/deoplete-vim-lsp'
-
-[[plugins]]
-repo = 'prabirshrestha/async.vim'
-on_source = 'deoplete-vim-lsp'
-
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-on_source = 'deoplete-vim-lsp'
-
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
-on_source = 'deoplete-vim-lsp'
-merged = 0
-
-[[plugins]]
 repo = 'Shougo/denite.nvim'
 on_cmd = 'Denite'
 hook_add = '''
@@ -92,15 +53,8 @@ repo = 'vim-scripts/a.vim'
 on_ft = ['c','cpp']
 
 [[plugins]]
-repo = 'ncm2/float-preview.nvim'
-on_if = 'has("nvim")'
-hook_source = '''
-set completeopt-=preview
-let g:float_preview#docked = 0
-'''
-[[plugins]]
 repo  = 'lervag/vimtex'
-on_ft = 'tex'
+on_ft = ['tex', 'markdown']
 hook_source = '''
 if has('mac') " この順番じゃないとうまくOS判定できない
 let g:vimtex_view_general_viewer = '/Applications/Skim.app/Contents/SharedSupport/displayline'
@@ -109,15 +63,7 @@ elseif has('unix')
 let g:vimtex_view_general_viewer = 'evince'
 endif
 let g:vimtex_compiler_latexmk = {'callback' : 0}
-if has('nvim')
 let g:vimtex_compiler_progname = 'nvr'
-call deoplete#custom#var('omni', 'input_patterns', {'tex': g:vimtex#re#deoplete}) " deopleteで補完
-else
-if !exists('g:neocomplete#sources#omni#input_patterns') "neocompleteで補完
-let g:neocomplete#sources#omni#input_patterns = {}
-endif
-let g:neocomplete#sources#omni#input_patterns.tex = g:vimtex#re#neocomplete
-endif
 '''
 
 [[plugins]]
@@ -139,14 +85,6 @@ imap <expr><CR> (pumvisible() && neosnippet#expandable()) ? "\<Plug>(neosnippet_
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'bfredl/nvim-miniyank'
-on_if = 'has("nvim")'
-hook_source = '''
-map p <Plug>(miniyank-autoput)
-map P <Plug>(miniyank-autoput)
-'''
-
-[[plugins]]
 repo = 'thinca/vim-quickrun'
 on_cmd = 'Quickrun'
 hook_source = 'source ~/dotfiles/.vim/autoload/user/quickrun.vim'
@@ -154,4 +92,16 @@ hook_source = 'source ~/dotfiles/.vim/autoload/user/quickrun.vim'
 [[plugins]]
 repo  = 'KeitaNakamura/tex-conceal.vim'
 on_ft = 'tex'
+
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+on_ft = 'markdown'
+hook_source = '''
+let g:vim_markdown_folding_disabled = 1
+'''
+
+[[plugins]]
+repo = 'iamcco/markdown-preview.nvim'
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'sh -c "cd app & yarn install"'
 

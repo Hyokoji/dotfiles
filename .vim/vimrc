@@ -13,7 +13,7 @@ augroup END
 
 " dein settings {{{
 " dein自体の自動インストール
-let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
+let s:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME
 let s:dein_dir = s:cache_home . '/dein'
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
@@ -23,10 +23,29 @@ let &runtimepath = s:dein_repo_dir .",". &runtimepath
 " プラグイン読み込み＆キャッシュ作成
 let s:toml_file = fnamemodify(expand('<sfile>'), ':h').'/rc/dein.toml'
 let s:lazy_toml = fnamemodify(expand('<sfile>'), ':h').'/rc/dein_lazy.toml'
+let s:toml_vim_file = fnamemodify(expand('<sfile>'), ':h').'/rc/dein_vim.toml'
+let s:lazy_vim_toml = fnamemodify(expand('<sfile>'), ':h').'/rc/dein_vim_lazy.toml'
+let s:toml_nvim_file = fnamemodify(expand('<sfile>'), ':h').'/rc/dein_nvim.toml'
+let s:lazy_nvim_toml = fnamemodify(expand('<sfile>'), ':h').'/rc/dein_nvim_lazy.toml'
+let s:local_toml_file = '$HOME/dein_local.toml'
+let s:local_lazy_toml = '$HOME/dein_local_lazy.toml'
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
+  if !has('nvim')
+    call dein#load_toml(s:toml_vim_file, {'lazy': 0})
+    call dein#load_toml(s:lazy_vim_toml, {'lazy': 1})
+  else
+    call dein#load_toml(s:toml_nvim_file, {'lazy': 0})
+    call dein#load_toml(s:lazy_nvim_toml, {'lazy': 1})
+  endif
   call dein#load_toml(s:toml_file, {'lazy': 0})
   call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  if filereadable(expand(s:local_toml_file))
+    call dein#load_toml(s:local_toml_file, {'lazy': 0})
+  endif
+  if filereadable(expand(s:local_lazy_toml))
+    call dein#load_toml(s:local_lazy_toml, {'lazy': 1})
+  endif
   call dein#end()
   call dein#save_state()
 endif
@@ -34,13 +53,13 @@ endif
 if has('vim_starting') && dein#check_install()
   call dein#install()
 endif
-" plugin remove check
-let s:removed_plugins = dein#check_clean()
-if len(s:removed_plugins) > 0
-  call map(s:removed_plugins, "delete(v:val, 'rf')")
-  call dein#recache_runtimepath()
-endif
-" }}}
+"" plugin remove check
+"let s:removed_plugins = dein#check_clean()
+"if len(s:removed_plugins) > 0
+"  call map(s:removed_plugins, "delete(v:val, 'rf')")
+"  call dein#recache_runtimepath()
+"endif
+"" }}}
 
 "End dein Scripts-------------------------
 
@@ -152,3 +171,4 @@ elseif has('unix')
   "autocmd InsertEnter * call Fcitx2jp()
   "##### auto fcitx end ######
 endif
+
