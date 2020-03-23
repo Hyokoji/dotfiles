@@ -1,5 +1,5 @@
 setlocal shiftwidth=4 softtabstop=4 tabstop=4 expandtab smarttab
-colorscheme material-theme
+" colorscheme material-theme
 " texのconceal config
 set conceallevel=2
 let g:tex_conceal='abdgms'
