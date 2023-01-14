@@ -16,15 +16,8 @@ bind r source-file ~/.tmux.conf \; display "TMUX reloaded!"
 set -g terminal-overrides 'xterm:colors=256'
 
 # コピーモードを設定する
-# vim <=> tmux 間でクリップボード利用を可能にする
-set -g default-command "reattach-to-user-namespace -l zsh"
 ## viのキーバインドを使用する
 setw -g mode-keys vi
-## コピーモードの操作をvi風に設定する
-bind -T copy-mode-vi v send-keys -X begin-selection
-bind -T copy-mode-vi y send-keys copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
-unbind -T copy-mode-vi Enter
-bind -T copy-mode-vi Enter send-keys -X copy-pipe-and-cancel "reattach-to-user-namespace pbcopy"
 
 #ステータスライン関連
 # status line を更新する間隔を 1 秒にする
