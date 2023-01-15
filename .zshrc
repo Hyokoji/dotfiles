@@ -138,9 +138,9 @@ function rprompt-git-current-branch {
 # プロンプトの右側に現在のパスを表示
 case ${OSTYPE} in
     darwin*)
-        RPROMPT="%F{17} %f%K{17}%F{white} %d%f%k%K{17}%F{238} %k%f"
+        RPROMPT="%F{17}%f%K{17}%F{white} %d%f%k%K{17}%F{238}%k%f"
         RPROMPT+='`rprompt-git-current-branch`'
-        RPROMPT+='%K{238}%F{0} %k%f'
+        RPROMPT+='%K{238}%F{0}%k%f'
         ;;
     linux*)
         RPROMPT="%F{17}◀ %f%K{17}%F{white} %d%f%k%K{17}%F{238} ◀ %k%f"
@@ -194,6 +194,7 @@ alias v='vim'
 alias vi='vim'
 alias vz='vim'
 alias c='cdr'
+alias ll='ls -l'
 
 # historyに日付を表示
 alias h='fc -lt '%F %T' 1'

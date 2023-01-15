@@ -68,6 +68,7 @@ formulas=(
     zsh
     gcc
     fontforge
+    md5sha1sum
 )
 
 "brew tap..."
@@ -76,6 +77,8 @@ brew tap homebrew/versions
 brew tap homebrew/homebrew-php
 brew tap homebrew/apache
 brew tap sanemat/font
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font
 
 echo "start brew install apps..."
 for formula in "${formulas[@]}"; do

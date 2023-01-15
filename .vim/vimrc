@@ -131,7 +131,7 @@ augroup END
 noremap!  
 nnoremap ; :
 nnoremap : ;
-nnoremap == gg=G'''
+"nnoremap == gg=G'''
 nnoremap <ESC><ESC> :<C-u>noh<CR>
 nnoremap t <Nop>
 nnoremap tj gt
